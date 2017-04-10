@@ -19,9 +19,7 @@ class ModifyViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.priceText.allowsEditingTextAttributes = true
-        self.descriptionText.allowsEditingTextAttributes = true
-        self.quantityText.allowsEditingTextAttributes = true
+
         
         self.priceText.text = self.item.price
         self.descriptionText.text = self.item.description
@@ -43,4 +41,24 @@ class ModifyViewController: UIViewController {
 
 
 
+}
+
+//MARK:
+extension ModifyViewController: UITextFieldDelegate {
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        <#code#>
+    }
+    private func textFieldDidBeginEditing(_ textField: UITextField) -> Bool {
+        self.priceText.allowsEditingTextAttributes = true
+        self.descriptionText.allowsEditingTextAttributes = true
+        self.quantityText.allowsEditingTextAttributes = true
+    }
+    
+    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+        <#code#>
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        <#code#>
+    }
 }
