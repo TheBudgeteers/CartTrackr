@@ -9,15 +9,27 @@
 import UIKit
 
 class CartViewController: UIViewController {
+    var cartItems = [Item]() {
+        didSet {
+            self.cartTableView.reloadData()
+        }
+    }
 
-    @IBOutlet weak var CartTableView: UITableView!
+    @IBOutlet weak var cartTableView: UITableView!
     
-    @IBOutlet weak var TotalLabel: UILabel!
+    @IBOutlet weak var totalLabel: UILabel!
     
-    @IBOutlet weak var ItemsLabel: UILabel!
+    @IBOutlet weak var itemsLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.cartTableView.dataSource = self
+        self.cartTableView.delegate = self
+        
+        let itemCell = UINib(nibName: "CartItemCell", bundle: nil)
+        self.cartTableView.register(itemCell, forCellReuseIdentifier: CartItemCell.identifier)
+        self.cartTableView.estimatedRowHeight = 50
+        self.cartTableView.rowHeight = UITableViewAutomaticDimension
         
     }
     
@@ -29,7 +41,14 @@ class CartViewController: UIViewController {
         }
         
         if segue.identifier == ModifyViewController.identifier {
-            guard segue.destination is ModifyViewController else { return }
+            if let selectedIndex = self.cartTableView.indexPathForSelectedRow?.row{
+                let selectedItem : Item = cartItems[selectedIndex]
+                
+                guard let destinationController = segue.destination as? ModifyViewController else { return }
+                
+                destinationController.item = selectedItem
+            }
+            
         }
     }
     
@@ -46,7 +65,23 @@ class CartViewController: UIViewController {
     
     @IBAction func NewListButton(_ sender: Any) {
     }
-    
-    
 
+}
+
+//MARK: UITableViewDataSource UITableViewDelegate
+extension CartViewController : UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return cartItems.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = cartTableView.dequeueReusableCell(withIdentifier: CartItemCell.identifier, for: indexPath) as! CartItemCell
+        let item = self.cartItems[indexPath.row]
+        cell.item = item
+        return cell
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.performSegue(withIdentifier: ModifyViewController.identifier, sender: nil)
+    }
+    
 }
