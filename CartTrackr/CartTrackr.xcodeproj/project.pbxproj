@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		71B1EED01E9C095E00A42678 /* SwiftOCR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71B1EECF1E9C095E00A42678 /* SwiftOCR.framework */; };
-		71B1EED21E9C096B00A42678 /* GPUImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71B1EED11E9C096B00A42678 /* GPUImage.framework */; };
+		714477961E9C118A00B4582E /* GPUImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71B1EED11E9C096B00A42678 /* GPUImage.framework */; };
+		714477971E9C118D00B4582E /* SwiftOCR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71B1EECF1E9C095E00A42678 /* SwiftOCR.framework */; };
+		714477991E9C11C600B4582E /* GPUImage.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 71B1EED11E9C096B00A42678 /* GPUImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		7144779A1E9C11C600B4582E /* SwiftOCR.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 71B1EECF1E9C095E00A42678 /* SwiftOCR.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		71B307941E9BF9F40082F9C0 /* Cart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B307931E9BF9F40082F9C0 /* Cart.swift */; };
 		BC944CD81E9BE982004015EC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC944CD71E9BE982004015EC /* AppDelegate.swift */; };
 		BC944CDD1E9BE982004015EC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC944CDB1E9BE982004015EC /* Main.storyboard */; };
@@ -23,6 +25,20 @@
 		BC944CFA1E9BEB50004015EC /* UIExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC944CF91E9BEB50004015EC /* UIExtensions.swift */; };
 		BC944CFC1E9BEBAD004015EC /* OCR.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC944CFB1E9BEBAD004015EC /* OCR.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		714477981E9C11AF00B4582E /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				714477991E9C11C600B4582E /* GPUImage.framework in CopyFiles */,
+				7144779A1E9C11C600B4582E /* SwiftOCR.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		71B1EECF1E9C095E00A42678 /* SwiftOCR.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftOCR.framework; path = ../Carthage/Build/iOS/SwiftOCR.framework; sourceTree = "<group>"; };
@@ -49,8 +65,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				71B1EED21E9C096B00A42678 /* GPUImage.framework in Frameworks */,
-				71B1EED01E9C095E00A42678 /* SwiftOCR.framework in Frameworks */,
+				714477961E9C118A00B4582E /* GPUImage.framework in Frameworks */,
+				714477971E9C118D00B4582E /* SwiftOCR.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -147,6 +163,7 @@
 				BC944CD11E9BE982004015EC /* Frameworks */,
 				BC944CD21E9BE982004015EC /* Resources */,
 				71B1EED31E9C098D00A42678 /* ShellScript */,
+				714477981E9C11AF00B4582E /* CopyFiles */,
 			);
 			buildRules = (
 			);
