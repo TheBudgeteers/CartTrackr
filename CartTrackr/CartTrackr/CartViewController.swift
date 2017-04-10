@@ -48,7 +48,7 @@ class CartViewController: UIViewController {
                 
                 destinationController.item = selectedItem
             }
-            
+            //guard segue.destination is ModifyViewController else { return }
         }
     }
     
