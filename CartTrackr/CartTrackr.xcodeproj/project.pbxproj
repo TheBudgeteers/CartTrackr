@@ -8,20 +8,34 @@
 
 /* Begin PBXBuildFile section */
 		BC944CD81E9BE982004015EC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC944CD71E9BE982004015EC /* AppDelegate.swift */; };
-		BC944CDA1E9BE982004015EC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC944CD91E9BE982004015EC /* ViewController.swift */; };
 		BC944CDD1E9BE982004015EC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC944CDB1E9BE982004015EC /* Main.storyboard */; };
 		BC944CDF1E9BE982004015EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC944CDE1E9BE982004015EC /* Assets.xcassets */; };
 		BC944CE21E9BE982004015EC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC944CE01E9BE982004015EC /* LaunchScreen.storyboard */; };
+		BC944CEA1E9BEA31004015EC /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC944CE91E9BEA31004015EC /* Item.swift */; };
+		BC944CED1E9BEA61004015EC /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC944CEC1E9BEA61004015EC /* CartViewController.swift */; };
+		BC944CF21E9BEAD8004015EC /* CartItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC944CF01E9BEAD8004015EC /* CartItemCell.swift */; };
+		BC944CF31E9BEAD8004015EC /* CartItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC944CF11E9BEAD8004015EC /* CartItemCell.xib */; };
+		BC944CF51E9BEAFE004015EC /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC944CF41E9BEAFE004015EC /* CameraViewController.swift */; };
+		BC944CF71E9BEB14004015EC /* ModifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC944CF61E9BEB14004015EC /* ModifyViewController.swift */; };
+		BC944CFA1E9BEB50004015EC /* UIExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC944CF91E9BEB50004015EC /* UIExtensions.swift */; };
+		BC944CFC1E9BEBAD004015EC /* OCR.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC944CFB1E9BEBAD004015EC /* OCR.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		BC944CD41E9BE982004015EC /* CartTrackr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CartTrackr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC944CD71E9BE982004015EC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		BC944CD91E9BE982004015EC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		BC944CDC1E9BE982004015EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BC944CDE1E9BE982004015EC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BC944CE11E9BE982004015EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BC944CE31E9BE982004015EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BC944CE91E9BEA31004015EC /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		BC944CEC1E9BEA61004015EC /* CartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
+		BC944CF01E9BEAD8004015EC /* CartItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartItemCell.swift; sourceTree = "<group>"; };
+		BC944CF11E9BEAD8004015EC /* CartItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CartItemCell.xib; sourceTree = "<group>"; };
+		BC944CF41E9BEAFE004015EC /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
+		BC944CF61E9BEB14004015EC /* ModifyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModifyViewController.swift; sourceTree = "<group>"; };
+		BC944CF91E9BEB50004015EC /* UIExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIExtensions.swift; sourceTree = "<group>"; };
+		BC944CFB1E9BEBAD004015EC /* OCR.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OCR.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +68,53 @@
 		BC944CD61E9BE982004015EC /* CartTrackr */ = {
 			isa = PBXGroup;
 			children = (
-				BC944CD71E9BE982004015EC /* AppDelegate.swift */,
-				BC944CD91E9BE982004015EC /* ViewController.swift */,
-				BC944CDB1E9BE982004015EC /* Main.storyboard */,
-				BC944CDE1E9BE982004015EC /* Assets.xcassets */,
-				BC944CE01E9BE982004015EC /* LaunchScreen.storyboard */,
-				BC944CE31E9BE982004015EC /* Info.plist */,
+				BC944CEE1E9BEA64004015EC /* Controller */,
+				BC944CEB1E9BEA36004015EC /* Model */,
+				BC944CEF1E9BEA6F004015EC /* View */,
+				BC944CF81E9BEB32004015EC /* Supporting */,
 			);
 			path = CartTrackr;
+			sourceTree = "<group>";
+		};
+		BC944CEB1E9BEA36004015EC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BC944CF91E9BEB50004015EC /* UIExtensions.swift */,
+				BC944CE91E9BEA31004015EC /* Item.swift */,
+				BC944CFB1E9BEBAD004015EC /* OCR.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		BC944CEE1E9BEA64004015EC /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				BC944CD71E9BE982004015EC /* AppDelegate.swift */,
+				BC944CEC1E9BEA61004015EC /* CartViewController.swift */,
+				BC944CF41E9BEAFE004015EC /* CameraViewController.swift */,
+				BC944CF61E9BEB14004015EC /* ModifyViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		BC944CEF1E9BEA6F004015EC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BC944CDB1E9BE982004015EC /* Main.storyboard */,
+				BC944CE01E9BE982004015EC /* LaunchScreen.storyboard */,
+				BC944CF01E9BEAD8004015EC /* CartItemCell.swift */,
+				BC944CF11E9BEAD8004015EC /* CartItemCell.xib */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		BC944CF81E9BEB32004015EC /* Supporting */ = {
+			isa = PBXGroup;
+			children = (
+				BC944CE31E9BE982004015EC /* Info.plist */,
+				BC944CDE1E9BE982004015EC /* Assets.xcassets */,
+			);
+			name = Supporting;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -126,6 +179,7 @@
 			files = (
 				BC944CE21E9BE982004015EC /* LaunchScreen.storyboard in Resources */,
 				BC944CDF1E9BE982004015EC /* Assets.xcassets in Resources */,
+				BC944CF31E9BEAD8004015EC /* CartItemCell.xib in Resources */,
 				BC944CDD1E9BE982004015EC /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -137,7 +191,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BC944CDA1E9BE982004015EC /* ViewController.swift in Sources */,
+				BC944CFC1E9BEBAD004015EC /* OCR.swift in Sources */,
+				BC944CEA1E9BEA31004015EC /* Item.swift in Sources */,
+				BC944CFA1E9BEB50004015EC /* UIExtensions.swift in Sources */,
+				BC944CF51E9BEAFE004015EC /* CameraViewController.swift in Sources */,
+				BC944CED1E9BEA61004015EC /* CartViewController.swift in Sources */,
+				BC944CF21E9BEAD8004015EC /* CartItemCell.swift in Sources */,
+				BC944CF71E9BEB14004015EC /* ModifyViewController.swift in Sources */,
 				BC944CD81E9BE982004015EC /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
