@@ -162,7 +162,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="addToCartButton:" destination="e0Y-W4-Paq" eventType="touchUpInside" id="Q8G-iW-dCF"/>
+                                    <action selector="addToCartButton:" destination="e0Y-W4-Paq" eventType="touchUpInside" id="QfE-d6-PYl"/>
                                     <segue destination="BYZ-38-t0r" kind="showDetail" identifier="CartViewController" id="JYL-Su-gkp"/>
                                 </connections>
                             </button>

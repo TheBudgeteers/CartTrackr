@@ -24,7 +24,7 @@ class CartViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.cartTableView.dataSource = self
-        self.cartTableView.delegate = self
+//        self.cartTableView.delegate = self
         
         let itemCell = UINib(nibName: "CartItemCell", bundle: nil)
         self.cartTableView.register(itemCell, forCellReuseIdentifier: CartItemCell.identifier)
@@ -41,14 +41,14 @@ class CartViewController: UIViewController {
         }
         
         if segue.identifier == ModifyViewController.identifier {
-            if let selectedIndex = self.cartTableView.indexPathForSelectedRow?.row{
-                let selectedItem : Item = cartItems[selectedIndex]
-                
-                guard let destinationController = segue.destination as? ModifyViewController else { return }
-                
-                destinationController.item = selectedItem
-            }
-            //guard segue.destination is ModifyViewController else { return }
+//            if let selectedIndex = self.cartTableView.indexPathForSelectedRow?.row{
+//                let selectedItem : Item = cartItems[selectedIndex]
+//                
+//                guard let destinationController = segue.destination as? ModifyViewController else { return }
+//                
+//                destinationController.item = selectedItem
+//            }
+            guard segue.destination is ModifyViewController else { return }
         }
     }
     
@@ -80,8 +80,8 @@ extension CartViewController : UITableViewDataSource, UITableViewDelegate {
         cell.item = item
         return cell
     }
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.performSegue(withIdentifier: ModifyViewController.identifier, sender: nil)
-    }
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        self.performSegue(withIdentifier: ModifyViewController.identifier, sender: nil)
+//    }
     
 }

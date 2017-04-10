@@ -9,7 +9,7 @@
 import UIKit
 
 class ModifyViewController: UIViewController {
-    var item : Item!
+    var item = Item(price: "price", description: "description", quantity: 0)
     
     @IBOutlet weak var priceText: UITextView!
     
@@ -29,14 +29,17 @@ class ModifyViewController: UIViewController {
         
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        super.prepare(for: segue, sender: sender)
-        
-        if segue.identifier == CartViewController.identifier {
-            guard segue.destination is CartViewController else { return }
-        }
-    }
-    
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        super.prepare(for: segue, sender: sender)
+//        
+//        if segue.identifier == CartViewController.identifier {
+//            guard segue.destination is CartViewController else { return }
+//        }
+//    }
+//    
+//    @IBAction func addToCartButton(_ sender: Any) {
+//        performSegue(withIdentifier: CartViewController.identifier, sender: nil)
+//    }
 
 
 
