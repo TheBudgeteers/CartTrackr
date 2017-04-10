@@ -10,15 +10,22 @@ import UIKit
 
 class CartItemCell: UITableViewCell {
 
+    @IBOutlet weak var priceLabel: UILabel!
+    
+    @IBOutlet weak var descriptionLabel: UILabel!
+    
+    @IBOutlet weak var quantityLabel: UILabel!
+    
+    var item: Item! {
+        didSet {
+            self.priceLabel.text = item.price
+            self.descriptionLabel.text = item.description
+            self.quantityLabel.text = String(item.quantity)
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
 }
