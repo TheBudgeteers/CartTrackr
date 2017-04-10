@@ -9,13 +9,19 @@
 import Foundation
 
 class Item {
-    var price : String
+    var price : Float
+    var originalPrice : Float
     var description : String
-    var quantity : Int
+    var quantity : Int = 1 {
+        didSet {
+            self.price = (self.originalPrice * Float(self.quantity))
+        }
+    }
+    
     
     init(price: String, description: String, quantity: Int) {
-        
-        self.price = price
+        self.originalPrice = Float(price)!
+        self.price = (Float(price)! * Float(quantity))
         self.description = description
         self.quantity = quantity
         
