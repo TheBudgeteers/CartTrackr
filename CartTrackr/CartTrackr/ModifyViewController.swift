@@ -19,9 +19,17 @@ class ModifyViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+//        self.priceText.delegate = self
+//        self.descriptionText.delegate = self
+//        self.quantityText.delegate = self
+
+        self.priceText.allowsEditingTextAttributes = true
+        self.descriptionText.allowsEditingTextAttributes = true
+        self.quantityText.allowsEditingTextAttributes = true
 
         
-        self.priceText.text = self.item.price
+        self.priceText.text = String(self.item.originalPrice)
         self.descriptionText.text = self.item.description
         self.quantityText.text = String(self.item.quantity)
         
@@ -43,22 +51,22 @@ class ModifyViewController: UIViewController {
 
 }
 
-//MARK:
-extension ModifyViewController: UITextFieldDelegate {
-    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-        <#code#>
-    }
-    private func textFieldDidBeginEditing(_ textField: UITextField) -> Bool {
-        self.priceText.allowsEditingTextAttributes = true
-        self.descriptionText.allowsEditingTextAttributes = true
-        self.quantityText.allowsEditingTextAttributes = true
-    }
+//MARK: UITextFieldDelegate
+//extension ModifyViewController: UITextFieldDelegate {
+
+//    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+//        return true
+//    }
+//
+//    func textFieldDidBeginEditing(_ textField: UITextField) -> Bool {
+//        return true
+//    }
     
-    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
-        <#code#>
-    }
-    
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        <#code#>
-    }
-}
+//    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+//        
+//    }
+//    
+//    func textFieldDidEndEditing(_ textField: UITextField) {
+//        
+//    }
+//}
