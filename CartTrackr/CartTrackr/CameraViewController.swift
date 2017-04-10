@@ -7,15 +7,24 @@
 //
 
 import UIKit
+import AVFoundation
 
 class CameraViewController: UIViewController {
 
+    //OUTLET for "previewView" goes here for UIView
+    //OUTLET for "captureImageView" goes here for UIImageView
+    //ACTION "didTakePhoto" goes here for take picture Button
+    
+    var session: AVCaptureSession?
+    var priceImageOutput: AVCapturePhotoOutput?
+    var previewLayer: AVCaptureVideoPreviewLayer?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
     }
 
 
 
 }
+
