@@ -1,0 +1,2 @@
+github "garnele007/SwiftOCR" ~> 1.0
+github "BradLarson/GPUImage" ~> 0.1.7
