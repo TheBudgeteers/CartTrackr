@@ -16,4 +16,26 @@ class Cart {
     private init() {
         
     }
+    
+    func addItem(_ price: String,_ description: String,_ quantity: Int) {
+        self.listItems.append(Item.init(price: price, description: description, quantity: quantity))
+    }
+    
+    func removeItem(_ index: Int) {
+        self.listItems.remove(at: index)
+    }
+    
+    func removeAllItems() {
+        self.listItems.removeAll()
+    }
+    
+    func totalPrice() -> String {
+        var total : Float = 0.00
+        
+        for item in self.listItems {
+            total += item.price
+        }
+        
+        return String("$\(total)")
+    }
 }

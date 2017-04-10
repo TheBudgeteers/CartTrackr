@@ -9,13 +9,13 @@
 import Foundation
 
 class Item {
-    var price : String
+    var price : Float
     var description : String
     var quantity : Int
     
     init(price: String, description: String, quantity: Int) {
         
-        self.price = price
+        self.price = Float(price)!
         self.description = description
         self.quantity = quantity
         
