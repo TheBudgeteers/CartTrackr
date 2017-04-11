@@ -67,6 +67,8 @@ extension ManualAddViewController: UITextFieldDelegate {
         let item = Item(price: price!, description: description!, quantity: quantity!)
             
         itemArray.append(item)
+        self.priceText.resignFirstResponder()
+        self.descriptionText.resignFirstResponder()
         self.quantityText.resignFirstResponder()
         return true
     }
