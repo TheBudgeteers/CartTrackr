@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftyCam
 
 class PhotoProcessViewController: UIViewController {
 
@@ -27,11 +28,16 @@ class PhotoProcessViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+//Look at viewController in SwiftOCR line 155 to configure this below...
         self.view.backgroundColor = UIColor.gray
+        
         let backgroundImageView = UIImageView(frame: view.frame)
         backgroundImageView.contentMode = UIViewContentMode.scaleAspectFit
         backgroundImageView.image = backgroundImage
         view.addSubview(backgroundImageView)
+        
+        //This is same exit button used in CameraViewController to dismiss
         let cancelButton = UIButton(frame: CGRect(x: 10.0, y: 10.0, width: 30.0, height: 30.0))
         cancelButton.setImage(#imageLiteral(resourceName: "cancel"), for: UIControlState())
         cancelButton.addTarget(self, action: #selector(cancel), for: .touchUpInside)
