@@ -13,6 +13,7 @@ import SwiftOCR
 
 
 class CameraViewController: SwiftyCamViewController {
+
     
     var flipCameraButton: UIButton!
     var flashButton: UIButton!
@@ -47,7 +48,9 @@ class CameraViewController: SwiftyCamViewController {
     }
     
     func swiftyCam(_ swiftyCam: SwiftyCamViewController, didTake photo: UIImage) {
+
         let newVC = PhotoProcessViewController(image: photo)
+        
         self.present(newVC, animated: true, completion: nil)
     }
     
