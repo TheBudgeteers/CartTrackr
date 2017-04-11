@@ -154,8 +154,8 @@ class CameraViewController: SwiftyCamViewController {
         print("view width: \(viewWidth)")
         print("view height: \(viewHeight)")
 
-        topBorder.frame = CGRect(x: 0, y: 0, width: viewHeight * 2, height: viewHeight/2 - 50)
-        bottomBorder.frame = CGRect(x: 0, y: viewHeight/2 + 50, width: viewWidth * 2, height: viewHeight/2 - 50)
+        topBorder.frame = CGRect(x: 0, y: 0, width: viewWidth, height: viewHeight/2 - 50)
+        bottomBorder.frame = CGRect(x: 0, y: viewHeight/2 + 50, width: viewWidth, height: viewHeight/2 - 50)
         leftBorder.frame = CGRect(x: 0, y: viewHeight/2 - 50, width: 35, height: 100)
         rightBorder.frame = CGRect(x: viewWidth-35, y: viewHeight/2 - 50, width: 35, height: 100)
 
