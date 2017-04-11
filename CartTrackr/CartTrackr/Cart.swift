@@ -38,4 +38,14 @@ class Cart {
         
         return String("$\(total)")
     }
+    
+    func totalQuantity() -> Int {
+        var total : Int = 0
+        
+        for item in self.listItems {
+            total += item.quantity
+        }
+        
+        return total
+    }
 }
