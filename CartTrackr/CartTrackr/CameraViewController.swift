@@ -170,18 +170,6 @@ class CameraViewController: SwiftyCamViewController {
         self.view.addSubview(rightBorder)
 
     }
-    
-    
-//    case .right, .rightMirrored:
-//    context?.draw(cgImage, in: CGRect(x: -height, y: 0, width: height, height: width))
-//    case .left, .leftMirrored:
-//    context?.draw(cgImage, in: CGRect(x: 0, y: -width, width: height, height: width))
-//    case .up, .upMirrored:
-//    context?.draw(cgImage, in: CGRect(x: 0, y: 0, width: width, height: height))
-//    case .down, .downMirrored:
-//    context?.draw(cgImage, in: CGRect(x: -width, y: -height, width: width, height: height))
-
-
 
 }
 
