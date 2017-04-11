@@ -32,9 +32,29 @@ class PhotoProcessViewController: UIViewController {
         super.viewDidLoad()
         
         let cropped = prepareImageForCrop(using: self.backgroundImage)
+        var priceString : String = ""
         self.OCR.recognize(cropped) { (recognizedString) in
             print(recognizedString)
+            guard let dollars = recognizedString.components(separatedBy: "I").first?.components(separatedBy: "S").last else { return }
+            guard let cents = recognizedString.components(separatedBy: "I").last else { return }
+            priceString = "\(String(describing: dollars)).\(String(describing: cents))"
+            print(priceString)
         }
+        
+//        func process(targetImage: UIImage) -> String {
+//            let cropped = prepareImageForCrop(using: targetImage)
+//            var priceString : String = ""
+//            OCR.recognize(cropped) { (recognizedString) in
+//                print(recognizedString)
+//
+//                let dollars = recognizedString.components(separatedBy: "I").first
+//                let cents = recognizedString.components(separatedBy: "I").last
+//                priceString = "\(String(describing: dollars)).\(String(describing: cents))"
+//                print(priceString)
+//            }
+//            
+//            return priceString
+//        }
         
 //Look at viewController in SwiftOCR line 155 to configure this below...
         self.view.backgroundColor = UIColor.gray
@@ -111,7 +131,7 @@ class PhotoProcessViewController: UIViewController {
 
 }
 
-
+//MARK: UIImage
 extension UIImage {
     func detectOrientationDegree () -> CGFloat {
         switch imageOrientation {

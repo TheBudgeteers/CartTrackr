@@ -47,10 +47,22 @@ class CameraViewController: SwiftyCamViewController {
     
     func swiftyCam(_ swiftyCam: SwiftyCamViewController, didTake photo: UIImage) {
 
-        let newVC = PhotoProcessViewController(image: photo)
-        
+        //let newVC = ManualAddViewController(priceString: OCRProcess.shared.process(targetImage: photo))
+        let newVC = instantiateView
         self.present(newVC, animated: true, completion: nil)
     }
+    
+    func instantiateViewController(withIdentifier identifier: String) -> UIViewController {
+        let newVC = 
+        return newVC
+    }
+    
+//    func swiftyCam(_ swiftyCam: SwiftyCamViewController, didTake photo: UIImage) {
+//        
+//        let newVC = PhotoProcessViewController(image: photo)
+//        
+//        self.present(newVC, animated: true, completion: nil)
+//    }
     
     func swiftyCam(_ swiftyCam: SwiftyCamViewController, didFocusAtPoint point: CGPoint) {
         let focusView = UIImageView(image: #imageLiteral(resourceName: "focus"))
