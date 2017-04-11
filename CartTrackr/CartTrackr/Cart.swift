@@ -17,7 +17,7 @@ class Cart {
         
     }
     
-    func addItem(_ price: String,_ description: String,_ quantity: Int) {
+    func addItem(_ price: String,_ description: String,_ quantity: String) {
         self.listItems.append(Item.init(price: price, description: description, quantity: quantity))
     }
     
@@ -43,7 +43,7 @@ class Cart {
         var total : Int = 0
         
         for item in self.listItems {
-            total += item.quantity
+            total += Int(item.quantity)!
         }
         
         return total

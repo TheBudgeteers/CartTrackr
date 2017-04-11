@@ -9,7 +9,7 @@
 import UIKit
 
 class ManualAddViewController: UIViewController {
-    var item = Item(price: "1.99", description: "Description", quantity: 1)
+    var itemArray : [Item] = []
 
     @IBOutlet weak var priceText: UITextField!
     
@@ -29,9 +29,17 @@ class ManualAddViewController: UIViewController {
         self.quantityText.allowsEditingTextAttributes = true
         
         
-        self.priceText.text = self.item.price
-        self.descriptionText.text = self.item.description
-        self.quantityText.text = String(self.item.quantity)
+//        self.priceText.text = self.item?.price
+//        self.descriptionText.text = self.item?.description
+//        self.quantityText.text = String(describing: self.item?.quantity)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        
+        if segue.identifier == CartViewController.identifier {
+            guard segue.destination is CartViewController else { return }
+        }
     }
     
     @IBAction func goBackButton(_ sender: Any) {
@@ -41,23 +49,25 @@ class ManualAddViewController: UIViewController {
     
 
     @IBAction func addToCartButton(_ sender: Any) {
-        Cart.shared.addItem(item.price, item.description, item.quantity)
+        let price = itemArray[0].price
+        let description = itemArray[0].description
+        let quantity = itemArray[0].quantity
+        Cart.shared.addItem(price, description, quantity)
+        itemArray.removeAll()
+        self.performSegue(withIdentifier: CartViewController.identifier, sender: nil)
     }
-
-    
 }
 
 //MARK: UITextFieldDelegate
 extension ManualAddViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if let price = priceText.text, let description = descriptionText.text, let quantity = quantityText.text {
-            let enteredItem = Item(price: price, description: description, quantity: Int(quantity)!)
-            item = enteredItem
+        let price = priceText.text
+        let description = descriptionText.text
+        let quantity = quantityText.text
+        let item = Item(price: price!, description: description!, quantity: quantity!)
             
-        }
+        itemArray.append(item)
         self.quantityText.resignFirstResponder()
-        
-        dismiss(animated: true, completion: nil)
         return true
     }
 }
