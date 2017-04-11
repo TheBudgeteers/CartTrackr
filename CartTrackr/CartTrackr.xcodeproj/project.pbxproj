@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		286A79361E9C64C5006DE32B /* PhotoProcessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286A79351E9C64C5006DE32B /* PhotoProcessViewController.swift */; };
 		71B307941E9BF9F40082F9C0 /* Cart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B307931E9BF9F40082F9C0 /* Cart.swift */; };
 		BC6493AE1E9C576500A9FDE7 /* ManualAddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6493AD1E9C576500A9FDE7 /* ManualAddViewController.swift */; };
 		BC6493B01E9C628200A9FDE7 /* SwiftyCam.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC6493AF1E9C628200A9FDE7 /* SwiftyCam.framework */; };
@@ -45,6 +46,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		286A79351E9C64C5006DE32B /* PhotoProcessViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoProcessViewController.swift; sourceTree = "<group>"; };
 		71B307931E9BF9F40082F9C0 /* Cart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cart.swift; sourceTree = "<group>"; };
 		BC6493AD1E9C576500A9FDE7 /* ManualAddViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManualAddViewController.swift; sourceTree = "<group>"; };
 		BC6493AF1E9C628200A9FDE7 /* SwiftyCam.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyCam.framework; path = Carthage/Build/iOS/SwiftyCam.framework; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 		BC944CEE1E9BEA64004015EC /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				286A79351E9C64C5006DE32B /* PhotoProcessViewController.swift */,
 				BC6493AD1E9C576500A9FDE7 /* ManualAddViewController.swift */,
 				BC944CD71E9BE982004015EC /* AppDelegate.swift */,
 				BC944CEC1E9BEA61004015EC /* CartViewController.swift */,
@@ -236,6 +239,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				286A79361E9C64C5006DE32B /* PhotoProcessViewController.swift in Sources */,
 				BC944CFC1E9BEBAD004015EC /* OCR.swift in Sources */,
 				71B307941E9BF9F40082F9C0 /* Cart.swift in Sources */,
 				BC944CEA1E9BEA31004015EC /* Item.swift in Sources */,
