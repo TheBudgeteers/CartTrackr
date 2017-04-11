@@ -49,6 +49,11 @@ class ModifyViewController: UIViewController {
         }
     }
     
+    @IBAction func goBackButton(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    
     @IBAction func addToCartButton(_ sender: Any) {
         performSegue(withIdentifier: CartViewController.identifier, sender: nil)
     }

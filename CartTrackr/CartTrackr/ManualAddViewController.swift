@@ -9,7 +9,7 @@
 import UIKit
 
 class ManualAddViewController: UIViewController {
-    var item : Item!
+    var item = Item(price: "1.99", description: "Description", quantity: 1)
 
     @IBOutlet weak var priceText: UITextField!
     
@@ -20,8 +20,25 @@ class ManualAddViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-       
+        self.priceText.delegate = self
+        self.descriptionText.delegate = self
+        self.quantityText.delegate = self
+        
+        self.priceText.allowsEditingTextAttributes = true
+        self.descriptionText.allowsEditingTextAttributes = true
+        self.quantityText.allowsEditingTextAttributes = true
+        
+        
+        self.priceText.text = self.item.price
+        self.descriptionText.text = self.item.description
+        self.quantityText.text = String(self.item.quantity)
     }
+    
+    @IBAction func goBackButton(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+
+    }
+    
 
     @IBAction func addToCartButton(_ sender: Any) {
         Cart.shared.addItem(item.price, item.description, item.quantity)
@@ -38,6 +55,7 @@ extension ManualAddViewController: UITextFieldDelegate {
             item = enteredItem
             
         }
+        self.quantityText.resignFirstResponder()
         
         dismiss(animated: true, completion: nil)
         return true

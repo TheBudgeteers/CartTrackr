@@ -195,6 +195,20 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4tz-S4-6Xw">
+                                <rect key="frame" x="-0.5" y="453.5" width="375" height="60"/>
+                                <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="g0R-iM-8Yo"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="GO BACK">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="goBackButton:" destination="e0Y-W4-Paq" eventType="touchUpInside" id="D9W-gS-Opz"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -206,7 +220,9 @@
                             <constraint firstItem="H1e-o5-6Lg" firstAttribute="width" secondItem="6h1-ZY-ujc" secondAttribute="width" id="BJh-jT-1hg"/>
                             <constraint firstItem="M4i-J7-Qf7" firstAttribute="height" secondItem="6h1-ZY-ujc" secondAttribute="height" multiplier="0.2" id="Cdp-3H-GGj"/>
                             <constraint firstItem="eVX-ah-q8n" firstAttribute="top" secondItem="M4i-J7-Qf7" secondAttribute="bottom" constant="20" id="Fwx-a4-RdE"/>
+                            <constraint firstItem="4tz-S4-6Xw" firstAttribute="centerX" secondItem="6h1-ZY-ujc" secondAttribute="centerX" id="H1r-pK-c5H"/>
                             <constraint firstItem="IsB-2n-DfO" firstAttribute="top" secondItem="fXP-14-pTX" secondAttribute="bottom" constant="25" id="LjN-1F-vL5"/>
+                            <constraint firstItem="M4i-J7-Qf7" firstAttribute="top" secondItem="4tz-S4-6Xw" secondAttribute="bottom" id="SRd-qc-Tme"/>
                             <constraint firstItem="M4i-J7-Qf7" firstAttribute="centerX" secondItem="6h1-ZY-ujc" secondAttribute="centerX" id="TZW-cI-l5Z"/>
                             <constraint firstItem="85p-Gw-I4C" firstAttribute="top" secondItem="Upp-C4-u28" secondAttribute="bottom" constant="10" id="WPe-FM-dG9"/>
                             <constraint firstItem="Gq1-xC-URt" firstAttribute="width" secondItem="6h1-ZY-ujc" secondAttribute="width" id="WZD-RI-rT4"/>
@@ -216,6 +232,7 @@
                             <constraint firstItem="YVY-hd-yaC" firstAttribute="top" secondItem="H1e-o5-6Lg" secondAttribute="bottom" constant="10" id="eb3-hJ-E4f"/>
                             <constraint firstItem="85p-Gw-I4C" firstAttribute="width" secondItem="6h1-ZY-ujc" secondAttribute="width" multiplier="0.95" id="fk4-C5-S1I"/>
                             <constraint firstItem="Upp-C4-u28" firstAttribute="width" secondItem="6h1-ZY-ujc" secondAttribute="width" id="gFu-Vn-CwN"/>
+                            <constraint firstItem="4tz-S4-6Xw" firstAttribute="width" secondItem="6h1-ZY-ujc" secondAttribute="width" id="ii8-uV-edW"/>
                             <constraint firstItem="Gq1-xC-URt" firstAttribute="centerX" secondItem="6h1-ZY-ujc" secondAttribute="centerX" id="l9j-jp-FUE"/>
                             <constraint firstItem="IsB-2n-DfO" firstAttribute="width" secondItem="6h1-ZY-ujc" secondAttribute="width" multiplier="0.95" id="lwb-vq-UKF"/>
                             <constraint firstItem="YVY-hd-yaC" firstAttribute="width" secondItem="6h1-ZY-ujc" secondAttribute="width" multiplier="0.95" id="mAV-sh-i73"/>
@@ -304,17 +321,34 @@
                                     <action selector="addToCartButton:" destination="e0Y-W4-Paq" eventType="touchUpInside" id="HJh-3r-1dF"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zVl-UI-JJn">
+                                <rect key="frame" x="0.0" y="473.5" width="375" height="60"/>
+                                <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="hCO-aS-BSg"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="GO BACK">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="goBackButton:" destination="gFM-5B-4AB" eventType="touchUpInside" id="MLq-4q-QRv"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="h3o-6c-nfg" firstAttribute="centerX" secondItem="pf4-AX-wOj" secondAttribute="centerX" id="1Hi-O5-kAw"/>
+                            <constraint firstItem="zVl-UI-JJn" firstAttribute="width" secondItem="pf4-AX-wOj" secondAttribute="width" id="7xH-8a-i2n"/>
                             <constraint firstItem="uZ5-6N-tj1" firstAttribute="width" secondItem="pf4-AX-wOj" secondAttribute="width" id="Ajp-Tz-jCP"/>
                             <constraint firstItem="uZ5-6N-tj1" firstAttribute="top" secondItem="hxK-Oq-hcR" secondAttribute="bottom" constant="10" id="BUJ-cI-Huq"/>
                             <constraint firstItem="UbD-7U-5JA" firstAttribute="top" secondItem="FRx-wn-gkr" secondAttribute="bottom" constant="10" id="Eqe-rR-MGk"/>
                             <constraint firstItem="uZ5-6N-tj1" firstAttribute="centerX" secondItem="pf4-AX-wOj" secondAttribute="centerX" id="Esd-n8-2U9"/>
+                            <constraint firstItem="zVl-UI-JJn" firstAttribute="centerX" secondItem="pf4-AX-wOj" secondAttribute="centerX" id="Gpg-cH-QH9"/>
                             <constraint firstItem="hxK-Oq-hcR" firstAttribute="top" secondItem="3eF-Kd-Uah" secondAttribute="bottom" constant="10" id="HOJ-aC-hnq"/>
                             <constraint firstItem="Akz-1h-FzN" firstAttribute="width" secondItem="pf4-AX-wOj" secondAttribute="width" id="HpS-N1-Ho4"/>
                             <constraint firstItem="FRx-wn-gkr" firstAttribute="centerX" secondItem="pf4-AX-wOj" secondAttribute="centerX" id="IZ7-SG-tkU"/>
+                            <constraint firstItem="h3o-6c-nfg" firstAttribute="top" secondItem="zVl-UI-JJn" secondAttribute="bottom" id="LIR-uO-yVE"/>
                             <constraint firstItem="hxK-Oq-hcR" firstAttribute="centerX" secondItem="pf4-AX-wOj" secondAttribute="centerX" id="R0q-FS-F4C"/>
                             <constraint firstItem="FRx-wn-gkr" firstAttribute="width" secondItem="pf4-AX-wOj" secondAttribute="width" multiplier="0.95" id="Wxd-BW-Epg"/>
                             <constraint firstItem="UbD-7U-5JA" firstAttribute="width" secondItem="pf4-AX-wOj" secondAttribute="width" id="ZHP-TW-VTU"/>
