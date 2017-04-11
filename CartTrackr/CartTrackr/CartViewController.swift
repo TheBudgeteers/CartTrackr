@@ -9,28 +9,35 @@
 import UIKit
 
 class CartViewController: UIViewController {
-    var cartItems = [Item]() {
+    var activeCart = Cart.shared.listItems {
         didSet {
             self.cartTableView.reloadData()
         }
     }
 
     @IBOutlet weak var cartTableView: UITableView!
-    
+
+    @IBOutlet weak var preTaxTotalLabel: UILabel!
+
     @IBOutlet weak var totalLabel: UILabel!
     
-    @IBOutlet weak var itemsLabel: UILabel!
+    @IBOutlet weak var quantityLabel: UILabel!
+   
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.cartTableView.dataSource = self
-//        self.cartTableView.delegate = self
+        self.cartTableView.delegate = self
         
         let itemCell = UINib(nibName: "CartItemCell", bundle: nil)
         self.cartTableView.register(itemCell, forCellReuseIdentifier: CartItemCell.identifier)
-        self.cartTableView.estimatedRowHeight = 50
-        self.cartTableView.rowHeight = UITableViewAutomaticDimension
+//        self.cartTableView.estimatedRowHeight = 50
+//        self.cartTableView.rowHeight = UITableViewAutomaticDimension
         
+        Cart.shared.addItem("1.99", "RedBull", 2)
+        Cart.shared.addItem("5", "Bread", 1)
+        
+        update()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -42,7 +49,7 @@ class CartViewController: UIViewController {
         
         if segue.identifier == ModifyViewController.identifier {
             if let selectedIndex = self.cartTableView.indexPathForSelectedRow?.row{
-                let selectedItem : Item = cartItems[selectedIndex]
+                let selectedItem : Item = Cart.shared.listItems[selectedIndex]
                 
                 guard let destinationController = segue.destination as? ModifyViewController else { return }
                 
@@ -54,6 +61,12 @@ class CartViewController: UIViewController {
         if segue.identifier == ManualAddViewController.identifier {
             guard segue.destination is ManualAddViewController else { return }
         }
+    }
+    
+    func update() {
+        self.preTaxTotalLabel.text = "PreTax: $\(String(Cart.shared.totalPrice()))"
+        self.totalLabel.text = "Total: $\(String(Cart.shared.totalTax()))"
+        self.quantityLabel.text = "#: \(Cart.shared.totalQuantity())"
     }
     
     @IBAction func SaveButton(_ sender: Any) {
@@ -75,12 +88,12 @@ class CartViewController: UIViewController {
 //MARK: UITableViewDataSource UITableViewDelegate
 extension CartViewController : UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return cartItems.count
+        return Cart.shared.listItems.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = cartTableView.dequeueReusableCell(withIdentifier: CartItemCell.identifier, for: indexPath) as! CartItemCell
-        let item = self.cartItems[indexPath.row]
+        let item = Cart.shared.listItems[indexPath.row]
         cell.item = item
         return cell
     }

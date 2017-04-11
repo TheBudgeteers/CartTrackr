@@ -9,11 +9,11 @@
 import UIKit
 
 class ModifyViewController: UIViewController {
-    var item = Item(price: "1.99", description: "item", quantity: 1) {
+    var item : Item! {
         didSet {
-            self.priceText.text = self.item.price
-            self.descriptionText.text = self.item.description
-            self.quantityText.text = String(self.item.quantity)
+//            self.priceText.text = self.item.price
+//            self.descriptionText.text = self.item.description
+//            self.quantityText.text = String(self.item.quantity)
         }
     }
 
@@ -48,6 +48,11 @@ class ModifyViewController: UIViewController {
             guard segue.destination is CartViewController else { return }
         }
     }
+    
+    @IBAction func goBackButton(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     
     @IBAction func addToCartButton(_ sender: Any) {
         performSegue(withIdentifier: CartViewController.identifier, sender: nil)

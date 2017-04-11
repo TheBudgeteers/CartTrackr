@@ -9,7 +9,7 @@
 import Foundation
 
 class Cart {
-    private var listItems = [Item]()
+    var listItems = [Item]()
     
     static let shared = Cart()
     
@@ -29,14 +29,14 @@ class Cart {
         self.listItems.removeAll()
     }
     
-    func totalPrice() -> String {
+    func totalPrice() -> Float {
         var total : Float = 0.00
         
         for item in self.listItems {
             total += item.cost
         }
         
-        return String("$\(total)")
+        return total
     }
     
     func totalQuantity() -> Int {
@@ -48,4 +48,14 @@ class Cart {
         
         return total
     }
+    
+    func totalTax() -> Float {
+        let tax : Float = 1.096
+        let totalPrice = Cart.shared.totalPrice()
+        let total = round((totalPrice * tax) * 100) / 100
+        return total
+    }
+    
 }
+
+
