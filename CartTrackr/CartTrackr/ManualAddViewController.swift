@@ -72,5 +72,21 @@ extension ManualAddViewController: UITextFieldDelegate {
         self.quantityText.resignFirstResponder()
         return true
     }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        switch textField {
+        case priceText:
+            priceText.selectedTextRange = priceText.textRange(from: priceText.beginningOfDocument, to: priceText.endOfDocument)
+            break;
+        case descriptionText:
+            descriptionText.selectedTextRange = descriptionText.textRange(from: descriptionText.beginningOfDocument, to: descriptionText.endOfDocument)
+            break;
+        case quantityText:
+            quantityText.selectedTextRange = quantityText.textRange(from: quantityText.beginningOfDocument, to: quantityText.endOfDocument)
+            break;
+        default:
+            break;
+        }
+    }
 }
 
