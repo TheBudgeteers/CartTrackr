@@ -22,10 +22,17 @@ class Item {
     
     init(price: String, description: String, quantity: Int) {
         self.price = price
-        self.originalPrice = Float(price)!
+        self.originalPrice = Float(price.format(".2"))!
         self.cost = (Float(price)! * Float(quantity))
         self.description = description
         self.quantity = quantity
         
+    }
+}
+
+//MARK:
+extension String {
+    func format( _ f: String) -> String {
+        return String(format: "%\(f)f", self)
     }
 }
