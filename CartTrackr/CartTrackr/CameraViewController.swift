@@ -9,6 +9,7 @@
 import UIKit
 import AVFoundation
 import SwiftyCam
+import SwiftOCR
 
 
 class CameraViewController: SwiftyCamViewController {
