@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		71B307941E9BF9F40082F9C0 /* Cart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B307931E9BF9F40082F9C0 /* Cart.swift */; };
+		BC6493AE1E9C576500A9FDE7 /* ManualAddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6493AD1E9C576500A9FDE7 /* ManualAddViewController.swift */; };
 		BC944CD81E9BE982004015EC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC944CD71E9BE982004015EC /* AppDelegate.swift */; };
 		BC944CDD1E9BE982004015EC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC944CDB1E9BE982004015EC /* Main.storyboard */; };
 		BC944CDF1E9BE982004015EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC944CDE1E9BE982004015EC /* Assets.xcassets */; };
@@ -42,6 +43,7 @@
 
 /* Begin PBXFileReference section */
 		71B307931E9BF9F40082F9C0 /* Cart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cart.swift; sourceTree = "<group>"; };
+		BC6493AD1E9C576500A9FDE7 /* ManualAddViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManualAddViewController.swift; sourceTree = "<group>"; };
 		BC944CD41E9BE982004015EC /* CartTrackr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CartTrackr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC944CD71E9BE982004015EC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BC944CDC1E9BE982004015EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 		BC944CEE1E9BEA64004015EC /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				BC6493AD1E9C576500A9FDE7 /* ManualAddViewController.swift */,
 				BC944CD71E9BE982004015EC /* AppDelegate.swift */,
 				BC944CEC1E9BEA61004015EC /* CartViewController.swift */,
 				BC944CF41E9BEAFE004015EC /* CameraViewController.swift */,
@@ -235,6 +238,7 @@
 				BC944CED1E9BEA61004015EC /* CartViewController.swift in Sources */,
 				BC944CF21E9BEAD8004015EC /* CartItemCell.swift in Sources */,
 				BC944CF71E9BEB14004015EC /* ModifyViewController.swift in Sources */,
+				BC6493AE1E9C576500A9FDE7 /* ManualAddViewController.swift in Sources */,
 				BC944CD81E9BE982004015EC /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

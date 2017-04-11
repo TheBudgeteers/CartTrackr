@@ -33,7 +33,7 @@ class Cart {
         var total : Float = 0.00
         
         for item in self.listItems {
-            total += item.price
+            total += item.cost
         }
         
         return String("$\(total)")
