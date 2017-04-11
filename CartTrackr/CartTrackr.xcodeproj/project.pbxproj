@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		286A79361E9C64C5006DE32B /* PhotoProcessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286A79351E9C64C5006DE32B /* PhotoProcessViewController.swift */; };
+		286A79381E9C8D7F006DE32B /* cameraButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286A79371E9C8D7F006DE32B /* cameraButtonView.swift */; };
+		286A79401E9CB1BD006DE32B /* CameraViewDrawBorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286A793F1E9CB1BD006DE32B /* CameraViewDrawBorder.swift */; };
 		71B307941E9BF9F40082F9C0 /* Cart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B307931E9BF9F40082F9C0 /* Cart.swift */; };
 		BC6493AE1E9C576500A9FDE7 /* ManualAddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6493AD1E9C576500A9FDE7 /* ManualAddViewController.swift */; };
 		BC6493B01E9C628200A9FDE7 /* SwiftyCam.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC6493AF1E9C628200A9FDE7 /* SwiftyCam.framework */; };
@@ -47,6 +49,8 @@
 
 /* Begin PBXFileReference section */
 		286A79351E9C64C5006DE32B /* PhotoProcessViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoProcessViewController.swift; sourceTree = "<group>"; };
+		286A79371E9C8D7F006DE32B /* cameraButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = cameraButtonView.swift; sourceTree = "<group>"; };
+		286A793F1E9CB1BD006DE32B /* CameraViewDrawBorder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraViewDrawBorder.swift; sourceTree = "<group>"; };
 		71B307931E9BF9F40082F9C0 /* Cart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cart.swift; sourceTree = "<group>"; };
 		BC6493AD1E9C576500A9FDE7 /* ManualAddViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManualAddViewController.swift; sourceTree = "<group>"; };
 		BC6493AF1E9C628200A9FDE7 /* SwiftyCam.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyCam.framework; path = Carthage/Build/iOS/SwiftyCam.framework; sourceTree = "<group>"; };
@@ -147,9 +151,11 @@
 		BC944CEF1E9BEA6F004015EC /* View */ = {
 			isa = PBXGroup;
 			children = (
+				286A793F1E9CB1BD006DE32B /* CameraViewDrawBorder.swift */,
 				BC944CDB1E9BE982004015EC /* Main.storyboard */,
 				BC944CE01E9BE982004015EC /* LaunchScreen.storyboard */,
 				BC944CF01E9BEAD8004015EC /* CartItemCell.swift */,
+				286A79371E9C8D7F006DE32B /* cameraButtonView.swift */,
 				BC944CF11E9BEAD8004015EC /* CartItemCell.xib */,
 			);
 			name = View;
@@ -197,7 +203,7 @@
 				TargetAttributes = {
 					BC944CD31E9BE982004015EC = {
 						CreatedOnToolsVersion = 8.3.1;
-						DevelopmentTeam = JW369YLHP8;
+						DevelopmentTeam = 5EB567WJ73;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -245,9 +251,11 @@
 				BC944CEA1E9BEA31004015EC /* Item.swift in Sources */,
 				BC944CFA1E9BEB50004015EC /* UIExtensions.swift in Sources */,
 				BC944CF51E9BEAFE004015EC /* CameraViewController.swift in Sources */,
+				286A79401E9CB1BD006DE32B /* CameraViewDrawBorder.swift in Sources */,
 				BC944CED1E9BEA61004015EC /* CartViewController.swift in Sources */,
 				BC944CF21E9BEAD8004015EC /* CartItemCell.swift in Sources */,
 				BC944CF71E9BEB14004015EC /* ModifyViewController.swift in Sources */,
+				286A79381E9C8D7F006DE32B /* cameraButtonView.swift in Sources */,
 				BC6493AE1E9C576500A9FDE7 /* ManualAddViewController.swift in Sources */,
 				BC944CD81E9BE982004015EC /* AppDelegate.swift in Sources */,
 			);
@@ -374,7 +382,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = JW369YLHP8;
+				DEVELOPMENT_TEAM = 5EB567WJ73;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -391,7 +399,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = JW369YLHP8;
+				DEVELOPMENT_TEAM = 5EB567WJ73;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",

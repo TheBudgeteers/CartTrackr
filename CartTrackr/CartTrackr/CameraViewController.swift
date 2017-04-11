@@ -12,14 +12,19 @@ import SwiftyCam
 
 
 class CameraViewController: SwiftyCamViewController {
-
     
     var flipCameraButton: UIButton!
     var flashButton: UIButton!
-
-    //xcode linter made me write init like this below, AVFoundation thing???//////
+    var captureButton: CameraButtonView!
+//    var buildBottomBorder: DrawCameraViewBorder!
+//    var buildTopBorder: DrawCameraViewBorder!
+    
+    @IBOutlet weak var cameraViewTopBorder: UIView!
+    @IBOutlet weak var cameraViewBottomBorder: UIView!
+    
+    //required init is needed when using AVFoundation
     required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(coder: aDecoder)
     }
     
     
@@ -105,7 +110,19 @@ class CameraViewController: SwiftyCamViewController {
     }
     
     private func addButtons() {
+        let cancelButton = UIButton(frame: CGRect(x: 10.0, y: 10.0, width: 30.0, height: 30.0))
+        cancelButton.setImage(#imageLiteral(resourceName: "cancel"), for: UIControlState())
+        cancelButton.addTarget(self, action: #selector(cancel), for: .touchUpInside)
+        view.addSubview(cancelButton)
+//        self.buildBottomBorder = DrawCameraViewBorder(frame: CGRect(x: 0, y: 317, width: 375, height: 350))
+//        self.buildTopBorder = DrawCameraViewBorder(frame: CGRect(x: 0, y: 20, width: 375, height: 198))
         
+        captureButton = CameraButtonView(frame: CGRect(x: view.frame.midX - 37.5, y: view.frame.height - 100.0, width: 75.0, height: 75.0))
+        captureButton.setImage(#imageLiteral(resourceName: "cartPic"), for: UIControlState())
+        
+        self.view.addSubview(captureButton)
+        
+        captureButton.delegate = self
         
         flipCameraButton = UIButton(frame: CGRect(x: (((view.frame.width / 2 - 37.5) / 2) - 15.0), y: view.frame.height - 74.0, width: 30.0, height: 23.0))
         flipCameraButton.setImage(#imageLiteral(resourceName: "flipCamera"), for: UIControlState())
@@ -120,12 +137,18 @@ class CameraViewController: SwiftyCamViewController {
         self.view.addSubview(flashButton)
     }
     
+    func cancel() {
+        dismiss(animated: true, completion: nil)
+    }
+    
     
 
 
 }
 
 extension CameraViewController: SwiftyCamViewControllerDelegate{
+    
+    
 
 }
 
