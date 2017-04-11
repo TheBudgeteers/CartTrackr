@@ -13,9 +13,6 @@ import SwiftyCam
 
 class CameraViewController: SwiftyCamViewController {
 
-    //OUTLET for "previewView" goes here for UIView.
-    //OUTLET for "captureImageView" goes here for UIImageView.
-    //ACTION "didTakePhoto" goes here for take picture Button.
     
     var flipCameraButton: UIButton!
     var flashButton: UIButton!
@@ -28,9 +25,6 @@ class CameraViewController: SwiftyCamViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let captureButton = SwiftyCamButton(frame: "name of outlet goes here")
-        captureButton.delegate = self
         
         cameraDelegate = self
         shouldUseDeviceOrientation = true
@@ -47,7 +41,7 @@ class CameraViewController: SwiftyCamViewController {
     }
     
     func swiftyCam(_ swiftyCam: SwiftyCamViewController, didTake photo: UIImage) {
-        let newVC = PhotoViewController(image: photo)
+        let newVC = PhotoProcessViewController(image: photo)
         self.present(newVC, animated: true, completion: nil)
     }
     
@@ -93,6 +87,20 @@ class CameraViewController: SwiftyCamViewController {
             })
         case .restricted:
             completionHandler(false)
+        }
+    }
+    
+    @objc private func cameraSwitchAction(_ sender: Any) {
+        switchCamera()
+    }
+    
+    @objc private func toggleFlashAction(_ sender: Any) {
+        flashEnabled = !flashEnabled
+        
+        if flashEnabled == true {
+            flashButton.setImage(#imageLiteral(resourceName: "flash"), for: UIControlState())
+        } else {
+            flashButton.setImage(#imageLiteral(resourceName: "flashOutline"), for: UIControlState())
         }
     }
     
