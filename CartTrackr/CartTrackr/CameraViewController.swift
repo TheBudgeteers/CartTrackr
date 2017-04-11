@@ -18,8 +18,6 @@ class CameraViewController: SwiftyCamViewController {
     var flipCameraButton: UIButton!
     var flashButton: UIButton!
     var captureButton: CameraButtonView!
-//    var buildBottomBorder: DrawCameraViewBorder!
-//    var buildTopBorder: DrawCameraViewBorder!
     
     @IBOutlet weak var cameraViewTopBorder: UIView!
     @IBOutlet weak var cameraViewBottomBorder: UIView!
@@ -114,12 +112,11 @@ class CameraViewController: SwiftyCamViewController {
     }
     
     private func addButtons() {
+        drawBorder()
         let cancelButton = UIButton(frame: CGRect(x: 10.0, y: 10.0, width: 30.0, height: 30.0))
         cancelButton.setImage(#imageLiteral(resourceName: "cancel"), for: UIControlState())
         cancelButton.addTarget(self, action: #selector(cancel), for: .touchUpInside)
         view.addSubview(cancelButton)
-//        self.buildBottomBorder = DrawCameraViewBorder(frame: CGRect(x: 0, y: 317, width: 375, height: 350))
-//        self.buildTopBorder = DrawCameraViewBorder(frame: CGRect(x: 0, y: 20, width: 375, height: 198))
         
         captureButton = CameraButtonView(frame: CGRect(x: view.frame.midX - 37.5, y: view.frame.height - 100.0, width: 75.0, height: 75.0))
         captureButton.setImage(#imageLiteral(resourceName: "cartPic"), for: UIControlState())
@@ -145,8 +142,34 @@ class CameraViewController: SwiftyCamViewController {
         dismiss(animated: true, completion: nil)
     }
     
-    
+    func drawBorder() {
+        let viewWidth = self.view.frame.size.width
+        let viewHeight = self.view.frame.size.height
+        
+        let topBorder = UIView()
+        let bottomBorder = UIView()
+        let leftBorder = UIView()
+        let rightBorder = UIView()
+        
+        print("view width: \(viewWidth)")
+        print("view height: \(viewHeight)")
 
+        topBorder.frame = CGRect(x: 0, y: 0, width: viewHeight * 2, height: viewHeight/2 - 50)
+        bottomBorder.frame = CGRect(x: 0, y: viewHeight/2 + 50, width: viewWidth * 2, height: viewHeight/2 - 50)
+        leftBorder.frame = CGRect(x: 0, y: viewHeight/2 - 50, width: 35, height: 100)
+        rightBorder.frame = CGRect(x: viewWidth-35, y: viewHeight/2 - 50, width: 35, height: 100)
+
+        topBorder.backgroundColor = UIColor(white: 0.2, alpha: 0.8)
+        bottomBorder.backgroundColor = UIColor(white: 0.2, alpha: 0.8)
+        leftBorder.backgroundColor = UIColor(white: 0.2, alpha: 0.8)
+        rightBorder.backgroundColor = UIColor(white: 0.2, alpha: 0.8)
+
+        self.view.addSubview(topBorder)
+        self.view.addSubview(bottomBorder)
+        self.view.addSubview(leftBorder)
+        self.view.addSubview(rightBorder)
+
+    }
 
 }
 
