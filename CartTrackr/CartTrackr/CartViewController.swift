@@ -41,14 +41,18 @@ class CartViewController: UIViewController {
         }
         
         if segue.identifier == ModifyViewController.identifier {
-//            if let selectedIndex = self.cartTableView.indexPathForSelectedRow?.row{
-//                let selectedItem : Item = cartItems[selectedIndex]
-//                
-//                guard let destinationController = segue.destination as? ModifyViewController else { return }
-//                
-//                destinationController.item = selectedItem
-//            }
-            guard segue.destination is ModifyViewController else { return }
+            if let selectedIndex = self.cartTableView.indexPathForSelectedRow?.row{
+                let selectedItem : Item = cartItems[selectedIndex]
+                
+                guard let destinationController = segue.destination as? ModifyViewController else { return }
+                
+                destinationController.item = selectedItem
+            }
+            
+        }
+        
+        if segue.identifier == ManualAddViewController.identifier {
+            guard segue.destination is ManualAddViewController else { return }
         }
     }
     
@@ -56,7 +60,7 @@ class CartViewController: UIViewController {
     }
 
     @IBAction func AddManualButton(_ sender: Any) {
-        self.performSegue(withIdentifier: ModifyViewController.identifier, sender: nil)
+        self.performSegue(withIdentifier: ManualAddViewController.identifier, sender: nil)
     }
     
     @IBAction func AddCameraButton(_ sender: Any) {
@@ -80,8 +84,8 @@ extension CartViewController : UITableViewDataSource, UITableViewDelegate {
         cell.item = item
         return cell
     }
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        self.performSegue(withIdentifier: ModifyViewController.identifier, sender: nil)
-//    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.performSegue(withIdentifier: ModifyViewController.identifier, sender: nil)
+    }
     
 }

@@ -33,9 +33,19 @@ class Cart {
         var total : Float = 0.00
         
         for item in self.listItems {
-            total += item.price
+            total += item.cost
         }
         
         return String("$\(total)")
+    }
+    
+    func totalQuantity() -> Int {
+        var total : Int = 0
+        
+        for item in self.listItems {
+            total += item.quantity
+        }
+        
+        return total
     }
 }

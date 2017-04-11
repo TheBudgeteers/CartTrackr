@@ -7,5 +7,5 @@
 //
 
 import Foundation
-import SwiftOCR
+//import SwiftOCR
 
