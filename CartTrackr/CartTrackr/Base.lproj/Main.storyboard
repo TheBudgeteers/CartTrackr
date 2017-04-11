@@ -32,14 +32,8 @@
                                 <rect key="frame" x="0.0" y="54" width="375" height="532"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DsS-FR-Luh">
-                                <rect key="frame" x="10" y="596" width="150" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Items" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hDq-J4-bmH">
-                                <rect key="frame" x="215" y="596" width="150" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PreTax Total" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DsS-FR-Luh">
+                                <rect key="frame" x="10" y="596" width="131.5" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -74,6 +68,18 @@
                                     <action selector="NewListButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="itY-yt-a5z"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jKd-d9-GVn">
+                                <rect key="frame" x="151.5" y="596" width="131.5" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hDq-J4-bmH">
+                                <rect key="frame" x="290" y="596" width="75" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -82,6 +88,7 @@
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="WS1-G3-TqX" secondAttribute="bottom" constant="10" id="3U6-1e-1xu"/>
                             <constraint firstItem="SiG-08-yqa" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.25" id="4IY-eu-UbT"/>
                             <constraint firstItem="DsS-FR-Luh" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="10" id="627-oD-G8t"/>
+                            <constraint firstItem="jKd-d9-GVn" firstAttribute="leading" secondItem="DsS-FR-Luh" secondAttribute="trailing" constant="10" id="77B-dI-sIu"/>
                             <constraint firstAttribute="trailing" secondItem="hDq-J4-bmH" secondAttribute="trailing" constant="10" id="FqR-4i-qE1"/>
                             <constraint firstItem="N1R-7h-034" firstAttribute="leading" secondItem="htl-Fp-ncZ" secondAttribute="trailing" id="Gfl-l9-LcN"/>
                             <constraint firstItem="vVm-qj-pVi" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="HNX-e4-XZh"/>
@@ -90,13 +97,15 @@
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="SiG-08-yqa" secondAttribute="bottom" constant="10" id="QU0-pj-xCV"/>
                             <constraint firstItem="Ds0-ls-De1" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="R37-1f-NGl"/>
                             <constraint firstItem="vVm-qj-pVi" firstAttribute="top" secondItem="Ds0-ls-De1" secondAttribute="bottom" constant="10" id="SEK-hP-XAx"/>
-                            <constraint firstItem="DsS-FR-Luh" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.4" id="SKC-rM-neA"/>
+                            <constraint firstItem="DsS-FR-Luh" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.35" id="SKC-rM-neA"/>
                             <constraint firstItem="hDq-J4-bmH" firstAttribute="top" secondItem="vVm-qj-pVi" secondAttribute="bottom" constant="10" id="bBV-gu-ESS"/>
                             <constraint firstItem="htl-Fp-ncZ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="bbk-ID-3tY"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="htl-Fp-ncZ" secondAttribute="bottom" constant="10" id="dCM-Ku-EIr"/>
                             <constraint firstItem="WS1-G3-TqX" firstAttribute="leading" secondItem="N1R-7h-034" secondAttribute="trailing" id="eNM-Of-xVV"/>
-                            <constraint firstItem="hDq-J4-bmH" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.4" id="fvp-m7-6dr"/>
+                            <constraint firstItem="hDq-J4-bmH" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.2" id="fvp-m7-6dr"/>
+                            <constraint firstItem="jKd-d9-GVn" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.35" id="i2c-lu-cFP"/>
                             <constraint firstItem="WS1-G3-TqX" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.25" id="iYb-fw-bms"/>
+                            <constraint firstItem="jKd-d9-GVn" firstAttribute="top" secondItem="vVm-qj-pVi" secondAttribute="bottom" constant="10" id="iwu-QB-N8T"/>
                             <constraint firstItem="htl-Fp-ncZ" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.25" id="naP-LQ-AmT"/>
                             <constraint firstItem="Ds0-ls-De1" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="rEM-lY-3ZW"/>
                             <constraint firstItem="N1R-7h-034" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.25" id="sfa-WD-6xR"/>
@@ -106,9 +115,10 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="CartTableView" destination="vVm-qj-pVi" id="7hh-Ts-dZ1"/>
-                        <outlet property="ItemsLabel" destination="hDq-J4-bmH" id="V3o-H5-aD0"/>
-                        <outlet property="TotalLabel" destination="DsS-FR-Luh" id="nrU-Kh-tRn"/>
+                        <outlet property="cartTableView" destination="vVm-qj-pVi" id="hJy-DN-CYi"/>
+                        <outlet property="preTaxTotalLabel" destination="DsS-FR-Luh" id="ukB-7G-bRF"/>
+                        <outlet property="quantityLabel" destination="hDq-J4-bmH" id="nXW-3E-zkt"/>
+                        <outlet property="totalLabel" destination="jKd-d9-GVn" id="5Dj-8Q-qIb"/>
                         <segue destination="e0Y-W4-Paq" kind="showDetail" identifier="ModifyViewController" id="cW9-cj-eCQ"/>
                     </connections>
                 </viewController>
