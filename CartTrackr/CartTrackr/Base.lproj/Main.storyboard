@@ -377,6 +377,7 @@
                         <outlet property="descriptionText" destination="3eF-Kd-Uah" id="b06-lP-yoi"/>
                         <outlet property="priceText" destination="UbD-7U-5JA" id="77C-Rn-aHK"/>
                         <outlet property="quantityText" destination="uZ5-6N-tj1" id="tWU-C0-3nO"/>
+                        <segue destination="BYZ-38-t0r" kind="showDetail" identifier="CartViewController" id="A7E-38-WsP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4sZ-zv-RVb" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -402,4 +403,7 @@
             <point key="canvasLocation" x="920.79999999999995" y="-327.88605697151428"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="A7E-38-WsP"/>
+    </inferredMetricsTieBreakers>
 </document>

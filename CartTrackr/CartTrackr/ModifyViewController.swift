@@ -66,7 +66,7 @@ class ModifyViewController: UIViewController {
 extension ModifyViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if let price = priceText.text, let description = descriptionText.text, let quantity = quantityText.text {
-            let enteredItem = Item(price: price, description: description, quantity: Int(quantity)!)
+            let enteredItem = Item(price: price, description: description, quantity: quantity)
             item = enteredItem
             Cart.shared.addItem(item.price, item.description, item.quantity)
         }

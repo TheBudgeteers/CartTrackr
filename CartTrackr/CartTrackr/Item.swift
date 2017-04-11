@@ -13,17 +13,17 @@ class Item {
     var originalPrice : Float
     var cost : Float
     var description : String
-    var quantity : Int = 1 {
+    var quantity : String {
         didSet {
-            self.cost = (self.originalPrice * Float(self.quantity))
+            self.cost = (self.originalPrice * Float(self.quantity)!)
         }
     }
     
     
-    init(price: String, description: String, quantity: Int) {
+    init(price: String, description: String, quantity: String) {
         self.price = price
-        self.originalPrice = Float(price.format(".2"))!
-        self.cost = (Float(price)! * Float(quantity))
+        self.originalPrice = Float(price)!
+        self.cost = (Float(price)! * Float(quantity)!)
         self.description = description
         self.quantity = quantity
         
@@ -32,7 +32,15 @@ class Item {
 
 //MARK:
 extension String {
-    func format( _ f: String) -> String {
-        return String(format: "%\(f)f", self)
+    func format() -> String {
+        return String(format: "%.2f" , self)
     }
 }
+
+//extension Float {
+//    func formattted( _f: Float) -> String {
+//        let formatter = NumberFormatter()
+//        formatter.numberStyle = NumberFormatter.Style.currency
+//        return formatter.string(from: NSNumber(_f))
+//    }
+//}

@@ -34,8 +34,9 @@ class CartViewController: UIViewController {
 //        self.cartTableView.estimatedRowHeight = 50
 //        self.cartTableView.rowHeight = UITableViewAutomaticDimension
         
-        Cart.shared.addItem("1.99", "RedBull", 2)
-        Cart.shared.addItem("5", "Bread", 1)
+        Cart.shared.addItem("1.99", "RedBull", "2")
+        Cart.shared.addItem("5.00", "Bread", "1")
+        Cart.shared.addItem("2.10", "Candy", "3")
         
         update()
     }
