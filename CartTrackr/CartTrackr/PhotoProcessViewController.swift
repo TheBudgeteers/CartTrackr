@@ -8,8 +8,10 @@
 
 import UIKit
 import SwiftyCam
+import SwiftOCR
 
 class PhotoProcessViewController: UIViewController {
+    let OCR = SwiftOCR()
 
     override var prefersStatusBarHidden: Bool {
         return true
@@ -28,6 +30,11 @@ class PhotoProcessViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let cropped = prepareImageForCrop(using: self.backgroundImage)
+        self.OCR.recognize(cropped) { (recognizedString) in
+            print(recognizedString)
+        }
         
 //Look at viewController in SwiftOCR line 155 to configure this below...
         self.view.backgroundColor = UIColor.gray
@@ -48,6 +55,70 @@ class PhotoProcessViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
 
+    func prepareImageForCrop (using image: UIImage) -> UIImage {
+        let degreesToRadians: (CGFloat) -> CGFloat = {
+            return $0 / 180.0 * CGFloat(Float.pi)
+        }
+        
+        let imageOrientation = image.imageOrientation
+        let degree = image.detectOrientationDegree()
+        let cropSize = CGSize(width: 400, height: 110)
+        
+        //Downscale
+        let cgImage = image.cgImage!
+        
+        let width = cropSize.width
+        let height = image.size.height / image.size.width * cropSize.width
+        
+        let bitsPerComponent = cgImage.bitsPerComponent
+        let bytesPerRow = cgImage.bytesPerRow
+        let colorSpace = cgImage.colorSpace
+        let bitmapInfo = cgImage.bitmapInfo
+        
+        let context = CGContext(data: nil,
+                                width: Int(width),
+                                height: Int(height),
+                                bitsPerComponent: bitsPerComponent,
+                                bytesPerRow: bytesPerRow,
+                                space: colorSpace!,
+                                bitmapInfo: bitmapInfo.rawValue)
+        
+        context!.interpolationQuality = CGInterpolationQuality.none
+        // Rotate the image context
+        context?.rotate(by: degreesToRadians(degree));
+        // Now, draw the rotated/scaled image into the context
+        context?.scaleBy(x: -1.0, y: -1.0)
+        
+        //Crop
+        switch imageOrientation {
+        case .right, .rightMirrored:
+            context?.draw(cgImage, in: CGRect(x: -height, y: 0, width: height, height: width))
+        case .left, .leftMirrored:
+            context?.draw(cgImage, in: CGRect(x: 0, y: -width, width: height, height: width))
+        case .up, .upMirrored:
+            context?.draw(cgImage, in: CGRect(x: 0, y: 0, width: width, height: height))
+        case .down, .downMirrored:
+            context?.draw(cgImage, in: CGRect(x: -width, y: -height, width: width, height: height))
+        }
+        
+        let calculatedFrame = CGRect(x: 0, y: CGFloat((height - cropSize.height)/2.0), width: cropSize.width, height: cropSize.height)
+        let scaledCGImage = context?.makeImage()?.cropping(to: calculatedFrame)
+        
+        
+        return UIImage(cgImage: scaledCGImage!)
+    }
     
 
+}
+
+
+extension UIImage {
+    func detectOrientationDegree () -> CGFloat {
+        switch imageOrientation {
+        case .right, .rightMirrored:    return 90
+        case .left, .leftMirrored:      return -90
+        case .up, .upMirrored:          return 180
+        case .down, .downMirrored:      return 0
+        }
+    }
 }
