@@ -29,9 +29,9 @@ class ManualAddViewController: UIViewController {
         self.quantityText.allowsEditingTextAttributes = true
         
         
-//        self.priceText.text = self.item?.price
-//        self.descriptionText.text = self.item?.description
-//        self.quantityText.text = String(describing: self.item?.quantity)
+        self.priceText.text = "1.99"
+        self.descriptionText.text = "Enter Description"
+        self.quantityText.text = "1"
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
