@@ -71,7 +71,11 @@ extension ModifyViewController: UITextFieldDelegate {
             Cart.shared.addItem(item.price, item.description, item.quantity)
         }
         
-        dismiss(animated: true, completion: nil)
+        self.priceText.resignFirstResponder()
+        self.descriptionText.resignFirstResponder()
+        self.quantityText.resignFirstResponder()
+        
+//        dismiss(animated: true, completion: nil)
         return true
     }
     
