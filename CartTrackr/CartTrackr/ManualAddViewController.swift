@@ -10,6 +10,11 @@ import UIKit
 
 class ManualAddViewController: UIViewController {
 
+    var itemArray : [Item] = []
+    
+    var targetPrice : String!
+
+
     @IBOutlet weak var priceText: UITextField!
     
     @IBOutlet weak var descriptionText: UITextField!
@@ -26,6 +31,8 @@ class ManualAddViewController: UIViewController {
         self.priceText.allowsEditingTextAttributes = true
         self.descriptionText.allowsEditingTextAttributes = true
         self.quantityText.allowsEditingTextAttributes = true
+        
+        print(targetPrice)
         
         
         self.priceText.text = "1.99"
