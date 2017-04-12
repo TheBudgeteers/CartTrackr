@@ -14,7 +14,6 @@ class ManualAddViewController: UIViewController {
     
     var targetPrice : String!
 
-
     @IBOutlet weak var priceText: UITextField!
     
     @IBOutlet weak var descriptionText: UITextField!
@@ -34,10 +33,7 @@ class ManualAddViewController: UIViewController {
         
         print(targetPrice)
         
-        
-        self.priceText.text = "1.99"
-        self.descriptionText.text = "Enter Description"
-        self.quantityText.text = "1"
+        populateTextFields()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -46,6 +42,17 @@ class ManualAddViewController: UIViewController {
         if segue.identifier == CartViewController.identifier {
             guard segue.destination is CartViewController else { return }
         }
+    }
+    
+    func populateTextFields() {
+        if targetPrice != nil {
+            self.priceText.text = targetPrice
+            targetPrice = nil
+        } else {
+            self.priceText.text = "1.99"
+        }
+        self.descriptionText.text = "Enter Description"
+        self.quantityText.text = "1"
     }
     
     @IBAction func goBackButton(_ sender: Any) {
