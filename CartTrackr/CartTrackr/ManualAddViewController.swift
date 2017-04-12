@@ -12,7 +12,7 @@ class ManualAddViewController: UIViewController {
 
     var itemArray : [Item] = []
     
-    var targetPrice : String? {
+    var targetPrice : String? = "" {
         didSet {
             print("in manual add \(String(describing: targetPrice))")
             
@@ -54,11 +54,10 @@ class ManualAddViewController: UIViewController {
     func populateTextFields() {
         if targetPrice != "" {
             self.priceText.text = String(describing: targetPrice!)
-            
         } else {
-            self.priceText.text = "1.99"
+            self.priceText.text = "0.00"
         }
-        self.descriptionText.text = "Enter Description"
+        self.descriptionText.text = "Item"
         self.quantityText.text = "1"
     }
     
