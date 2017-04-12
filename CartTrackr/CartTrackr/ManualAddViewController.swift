@@ -15,9 +15,6 @@ class ManualAddViewController: UIViewController {
     var targetPrice : String? {
         didSet {
             print("in manual add \(String(describing: targetPrice))")
-            if targetPrice != "" {
-                populateTextFields()
-            }
             
         }
     }
@@ -38,8 +35,9 @@ class ManualAddViewController: UIViewController {
         self.priceText.allowsEditingTextAttributes = true
         self.descriptionText.allowsEditingTextAttributes = true
         self.quantityText.allowsEditingTextAttributes = true
-        
-     
+        populateTextFields()
+
+
     }
     
 //    print("in manual add \(String(describing: targetPrice))")
@@ -55,10 +53,8 @@ class ManualAddViewController: UIViewController {
     
     func populateTextFields() {
         if targetPrice != "" {
-            self.priceText.text = targetPrice
-
-            targetPrice = ""
-
+            self.priceText.text = String(describing: targetPrice!)
+            
         } else {
             self.priceText.text = "1.99"
         }
@@ -77,7 +73,7 @@ class ManualAddViewController: UIViewController {
         let quantity = quantityText.text ?? "1"
         Cart.shared.addItem(price, description, quantity)
 
-        targetPrice = nil
+        //targetPrice = nil
 
         self.performSegue(withIdentifier: CartViewController.identifier, sender: nil)
     }
