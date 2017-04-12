@@ -31,16 +31,6 @@ class CartViewController: UIViewController {
         let itemCell = UINib(nibName: "CartItemCell", bundle: nil)
         self.cartTableView.register(itemCell, forCellReuseIdentifier: CartItemCell.identifier)
         
-//        self.cartTableView.estimatedRowHeight = 50
-//        self.cartTableView.rowHeight = UITableViewAutomaticDimension
-
-        
-//        Cart.shared.addItem("1.99", "RedBull", "2")
-//        Cart.shared.addItem("5.00", "Bread", "1")
-//        Cart.shared.addItem("2.10", "Candy", "3")
-
-        
-        
         update()
     }
     
@@ -134,7 +124,7 @@ extension CartViewController : UITableViewDataSource, UITableViewDelegate {
             
             Cart.shared.listItems.remove(at: indexPath.row)
             
-             self.update()
+            self.update()
             self.cartTableView.reloadData()
         }
     }

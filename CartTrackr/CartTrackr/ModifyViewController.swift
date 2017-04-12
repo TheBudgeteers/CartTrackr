@@ -39,6 +39,14 @@ class ModifyViewController: UIViewController {
         self.descriptionText.text = self.item.description
         self.quantityText.text = String(self.item.quantity)
         
+        let tapRecognizer = UITapGestureRecognizer()
+        tapRecognizer.addTarget(self, action: #selector(ModifyViewController.didTapView))
+        self.view.addGestureRecognizer(tapRecognizer)
+        
+    }
+    
+    func didTapView(){
+        self.view.endEditing(true)
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -55,6 +63,13 @@ class ModifyViewController: UIViewController {
     
     
     @IBAction func addToCartButton(_ sender: Any) {
+        if let price = priceText.text, let description = descriptionText.text, let quantity = quantityText.text {
+            item.price = price
+            item.description = description
+            item.quantity = quantity
+            item.cost = (Float(price)! * Float(quantity)!)
+            
+        }
         performSegue(withIdentifier: CartViewController.identifier, sender: nil)
     }
 
@@ -69,13 +84,7 @@ extension ModifyViewController: UITextFieldDelegate {
         print("END")
     }
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if let price = priceText.text, let description = descriptionText.text, let quantity = quantityText.text {
-            item.price = price
-            item.description = description
-            item.quantity = quantity
-            item.cost = (Float(price)! * Float(quantity)!)
-            
-        }
+        
         
         textField.resignFirstResponder()
 
