@@ -30,7 +30,7 @@ class Item {
     }
 }
 
-//MARK:
+//MARK: Format extension
 extension String {
     func format() -> String {
         return String(format: "%.2f" , self)
