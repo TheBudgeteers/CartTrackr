@@ -33,6 +33,9 @@
 		BC944D141E9C4944004015EC /* SwiftOCR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC944D121E9C4944004015EC /* SwiftOCR.framework */; };
 		BC944D161E9C4955004015EC /* GPUImage.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = BC944D111E9C4944004015EC /* GPUImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BC944D171E9C4955004015EC /* SwiftOCR.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = BC944D121E9C4944004015EC /* SwiftOCR.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		BCA511421E9EC8F900A259A8 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCA511411E9EC8F900A259A8 /* CloudKit.framework */; };
+		BCA511441E9ECD9D00A259A8 /* CloudKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA511431E9ECD9D00A259A8 /* CloudKit.swift */; };
+		BCA511461E9ECEFE00A259A8 /* List.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA511451E9ECEFE00A259A8 /* List.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -76,6 +79,10 @@
 		BC944CFB1E9BEBAD004015EC /* OCR.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OCR.swift; sourceTree = "<group>"; };
 		BC944D111E9C4944004015EC /* GPUImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GPUImage.framework; path = Carthage/Build/iOS/GPUImage.framework; sourceTree = "<group>"; };
 		BC944D121E9C4944004015EC /* SwiftOCR.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftOCR.framework; path = Carthage/Build/iOS/SwiftOCR.framework; sourceTree = "<group>"; };
+		BCA511401E9EC8F000A259A8 /* CartTrackr.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CartTrackr.entitlements; sourceTree = "<group>"; };
+		BCA511411E9EC8F900A259A8 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		BCA511431E9ECD9D00A259A8 /* CloudKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudKit.swift; sourceTree = "<group>"; };
+		BCA511451E9ECEFE00A259A8 /* List.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = List.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +91,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BC944D131E9C4944004015EC /* GPUImage.framework in Frameworks */,
+				BCA511421E9EC8F900A259A8 /* CloudKit.framework in Frameworks */,
 				BC944D141E9C4944004015EC /* SwiftOCR.framework in Frameworks */,
 				BC6493B01E9C628200A9FDE7 /* SwiftyCam.framework in Frameworks */,
 			);
@@ -95,6 +103,7 @@
 		71B1EECE1E9C095E00A42678 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BCA511411E9EC8F900A259A8 /* CloudKit.framework */,
 				BC6493AF1E9C628200A9FDE7 /* SwiftyCam.framework */,
 				BC944D111E9C4944004015EC /* GPUImage.framework */,
 				BC944D121E9C4944004015EC /* SwiftOCR.framework */,
@@ -133,6 +142,7 @@
 		BC944CEB1E9BEA36004015EC /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				BCA511451E9ECEFE00A259A8 /* List.swift */,
 				BC944CF91E9BEB50004015EC /* UIExtensions.swift */,
 				BC944CE91E9BEA31004015EC /* Item.swift */,
 				BC944CFB1E9BEBAD004015EC /* OCR.swift */,
@@ -150,6 +160,7 @@
 				BC944CEC1E9BEA61004015EC /* CartViewController.swift */,
 				BC944CF41E9BEAFE004015EC /* CameraViewController.swift */,
 				BC944CF61E9BEB14004015EC /* ModifyViewController.swift */,
+				BCA511431E9ECD9D00A259A8 /* CloudKit.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -169,6 +180,7 @@
 		BC944CF81E9BEB32004015EC /* Supporting */ = {
 			isa = PBXGroup;
 			children = (
+				BCA511401E9EC8F000A259A8 /* CartTrackr.entitlements */,
 				28FD91571E9E8DCE001EE527 /* SwiftOCR.swift */,
 				28ED52681E9E901D00E4152B /* UnionFind.swift */,
 				28ED526A1E9E903B00E4152B /* Extensions.swift */,
@@ -212,8 +224,16 @@
 				TargetAttributes = {
 					BC944CD31E9BE982004015EC = {
 						CreatedOnToolsVersion = 8.3.1;
-						DevelopmentTeam = PQL3EX4TE2;
+						DevelopmentTeam = JW369YLHP8;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -259,10 +279,12 @@
 				BC944CFC1E9BEBAD004015EC /* OCR.swift in Sources */,
 				28ED52691E9E901D00E4152B /* UnionFind.swift in Sources */,
 				71B307941E9BF9F40082F9C0 /* Cart.swift in Sources */,
+				BCA511461E9ECEFE00A259A8 /* List.swift in Sources */,
 				BC944CEA1E9BEA31004015EC /* Item.swift in Sources */,
 				BC944CFA1E9BEB50004015EC /* UIExtensions.swift in Sources */,
 				BC944CF51E9BEAFE004015EC /* CameraViewController.swift in Sources */,
 				BC944CED1E9BEA61004015EC /* CartViewController.swift in Sources */,
+				BCA511441E9ECD9D00A259A8 /* CloudKit.swift in Sources */,
 				BC944CF21E9BEAD8004015EC /* CartItemCell.swift in Sources */,
 				28FD91581E9E8DCE001EE527 /* SwiftOCR.swift in Sources */,
 				28ED526B1E9E903B00E4152B /* Extensions.swift in Sources */,
@@ -394,14 +416,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = PQL3EX4TE2;
+				CODE_SIGN_ENTITLEMENTS = CartTrackr/CartTrackr.entitlements;
+				DEVELOPMENT_TEAM = JW369YLHP8;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = CartTrackr/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.christinalee.CartTrackr;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.christina-lee.CartTrackr";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -411,14 +434,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = PQL3EX4TE2;
+				CODE_SIGN_ENTITLEMENTS = CartTrackr/CartTrackr.entitlements;
+				DEVELOPMENT_TEAM = JW369YLHP8;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = CartTrackr/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.christinalee.CartTrackr;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.christina-lee.CartTrackr";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
