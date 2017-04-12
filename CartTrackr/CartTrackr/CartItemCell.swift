@@ -18,7 +18,7 @@ class CartItemCell: UITableViewCell {
     
     var item: Item! {
         didSet {
-            self.priceLabel.text = "$\(String(item.originalPrice))"
+            self.priceLabel.text = "$\(String(describing: String(item.price)))"
             self.descriptionLabel.text = item.description
             self.quantityLabel.text = String(item.quantity)
         }

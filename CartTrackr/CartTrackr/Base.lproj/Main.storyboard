@@ -397,6 +397,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <segue destination="gFM-5B-4AB" kind="showDetail" identifier="ManualAddViewController" id="si9-Tc-zS4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5hG-nX-hH7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -405,5 +408,6 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="A7E-38-WsP"/>
+        <segue reference="si9-Tc-zS4"/>
     </inferredMetricsTieBreakers>
 </document>

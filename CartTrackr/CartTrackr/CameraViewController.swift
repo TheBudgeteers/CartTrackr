@@ -18,6 +18,7 @@ class CameraViewController: SwiftyCamViewController {
     var flipCameraButton: UIButton!
     var flashButton: UIButton!
     var captureButton: CameraButtonView!
+    var priceString: String? = ""
     
     @IBOutlet weak var cameraViewTopBorder: UIView!
     @IBOutlet weak var cameraViewBottomBorder: UIView!
@@ -45,11 +46,16 @@ class CameraViewController: SwiftyCamViewController {
         super.viewDidAppear(animated)
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == ManualAddViewController.identifier {
+            guard let destinationController = segue.destination as? ManualAddViewController else { return }
+            destinationController.targetPrice = priceString
+        }
+    }
+    
     func swiftyCam(_ swiftyCam: SwiftyCamViewController, didTake photo: UIImage) {
-
-        let newVC = PhotoProcessViewController(image: photo)
-        
-        self.present(newVC, animated: true, completion: nil)
+        priceString = OCRProcess.shared.process(targetImage: photo)
+        self.performSegue(withIdentifier: ManualAddViewController.identifier, sender: nil)
     }
     
     func swiftyCam(_ swiftyCam: SwiftyCamViewController, didFocusAtPoint point: CGPoint) {

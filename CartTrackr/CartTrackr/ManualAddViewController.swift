@@ -9,7 +9,11 @@
 import UIKit
 
 class ManualAddViewController: UIViewController {
+
     var itemArray : [Item] = []
+    
+    var targetPrice : String!
+
 
     @IBOutlet weak var priceText: UITextField!
     
@@ -28,10 +32,12 @@ class ManualAddViewController: UIViewController {
         self.descriptionText.allowsEditingTextAttributes = true
         self.quantityText.allowsEditingTextAttributes = true
         
+        print(targetPrice)
         
-//        self.priceText.text = self.item?.price
-//        self.descriptionText.text = self.item?.description
-//        self.quantityText.text = String(describing: self.item?.quantity)
+        
+        self.priceText.text = "1.99"
+        self.descriptionText.text = "Enter Description"
+        self.quantityText.text = "1"
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -49,11 +55,12 @@ class ManualAddViewController: UIViewController {
     
 
     @IBAction func addToCartButton(_ sender: Any) {
-        let price = itemArray[0].price
-        let description = itemArray[0].description
-        let quantity = itemArray[0].quantity
+        
+        let price = priceText.text ?? "1.99"
+        let description = descriptionText.text ?? "Enter Description"
+        let quantity = quantityText.text ?? "1"
         Cart.shared.addItem(price, description, quantity)
-        itemArray.removeAll()
+
         self.performSegue(withIdentifier: CartViewController.identifier, sender: nil)
     }
 }
@@ -61,14 +68,29 @@ class ManualAddViewController: UIViewController {
 //MARK: UITextFieldDelegate
 extension ManualAddViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        let price = priceText.text
-        let description = descriptionText.text
-        let quantity = quantityText.text
-        let item = Item(price: price!, description: description!, quantity: quantity!)
-            
-        itemArray.append(item)
+        
+        self.priceText.resignFirstResponder()
+        self.descriptionText.resignFirstResponder()
         self.quantityText.resignFirstResponder()
+        
         return true
+        
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        switch textField {
+        case priceText:
+            priceText.selectedTextRange = priceText.textRange(from: priceText.beginningOfDocument, to: priceText.endOfDocument)
+            break;
+        case descriptionText:
+            descriptionText.selectedTextRange = descriptionText.textRange(from: descriptionText.beginningOfDocument, to: descriptionText.endOfDocument)
+            break;
+        case quantityText:
+            quantityText.selectedTextRange = quantityText.textRange(from: quantityText.beginningOfDocument, to: quantityText.endOfDocument)
+            break;
+        default:
+            break;
+        }
     }
 }
 
