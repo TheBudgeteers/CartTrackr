@@ -40,7 +40,7 @@ class ModifyViewController: UIViewController {
         self.quantityText.text = String(self.item.quantity)
         
     }
-    
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
         
@@ -64,16 +64,21 @@ class ModifyViewController: UIViewController {
 
 //MARK: UITextFieldDelegate
 extension ModifyViewController: UITextFieldDelegate {
+    
+    func textFieldDidEndEditing(_ textField: UITextField, reason: UITextFieldDidEndEditingReason) {
+        print("END")
+    }
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if let price = priceText.text, let description = descriptionText.text, let quantity = quantityText.text {
-            let enteredItem = Item(price: price, description: description, quantity: quantity)
-            item = enteredItem
-            Cart.shared.addItem(item.price, item.description, item.quantity)
+            item.price = price
+            item.description = description
+            item.quantity = quantity
+            item.cost = (Float(price)! * Float(quantity)!)
+            
         }
         
-        self.priceText.resignFirstResponder()
-        self.descriptionText.resignFirstResponder()
-        self.quantityText.resignFirstResponder()
+        textField.resignFirstResponder()
+
         
 //        dismiss(animated: true, completion: nil)
         return true

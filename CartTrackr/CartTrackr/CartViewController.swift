@@ -41,6 +41,11 @@ class CartViewController: UIViewController {
         update()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        update()
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
         
@@ -55,6 +60,8 @@ class CartViewController: UIViewController {
                 guard let destinationController = segue.destination as? ModifyViewController else { return }
                 
                 destinationController.item = selectedItem
+
+                
             }
             
         }
@@ -68,6 +75,7 @@ class CartViewController: UIViewController {
         self.preTaxTotalLabel.text = "PreTax: $\(String(Cart.shared.totalPrice()))"
         self.totalLabel.text = "Total: $\(String(Cart.shared.totalTax()))"
         self.quantityLabel.text = "#: \(Cart.shared.totalQuantity())"
+        self.cartTableView.reloadData()
     }
     
     @IBAction func SaveButton(_ sender: Any) {
