@@ -14,7 +14,11 @@ class ManualAddViewController: UIViewController {
     
     var targetPrice : String? {
         didSet {
-            populateTextFields()
+            print("in manual add \(String(describing: targetPrice))")
+            if targetPrice != "" {
+                populateTextFields()
+            }
+            
         }
     }
     
@@ -38,11 +42,8 @@ class ManualAddViewController: UIViewController {
      
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        print("in manual add \(String(describing: targetPrice))")
-        populateTextFields()
-
-    }
+//    print("in manual add \(String(describing: targetPrice))")
+//    populateTextFields()
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
