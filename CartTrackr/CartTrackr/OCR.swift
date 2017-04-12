@@ -22,12 +22,12 @@ class OCRProcess {
         var priceString : String = ""
         OCR.recognize(cropped) { (recognizedString) in
             print(recognizedString)
-            priceString = recognizedString
-            guard let dollars = recognizedString.components(separatedBy: "I").first?.components(separatedBy: "S").last else { return }
-            guard let cents = recognizedString.components(separatedBy: "I").last else { return }
-
-            priceString = "\(String(describing: dollars)).\(String(describing: cents))"
-            print(priceString)
+//            priceString = recognizedString
+//            guard let dollars = recognizedString.components(separatedBy: "I").first?.components(separatedBy: "S").last else { return }
+//            guard let cents = recognizedString.components(separatedBy: "I").last else { return }
+//
+//            priceString = "\(String(describing: dollars)).\(String(describing: cents))"
+//            print(priceString)
         }
         
         return priceString
