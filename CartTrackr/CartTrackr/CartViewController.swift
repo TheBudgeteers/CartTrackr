@@ -9,11 +9,6 @@
 import UIKit
 
 class CartViewController: UIViewController {
-    var activeCart = Cart.shared.listItems {
-        didSet {
-            self.cartTableView.reloadData()
-        }
-    }
 
     @IBOutlet weak var cartTableView: UITableView!
 
@@ -23,20 +18,28 @@ class CartViewController: UIViewController {
     
     @IBOutlet weak var quantityLabel: UILabel!
    
+    var activeCart = Cart.shared.listItems
+    
+//    var deleteCellIndexPath: NSIndexPath? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.cartTableView.dataSource = self
         self.cartTableView.delegate = self
         
         let itemCell = UINib(nibName: "CartItemCell", bundle: nil)
         self.cartTableView.register(itemCell, forCellReuseIdentifier: CartItemCell.identifier)
+        
 //        self.cartTableView.estimatedRowHeight = 50
 //        self.cartTableView.rowHeight = UITableViewAutomaticDimension
+
         
 //        Cart.shared.addItem("1.99", "RedBull", "2")
 //        Cart.shared.addItem("5.00", "Bread", "1")
 //        Cart.shared.addItem("2.10", "Candy", "3")
+
+        
         
         update()
     }
@@ -75,14 +78,20 @@ class CartViewController: UIViewController {
         self.preTaxTotalLabel.text = "PreTax: $\(String(Cart.shared.totalPrice()))"
         self.totalLabel.text = "Total: $\(String(Cart.shared.totalTax()))"
         self.quantityLabel.text = "#: \(Cart.shared.totalQuantity())"
+
+        self.activeCart = Cart.shared.listItems
+
         self.cartTableView.reloadData()
     }
     
     @IBAction func SaveButton(_ sender: Any) {
+        self.update()
+        print(self.activeCart)
     }
 
     @IBAction func AddManualButton(_ sender: Any) {
         self.performSegue(withIdentifier: ManualAddViewController.identifier, sender: nil)
+        
     }
     
     @IBAction func AddCameraButton(_ sender: Any) {
@@ -90,6 +99,8 @@ class CartViewController: UIViewController {
     }
     
     @IBAction func NewListButton(_ sender: Any) {
+        Cart.shared.removeAllItems()
+        self.update()
     }
 
 }
@@ -97,7 +108,7 @@ class CartViewController: UIViewController {
 //MARK: UITableViewDataSource UITableViewDelegate
 extension CartViewController : UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return Cart.shared.listItems.count
+        return self.activeCart.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -109,5 +120,26 @@ extension CartViewController : UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.performSegue(withIdentifier: ModifyViewController.identifier, sender: nil)
     }
-    
+
+//    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: IndexPath) {
+//        if editingStyle == .delete {
+//            deleteCellIndexPath = indexPath as NSIndexPath
+//            let cellToDelete = Cart.shared.listItems[indexPath.row]
+//            handleDeleteCell(cellToDelete: [[String : String]])
+//        }
+//    }
+//    
+//    func handleDeleteCell(cellToDelete:[String : String]) -> Void {
+//        if let indexPath = deleteCellIndexPath {
+//            
+//            Cart.shared.listItems.remove(at: indexPath.row)
+//            
+//            // Note that indexPath is wrapped in an array:  [indexPath]
+//            self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+//            
+//            deleteCellIndexPath = nil
+//            
+//            self.tableView.endUpdates()
+//        }
+//    }
 }

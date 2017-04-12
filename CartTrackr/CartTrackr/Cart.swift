@@ -9,6 +9,7 @@
 import Foundation
 
 class Cart {
+    
     var listItems = [Item]()
     
     static let shared = Cart()
@@ -19,6 +20,7 @@ class Cart {
     
     func addItem(_ price: String,_ description: String,_ quantity: String) {
         self.listItems.append(Item.init(price: price, description: description, quantity: quantity))
+        print(self.listItems)
     }
     
     func removeItem(_ index: Int) {
