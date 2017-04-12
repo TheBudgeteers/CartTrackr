@@ -35,7 +35,7 @@
 		BC944D171E9C4955004015EC /* SwiftOCR.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = BC944D121E9C4944004015EC /* SwiftOCR.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BCA511421E9EC8F900A259A8 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCA511411E9EC8F900A259A8 /* CloudKit.framework */; };
 		BCA511441E9ECD9D00A259A8 /* CloudKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA511431E9ECD9D00A259A8 /* CloudKit.swift */; };
-		BCA511461E9ECEFE00A259A8 /* List.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA511451E9ECEFE00A259A8 /* List.swift */; };
+		BCA511481E9ED7EC00A259A8 /* PostItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA511471E9ED7EC00A259A8 /* PostItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -82,7 +82,7 @@
 		BCA511401E9EC8F000A259A8 /* CartTrackr.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CartTrackr.entitlements; sourceTree = "<group>"; };
 		BCA511411E9EC8F900A259A8 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		BCA511431E9ECD9D00A259A8 /* CloudKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudKit.swift; sourceTree = "<group>"; };
-		BCA511451E9ECEFE00A259A8 /* List.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = List.swift; sourceTree = "<group>"; };
+		BCA511471E9ED7EC00A259A8 /* PostItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +114,7 @@
 		BC944CCB1E9BE982004015EC = {
 			isa = PBXGroup;
 			children = (
+				BCA511471E9ED7EC00A259A8 /* PostItem.swift */,
 				BC944CD61E9BE982004015EC /* CartTrackr */,
 				BC944CD51E9BE982004015EC /* Products */,
 				71B1EECE1E9C095E00A42678 /* Frameworks */,
@@ -142,7 +143,6 @@
 		BC944CEB1E9BEA36004015EC /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				BCA511451E9ECEFE00A259A8 /* List.swift */,
 				BC944CF91E9BEB50004015EC /* UIExtensions.swift */,
 				BC944CE91E9BEA31004015EC /* Item.swift */,
 				BC944CFB1E9BEBAD004015EC /* OCR.swift */,
@@ -277,9 +277,9 @@
 			files = (
 				286A79361E9C64C5006DE32B /* PhotoProcessViewController.swift in Sources */,
 				BC944CFC1E9BEBAD004015EC /* OCR.swift in Sources */,
+				BCA511481E9ED7EC00A259A8 /* PostItem.swift in Sources */,
 				28ED52691E9E901D00E4152B /* UnionFind.swift in Sources */,
 				71B307941E9BF9F40082F9C0 /* Cart.swift in Sources */,
-				BCA511461E9ECEFE00A259A8 /* List.swift in Sources */,
 				BC944CEA1E9BEA31004015EC /* Item.swift in Sources */,
 				BC944CFA1E9BEB50004015EC /* UIExtensions.swift in Sources */,
 				BC944CF51E9BEAFE004015EC /* CameraViewController.swift in Sources */,
