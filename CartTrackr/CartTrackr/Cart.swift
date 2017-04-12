@@ -18,6 +18,7 @@ class Cart {
         
     }
     
+    //add and remove class methods
     func addItem(_ price: String,_ description: String,_ quantity: String) {
         self.listItems.append(Item.init(price: price, description: description, quantity: quantity))
         print(self.listItems)
@@ -31,6 +32,7 @@ class Cart {
         self.listItems.removeAll()
     }
     
+    //methods for totals drawn from singleton listItems
     func totalPrice() -> Float {
         var total : Float = 0.00
         
