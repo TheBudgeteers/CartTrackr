@@ -8,7 +8,7 @@
 
 import UIKit
 import SwiftyCam
-import SwiftOCR
+//import SwiftOCR 
 
 class OCRProcess {
     let OCR = SwiftOCR()
@@ -22,7 +22,7 @@ class OCRProcess {
         var priceString : String = ""
         OCR.recognize(cropped) { (recognizedString) in
             print(recognizedString)
-//            priceString = recognizedString
+            priceString = recognizedString            
 //            guard let dollars = recognizedString.components(separatedBy: "I").first?.components(separatedBy: "S").last else { return }
 //            guard let cents = recognizedString.components(separatedBy: "I").last else { return }
 //

@@ -50,6 +50,7 @@ class CameraViewController: SwiftyCamViewController {
         if segue.identifier == ManualAddViewController.identifier {
             guard let destinationController = segue.destination as? ManualAddViewController else { return }
             destinationController.targetPrice = priceString
+            print(priceString ?? "this is what shows up when there is no image string")            
         }
     }
     
