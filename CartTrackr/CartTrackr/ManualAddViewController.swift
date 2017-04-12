@@ -45,9 +45,9 @@ class ManualAddViewController: UIViewController {
     }
     
     func populateTextFields() {
-        if targetPrice != nil {
+        if targetPrice != "" {
             self.priceText.text = targetPrice
-            targetPrice = nil
+            targetPrice = ""
         } else {
             self.priceText.text = "1.99"
         }
@@ -76,9 +76,7 @@ class ManualAddViewController: UIViewController {
 extension ManualAddViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         
-        self.priceText.resignFirstResponder()
-        self.descriptionText.resignFirstResponder()
-        self.quantityText.resignFirstResponder()
+        textField.resignFirstResponder()
         
         return true
         
