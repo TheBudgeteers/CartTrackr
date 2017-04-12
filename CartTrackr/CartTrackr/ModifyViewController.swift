@@ -40,7 +40,7 @@ class ModifyViewController: UIViewController {
         self.quantityText.text = String(self.item.quantity)
         
     }
-    
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
         
@@ -64,15 +64,40 @@ class ModifyViewController: UIViewController {
 
 //MARK: UITextFieldDelegate
 extension ModifyViewController: UITextFieldDelegate {
+    
+    func textFieldDidEndEditing(_ textField: UITextField, reason: UITextFieldDidEndEditingReason) {
+        print("END")
+    }
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if let price = priceText.text, let description = descriptionText.text, let quantity = quantityText.text {
-            let enteredItem = Item(price: price, description: description, quantity: quantity)
-            item = enteredItem
-            Cart.shared.addItem(item.price, item.description, item.quantity)
+            item.price = price
+            item.description = description
+            item.quantity = quantity
+            item.cost = (Float(price)! * Float(quantity)!)
+            
         }
         
-        dismiss(animated: true, completion: nil)
+        textField.resignFirstResponder()
+
+        
+//        dismiss(animated: true, completion: nil)
         return true
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        switch textField {
+        case priceText:
+            priceText.selectedTextRange = priceText.textRange(from: priceText.beginningOfDocument, to: priceText.endOfDocument)
+            break;
+        case descriptionText:
+            descriptionText.selectedTextRange = descriptionText.textRange(from: descriptionText.beginningOfDocument, to: descriptionText.endOfDocument)
+            break;
+        case quantityText:
+            quantityText.selectedTextRange = quantityText.textRange(from: quantityText.beginningOfDocument, to: quantityText.endOfDocument)
+            break;
+        default:
+            break;
+        }
     }
 }
 
