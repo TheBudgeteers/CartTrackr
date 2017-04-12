@@ -20,10 +20,10 @@ class CameraViewController: SwiftyCamViewController {
     var captureButton: CameraButtonView!
     var priceString: String? {
         didSet {
-            if priceString != "" {
+            OperationQueue.main.addOperation {
                 self.performSegue(withIdentifier: ManualAddViewController.identifier, sender: nil)
+
             }
-    
         }
     }
     
@@ -65,15 +65,13 @@ class CameraViewController: SwiftyCamViewController {
     }
     
     func swiftyCam(_ swiftyCam: SwiftyCamViewController, didTake photo: UIImage) {
-        OperationQueue.main.addOperation {
-            let proccessed = OCRProcess.shared.process(targetImage: photo)
-            print(proccessed)
-            if proccessed != "" {
-                self.priceString = proccessed
-                print("camera controller\(String(describing: self.priceString))")
-            }
-        }
-        
+    
+        OCRProcess.shared.process(targetImage: photo, callback: { (priceString) in
+            self.priceString = priceString
+            print("camera controller\(String(describing: self.priceString))")
+
+        })
+
     }
     
     func swiftyCam(_ swiftyCam: SwiftyCamViewController, didFocusAtPoint point: CGPoint) {
