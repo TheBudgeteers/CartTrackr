@@ -20,7 +20,7 @@ class CartViewController: UIViewController {
    
     var activeCart = Cart.shared.listItems
     
-//    var deleteCellIndexPath: NSIndexPath? = nil
+    var deleteCellIndexPath: IndexPath? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -108,7 +108,7 @@ class CartViewController: UIViewController {
 //MARK: UITableViewDataSource UITableViewDelegate
 extension CartViewController : UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.activeCart.count
+        return Cart.shared.listItems.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -121,25 +121,21 @@ extension CartViewController : UITableViewDataSource, UITableViewDelegate {
         self.performSegue(withIdentifier: ModifyViewController.identifier, sender: nil)
     }
 
-//    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: IndexPath) {
-//        if editingStyle == .delete {
-//            deleteCellIndexPath = indexPath as NSIndexPath
-//            let cellToDelete = Cart.shared.listItems[indexPath.row]
-//            handleDeleteCell(cellToDelete: [[String : String]])
-//        }
-//    }
-//    
-//    func handleDeleteCell(cellToDelete:[String : String]) -> Void {
-//        if let indexPath = deleteCellIndexPath {
-//            
-//            Cart.shared.listItems.remove(at: indexPath.row)
-//            
-//            // Note that indexPath is wrapped in an array:  [indexPath]
-//            self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
-//            
-//            deleteCellIndexPath = nil
-//            
-//            self.tableView.endUpdates()
-//        }
-//    }
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            deleteCellIndexPath = indexPath
+            let cellToDelete = Cart.shared.listItems[indexPath.row]
+            handleDeleteCell(cellToDelete: cellToDelete)
+        }
+    }
+    
+    func handleDeleteCell(cellToDelete: Item) -> Void {
+        if let indexPath = deleteCellIndexPath {
+            
+            Cart.shared.listItems.remove(at: indexPath.row)
+            
+             self.update()
+            self.cartTableView.reloadData()
+        }
+    }
 }
