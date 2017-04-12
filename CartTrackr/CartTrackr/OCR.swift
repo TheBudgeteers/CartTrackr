@@ -8,7 +8,7 @@
 
 import UIKit
 import SwiftyCam
-import SwiftOCR
+//import SwiftOCR 
 
 class OCRProcess {
     let OCR = SwiftOCR()
@@ -20,6 +20,7 @@ class OCRProcess {
     func process(targetImage: UIImage) -> String {
         let cropped = prepareImageForCrop(using: targetImage)
         var priceString : String = ""
+
         OperationQueue.main.addOperation {
             self.OCR.recognize(cropped) { (recognizedString) in
                 
@@ -32,7 +33,7 @@ class OCRProcess {
                 print(priceString)
                 
             }
-            
+
         }
         print("before return\(priceString)")
         return priceString

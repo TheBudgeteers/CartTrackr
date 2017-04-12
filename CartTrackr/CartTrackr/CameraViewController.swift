@@ -57,8 +57,10 @@ class CameraViewController: SwiftyCamViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == ManualAddViewController.identifier {
             guard let destinationController = segue.destination as? ManualAddViewController else { return }
+
             print("inside segue prepare \(String(describing: self.priceString))")
             destinationController.targetPrice = self.priceString
+
         }
     }
     

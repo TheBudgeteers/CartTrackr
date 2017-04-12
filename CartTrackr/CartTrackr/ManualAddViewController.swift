@@ -76,6 +76,7 @@ class ManualAddViewController: UIViewController {
         let description = descriptionText.text ?? "Enter Description"
         let quantity = quantityText.text ?? "1"
         Cart.shared.addItem(price, description, quantity)
+
         targetPrice = nil
 
         self.performSegue(withIdentifier: CartViewController.identifier, sender: nil)
