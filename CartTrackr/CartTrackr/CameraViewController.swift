@@ -18,7 +18,14 @@ class CameraViewController: SwiftyCamViewController {
     var flipCameraButton: UIButton!
     var flashButton: UIButton!
     var captureButton: CameraButtonView!
-    var priceString: String? = ""
+    var priceString: String? {
+        didSet {
+            if priceString != "" {
+                self.performSegue(withIdentifier: ManualAddViewController.identifier, sender: nil)
+            }
+    
+        }
+    }
     
     @IBOutlet weak var cameraViewTopBorder: UIView!
     @IBOutlet weak var cameraViewBottomBorder: UIView!
@@ -38,6 +45,7 @@ class CameraViewController: SwiftyCamViewController {
         addButtons()
 
     }
+    
     override var prefersStatusBarHidden: Bool {
         return true
     }
@@ -49,13 +57,21 @@ class CameraViewController: SwiftyCamViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == ManualAddViewController.identifier {
             guard let destinationController = segue.destination as? ManualAddViewController else { return }
-            destinationController.targetPrice = priceString
+            print("inside segue prepare \(String(describing: self.priceString))")
+            destinationController.targetPrice = self.priceString
         }
     }
     
     func swiftyCam(_ swiftyCam: SwiftyCamViewController, didTake photo: UIImage) {
-        priceString = OCRProcess.shared.process(targetImage: photo)
-        self.performSegue(withIdentifier: ManualAddViewController.identifier, sender: nil)
+        OperationQueue.main.addOperation {
+            let proccessed = OCRProcess.shared.process(targetImage: photo)
+            print(proccessed)
+            if proccessed != "" {
+                self.priceString = proccessed
+                print("camera controller\(String(describing: self.priceString))")
+            }
+        }
+        
     }
     
     func swiftyCam(_ swiftyCam: SwiftyCamViewController, didFocusAtPoint point: CGPoint) {

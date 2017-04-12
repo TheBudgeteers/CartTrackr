@@ -12,8 +12,16 @@ class ManualAddViewController: UIViewController {
 
     var itemArray : [Item] = []
     
-    var targetPrice : String!
-
+    var targetPrice : String? {
+        didSet {
+            print("in manual add \(String(describing: targetPrice))")
+            if targetPrice != "" {
+                populateTextFields()
+            }
+            
+        }
+    }
+    
     @IBOutlet weak var priceText: UITextField!
     
     @IBOutlet weak var descriptionText: UITextField!
@@ -31,10 +39,11 @@ class ManualAddViewController: UIViewController {
         self.descriptionText.allowsEditingTextAttributes = true
         self.quantityText.allowsEditingTextAttributes = true
         
-        print(targetPrice)
-        
-        populateTextFields()
+     
     }
+    
+//    print("in manual add \(String(describing: targetPrice))")
+//    populateTextFields()
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
@@ -47,7 +56,7 @@ class ManualAddViewController: UIViewController {
     func populateTextFields() {
         if targetPrice != nil {
             self.priceText.text = targetPrice
-            targetPrice = nil
+            
         } else {
             self.priceText.text = "1.99"
         }
@@ -57,9 +66,7 @@ class ManualAddViewController: UIViewController {
     
     @IBAction func goBackButton(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
-
     }
-    
 
     @IBAction func addToCartButton(_ sender: Any) {
         
@@ -67,6 +74,7 @@ class ManualAddViewController: UIViewController {
         let description = descriptionText.text ?? "Enter Description"
         let quantity = quantityText.text ?? "1"
         Cart.shared.addItem(price, description, quantity)
+        targetPrice = nil
 
         self.performSegue(withIdentifier: CartViewController.identifier, sender: nil)
     }
