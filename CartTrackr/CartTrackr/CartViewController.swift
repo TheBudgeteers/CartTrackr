@@ -24,7 +24,7 @@ class CartViewController: UIViewController {
     
     var deleteCellIndexPath: IndexPath? = nil
     
-    var stuff : String?
+    var userBudgetSet : String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -110,6 +110,9 @@ class CartViewController: UIViewController {
         popupView.backgroundColor = UIColor.white
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
+        
+        
+        
         let textField = UITextField(frame: CGRect(x: viewWidth/24, y: viewHeight/8, width: viewWidth-100
             , height: 60.0))
         textField.placeholder = "\(Budget.shared.budgetMax ?? "0.00")"
@@ -118,12 +121,22 @@ class CartViewController: UIViewController {
         textField.autocorrectionType = UITextAutocorrectionType.yes
         textField.keyboardType = UIKeyboardType.decimalPad
         textField.returnKeyType = UIReturnKeyType.done
-//        textField.keyboardAppearance = UIK
         textField.clearButtonMode = UITextFieldViewMode.whileEditing;
         textField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
         textField.contentVerticalAlignment = UIControlContentVerticalAlignment.center
         textField.delegate = self as? UITextFieldDelegate
         popupView.addSubview(textField)
+        
+        let budgetText: UILabel = UILabel()
+        budgetText.frame = CGRect(x: viewWidth/5, y: viewHeight/25, width: viewWidth/2, height: 30)
+        budgetText.font = UIFont(name: "AppleSDGothicNeo-Bold", size: 35.0)
+        let mainBlueColor = self.hexStringToUIColor(hex: "#044389")
+        budgetText.textColor = mainBlueColor
+        budgetText.backgroundColor = UIColor.white
+        budgetText.numberOfLines = 1
+        budgetText.text = "Set Budget"
+        
+        popupView.addSubview(budgetText)
         
         //Draws close button on the pop up
         let cancelButton = UIButton(frame: CGRect(x: 10.0, y: 10.0, width: 30.0, height: 30.0))
@@ -134,7 +147,8 @@ class CartViewController: UIViewController {
         //Draws Done button
         let done = UIButton(frame: CGRect(x: viewWidth/24, y: viewHeight/4, width: viewWidth-100
             , height: 60.0))
-        done.backgroundColor = UIColor.green
+        let customGreen = self.hexStringToUIColor(hex: "#53b44c")
+        done.backgroundColor = customGreen
         done.layer.cornerRadius = 8
         done.setTitle("Done", for: .normal)
         done.setTitleColor(UIColor.white, for: .normal)
@@ -149,7 +163,7 @@ class CartViewController: UIViewController {
     //write the logic part here for the budget to match the max
 //    has a an observer for changed text on line 95
     func textFieldDidChange(_ textField: UITextField){
-        stuff = textField.text!
+        userBudgetSet = textField.text!
     }
     func dismissKeyboard(){
         view.endEditing(true)
@@ -161,7 +175,7 @@ class CartViewController: UIViewController {
     
     func touchClose() {
 
-        Budget.shared.budgetMax = stuff
+        Budget.shared.budgetMax = userBudgetSet
         dismissPopupView()
         update()
 
