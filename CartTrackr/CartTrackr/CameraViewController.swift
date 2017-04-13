@@ -136,12 +136,12 @@ class CameraViewController: SwiftyCamViewController {
     private func addButtons() {
         drawBorder()
         let cancelButton = UIButton(frame: CGRect(x: 10.0, y: 10.0, width: 30.0, height: 30.0))
-        cancelButton.setImage(#imageLiteral(resourceName: "cancel"), for: UIControlState())
+        cancelButton.setImage(#imageLiteral(resourceName: "cancel-1"), for: UIControlState())
         cancelButton.addTarget(self, action: #selector(cancel), for: .touchUpInside)
         view.addSubview(cancelButton)
         
         captureButton = CameraButtonView(frame: CGRect(x: view.frame.midX - 37.5, y: view.frame.height - 100.0, width: 75.0, height: 75.0))
-        captureButton.setImage(#imageLiteral(resourceName: "cartPic"), for: UIControlState())
+        captureButton.setImage(#imageLiteral(resourceName: "Camera_Icon"), for: UIControlState())
         
         self.view.addSubview(captureButton)
         
@@ -200,4 +200,3 @@ extension CameraViewController: SwiftyCamViewControllerDelegate{
     
 
 }
-
