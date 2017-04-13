@@ -46,7 +46,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="htl-Fp-ncZ" secondAttribute="height" multiplier="1:1" id="iEA-CV-Hwd"/>
                                 </constraints>
-                                <state key="normal" title="SAVE" image="save"/>
+                                <state key="normal" title="SAVE" image="max2"/>
                                 <connections>
                                     <action selector="SetBudget:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0rs-rk-Pyb"/>
                                 </connections>
@@ -96,20 +96,16 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="43A-8c-STt">
-                                <rect key="frame" x="0.0" y="604" width="363" height="31"/>
+                                <rect key="frame" x="0.0" y="620" width="414" height="15"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="31" id="1q0-q9-3iJ"/>
+                                    <constraint firstAttribute="height" constant="15" id="1q0-q9-3iJ"/>
                                 </constraints>
-                                <color key="progressTintColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="trackTintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="progressTintColor" red="0.58039215686274503" green="0.85098039215686272" blue="0.96862745098039216" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="trackTintColor" red="0.9882352941176471" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </progressView>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cRf-jW-eN8">
-                                <rect key="frame" x="365" y="604" width="51" height="31"/>
-                            </switch>
                         </subviews>
                         <color key="backgroundColor" red="0.015686274510000001" green="0.26274509800000001" blue="0.53725490200000003" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="cRf-jW-eN8" secondAttribute="trailing" id="0ba-io-zWR"/>
                             <constraint firstItem="vVm-qj-pVi" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="23O-Pg-AHW"/>
                             <constraint firstItem="Ds0-ls-De1" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="26k-gb-WRg"/>
                             <constraint firstItem="DsS-FR-Luh" firstAttribute="top" secondItem="vVm-qj-pVi" secondAttribute="bottom" constant="15" id="31S-kU-lgX"/>
@@ -117,17 +113,15 @@
                             <constraint firstItem="SiG-08-yqa" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.1" id="4IY-eu-UbT"/>
                             <constraint firstItem="DsS-FR-Luh" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="10" id="627-oD-G8t"/>
                             <constraint firstItem="jKd-d9-GVn" firstAttribute="leading" secondItem="DsS-FR-Luh" secondAttribute="trailing" constant="10" id="77B-dI-sIu"/>
-                            <constraint firstItem="cRf-jW-eN8" firstAttribute="leading" secondItem="43A-8c-STt" secondAttribute="trailing" constant="2" id="89Y-1a-Rsx"/>
                             <constraint firstItem="WS1-G3-TqX" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="50" id="Cvk-gd-f1Z"/>
                             <constraint firstAttribute="trailing" secondItem="hDq-J4-bmH" secondAttribute="trailing" constant="10" id="FqR-4i-qE1"/>
                             <constraint firstItem="vVm-qj-pVi" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="HNX-e4-XZh"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="htl-Fp-ncZ" secondAttribute="bottom" constant="10" id="Les-H0-Tdj"/>
                             <constraint firstAttribute="trailing" secondItem="SiG-08-yqa" secondAttribute="trailing" constant="25" id="Lmn-2Y-dL3"/>
-                            <constraint firstItem="hDq-J4-bmH" firstAttribute="top" secondItem="cRf-jW-eN8" secondAttribute="bottom" constant="15" id="MKd-4H-hGS"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="N1R-7h-034" secondAttribute="bottom" constant="10" id="MxG-ai-sQJ"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="SiG-08-yqa" secondAttribute="bottom" constant="10" id="Owz-fY-7V4"/>
                             <constraint firstItem="N1R-7h-034" firstAttribute="top" secondItem="DsS-FR-Luh" secondAttribute="bottom" constant="10" id="PAD-pD-uBu"/>
-                            <constraint firstAttribute="trailing" secondItem="43A-8c-STt" secondAttribute="trailing" constant="51" id="QTw-tp-erd"/>
+                            <constraint firstAttribute="trailing" secondItem="43A-8c-STt" secondAttribute="trailing" id="QTw-tp-erd"/>
                             <constraint firstItem="Ds0-ls-De1" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="R37-1f-NGl"/>
                             <constraint firstItem="vVm-qj-pVi" firstAttribute="top" secondItem="Ds0-ls-De1" secondAttribute="bottom" constant="15" id="SEK-hP-XAx"/>
                             <constraint firstItem="DsS-FR-Luh" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.35" id="SKC-rM-neA"/>
@@ -441,9 +435,9 @@
         <image name="addcart" width="533" height="533"/>
         <image name="cameraadd" width="189" height="165"/>
         <image name="manualadd" width="189" height="165"/>
+        <image name="max2" width="189" height="165"/>
         <image name="newlist" width="189" height="165"/>
         <image name="redcancel" width="197" height="197"/>
-        <image name="save" width="189" height="165"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="irv-N6-o14"/>
