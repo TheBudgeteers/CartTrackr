@@ -37,7 +37,14 @@ class ManualAddViewController: UIViewController {
         self.quantityText.allowsEditingTextAttributes = true
         populateTextFields()
 
+        let tapRecognizer = UITapGestureRecognizer()
+        tapRecognizer.addTarget(self, action: #selector(ManualAddViewController.didTapView))
+        self.view.addGestureRecognizer(tapRecognizer)
 
+    }
+    
+    func didTapView(){
+        self.view.endEditing(true)
     }
     
 //    print("in manual add \(String(describing: targetPrice))")
