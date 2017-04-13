@@ -202,8 +202,26 @@ class CartViewController: UIViewController {
     }
     
     @IBAction func NewListButton(_ sender: Any) {
-        Cart.shared.removeAllItems()
-        self.update()
+        presentActionSheet()
+//        Cart.shared.removeAllItems()
+//        self.update()
+    }
+    
+    //Present action sheet to confirm clearing list
+    func presentActionSheet() {
+        let actionSheetController = UIAlertController(title: "Confirm", message: "Are you sure you want to delete this list?", preferredStyle: .actionSheet)
+        
+        let confirmAction = UIAlertAction(title: "Confirm", style: .default) { (action) in
+            Cart.shared.removeAllItems()
+            self.update()
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .destructive, handler: nil)
+        
+        actionSheetController.addAction(confirmAction)
+        actionSheetController.addAction(cancelAction)
+        
+        self.present(actionSheetController, animated: true, completion: nil)
     }
 
 }
