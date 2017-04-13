@@ -13,7 +13,7 @@ import SwiftOCR
 
 
 class CameraViewController: SwiftyCamViewController {
-
+    
     
     var flipCameraButton: UIButton!
     var flashButton: UIButton!
@@ -22,7 +22,7 @@ class CameraViewController: SwiftyCamViewController {
         didSet {
             OperationQueue.main.addOperation {
                 self.performSegue(withIdentifier: ManualAddViewController.identifier, sender: nil)
-
+                
             }
         }
     }
@@ -43,7 +43,7 @@ class CameraViewController: SwiftyCamViewController {
         shouldUseDeviceOrientation = true
         
         addButtons()
-
+        
     }
     
     override var prefersStatusBarHidden: Bool {
@@ -57,21 +57,21 @@ class CameraViewController: SwiftyCamViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == ManualAddViewController.identifier {
             guard let destinationController = segue.destination as? ManualAddViewController else { return }
-
+            
             print("inside segue prepare \(String(describing: self.priceString))")
             destinationController.targetPrice = self.priceString
-
+            
         }
     }
     
     func swiftyCam(_ swiftyCam: SwiftyCamViewController, didTake photo: UIImage) {
-    
+        
         OCRProcess.shared.process(targetImage: photo, callback: { (priceString) in
             self.priceString = priceString
             print("camera controller\(String(describing: self.priceString))")
-
+            
         })
-
+        
     }
     
     func swiftyCam(_ swiftyCam: SwiftyCamViewController, didFocusAtPoint point: CGPoint) {
@@ -100,12 +100,12 @@ class CameraViewController: SwiftyCamViewController {
     func swiftyCam(_ swiftyCam: SwiftyCamViewController, didSwitchCameras camera: SwiftyCamViewController.CameraSelection) {
         print(camera)
     }
-
+    
     
     //Checker used to check authorization of using camera
     func checkCameraAuthorization(_ completionHandler: @escaping((_ authorized: Bool)-> Void)){
         switch AVCaptureDevice.authorizationStatus(forMediaType: AVMediaTypeVideo){
-        
+            
         case .denied:
             completionHandler(false)
         case .authorized:
@@ -175,28 +175,28 @@ class CameraViewController: SwiftyCamViewController {
         
         print("view width: \(viewWidth)")
         print("view height: \(viewHeight)")
-
+        
         topBorder.frame = CGRect(x: 0, y: 0, width: viewWidth, height: viewHeight/2 - 50)
         bottomBorder.frame = CGRect(x: 0, y: viewHeight/2 + 50, width: viewWidth, height: viewHeight/2 - 50)
         leftBorder.frame = CGRect(x: 0, y: viewHeight/2 - 50, width: 35, height: 100)
         rightBorder.frame = CGRect(x: viewWidth-35, y: viewHeight/2 - 50, width: 35, height: 100)
-
+        
         topBorder.backgroundColor = UIColor(white: 0.2, alpha: 0.8)
         bottomBorder.backgroundColor = UIColor(white: 0.2, alpha: 0.8)
         leftBorder.backgroundColor = UIColor(white: 0.2, alpha: 0.8)
         rightBorder.backgroundColor = UIColor(white: 0.2, alpha: 0.8)
-
+        
         self.view.addSubview(topBorder)
         self.view.addSubview(bottomBorder)
         self.view.addSubview(leftBorder)
         self.view.addSubview(rightBorder)
-
+        
     }
-
+    
 }
 
 extension CameraViewController: SwiftyCamViewControllerDelegate{
     
     
-
+    
 }

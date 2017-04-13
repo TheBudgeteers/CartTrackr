@@ -7,14 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		286A79361E9C64C5006DE32B /* PhotoProcessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286A79351E9C64C5006DE32B /* PhotoProcessViewController.swift */; };
 		286A79381E9C8D7F006DE32B /* cameraButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286A79371E9C8D7F006DE32B /* cameraButtonView.swift */; };
-		28ED52691E9E901D00E4152B /* UnionFind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28ED52681E9E901D00E4152B /* UnionFind.swift */; };
-		28ED526B1E9E903B00E4152B /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28ED526A1E9E903B00E4152B /* Extensions.swift */; };
 		28ED52701E9F01E900E4152B /* STZPopupViewConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28ED526E1E9F01E800E4152B /* STZPopupViewConfig.swift */; };
 		28ED52711E9F01E900E4152B /* UIViewController+STZPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28ED526F1E9F01E900E4152B /* UIViewController+STZPopupView.swift */; };
-		28FD91581E9E8DCE001EE527 /* SwiftOCR.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FD91571E9E8DCE001EE527 /* SwiftOCR.swift */; };
-		28FD915A1E9E8DD7001EE527 /* OCR-Network in Resources */ = {isa = PBXBuildFile; fileRef = 28FD91591E9E8DD7001EE527 /* OCR-Network */; };
 		714477A91EA0013D00B4582E /* Budget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714477A81EA0013D00B4582E /* Budget.swift */; };
 		71B307941E9BF9F40082F9C0 /* Cart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B307931E9BF9F40082F9C0 /* Cart.swift */; };
 		BC6493AE1E9C576500A9FDE7 /* ManualAddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6493AD1E9C576500A9FDE7 /* ManualAddViewController.swift */; };
@@ -37,8 +32,6 @@
 		BC944D161E9C4955004015EC /* GPUImage.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = BC944D111E9C4944004015EC /* GPUImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BC944D171E9C4955004015EC /* SwiftOCR.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = BC944D121E9C4944004015EC /* SwiftOCR.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BCA511421E9EC8F900A259A8 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCA511411E9EC8F900A259A8 /* CloudKit.framework */; };
-		BCA511441E9ECD9D00A259A8 /* CloudKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA511431E9ECD9D00A259A8 /* CloudKit.swift */; };
-		BCA511481E9ED7EC00A259A8 /* PostItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA511471E9ED7EC00A259A8 /* PostItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -57,14 +50,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		286A79351E9C64C5006DE32B /* PhotoProcessViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoProcessViewController.swift; sourceTree = "<group>"; };
 		286A79371E9C8D7F006DE32B /* cameraButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = cameraButtonView.swift; sourceTree = "<group>"; };
-		28ED52681E9E901D00E4152B /* UnionFind.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnionFind.swift; sourceTree = "<group>"; };
-		28ED526A1E9E903B00E4152B /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		28ED526E1E9F01E800E4152B /* STZPopupViewConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STZPopupViewConfig.swift; sourceTree = "<group>"; };
 		28ED526F1E9F01E900E4152B /* UIViewController+STZPopupView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+STZPopupView.swift"; sourceTree = "<group>"; };
-		28FD91571E9E8DCE001EE527 /* SwiftOCR.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftOCR.swift; sourceTree = "<group>"; };
-		28FD91591E9E8DD7001EE527 /* OCR-Network */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = "OCR-Network"; sourceTree = "<group>"; };
 		714477A81EA0013D00B4582E /* Budget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Budget.swift; sourceTree = "<group>"; };
 		71B307931E9BF9F40082F9C0 /* Cart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cart.swift; sourceTree = "<group>"; };
 		BC6493AD1E9C576500A9FDE7 /* ManualAddViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManualAddViewController.swift; sourceTree = "<group>"; };
@@ -87,8 +75,6 @@
 		BC944D121E9C4944004015EC /* SwiftOCR.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftOCR.framework; path = Carthage/Build/iOS/SwiftOCR.framework; sourceTree = "<group>"; };
 		BCA511401E9EC8F000A259A8 /* CartTrackr.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CartTrackr.entitlements; sourceTree = "<group>"; };
 		BCA511411E9EC8F900A259A8 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
-		BCA511431E9ECD9D00A259A8 /* CloudKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudKit.swift; sourceTree = "<group>"; };
-		BCA511471E9ED7EC00A259A8 /* PostItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,7 +106,6 @@
 		BC944CCB1E9BE982004015EC = {
 			isa = PBXGroup;
 			children = (
-				BCA511471E9ED7EC00A259A8 /* PostItem.swift */,
 				BC944CD61E9BE982004015EC /* CartTrackr */,
 				BC944CD51E9BE982004015EC /* Products */,
 				71B1EECE1E9C095E00A42678 /* Frameworks */,
@@ -161,13 +146,11 @@
 		BC944CEE1E9BEA64004015EC /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				286A79351E9C64C5006DE32B /* PhotoProcessViewController.swift */,
 				BC6493AD1E9C576500A9FDE7 /* ManualAddViewController.swift */,
 				BC944CD71E9BE982004015EC /* AppDelegate.swift */,
 				BC944CEC1E9BEA61004015EC /* CartViewController.swift */,
 				BC944CF41E9BEAFE004015EC /* CameraViewController.swift */,
 				BC944CF61E9BEB14004015EC /* ModifyViewController.swift */,
-				BCA511431E9ECD9D00A259A8 /* CloudKit.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -190,10 +173,6 @@
 				28ED526E1E9F01E800E4152B /* STZPopupViewConfig.swift */,
 				28ED526F1E9F01E900E4152B /* UIViewController+STZPopupView.swift */,
 				BCA511401E9EC8F000A259A8 /* CartTrackr.entitlements */,
-				28FD91571E9E8DCE001EE527 /* SwiftOCR.swift */,
-				28ED52681E9E901D00E4152B /* UnionFind.swift */,
-				28ED526A1E9E903B00E4152B /* Extensions.swift */,
-				28FD91591E9E8DD7001EE527 /* OCR-Network */,
 				BC944CE31E9BE982004015EC /* Info.plist */,
 				BC944CDE1E9BE982004015EC /* Assets.xcassets */,
 			);
@@ -269,7 +248,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				28FD915A1E9E8DD7001EE527 /* OCR-Network in Resources */,
 				BC944CE21E9BE982004015EC /* LaunchScreen.storyboard in Resources */,
 				BC944CDF1E9BE982004015EC /* Assets.xcassets in Resources */,
 				BC944CF31E9BEAD8004015EC /* CartItemCell.xib in Resources */,
@@ -284,21 +262,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				286A79361E9C64C5006DE32B /* PhotoProcessViewController.swift in Sources */,
 				BC944CFC1E9BEBAD004015EC /* OCR.swift in Sources */,
 				714477A91EA0013D00B4582E /* Budget.swift in Sources */,
-				BCA511481E9ED7EC00A259A8 /* PostItem.swift in Sources */,
-				28ED52691E9E901D00E4152B /* UnionFind.swift in Sources */,
 				71B307941E9BF9F40082F9C0 /* Cart.swift in Sources */,
 				28ED52701E9F01E900E4152B /* STZPopupViewConfig.swift in Sources */,
 				BC944CEA1E9BEA31004015EC /* Item.swift in Sources */,
 				BC944CFA1E9BEB50004015EC /* UIExtensions.swift in Sources */,
 				BC944CF51E9BEAFE004015EC /* CameraViewController.swift in Sources */,
 				BC944CED1E9BEA61004015EC /* CartViewController.swift in Sources */,
-				BCA511441E9ECD9D00A259A8 /* CloudKit.swift in Sources */,
 				BC944CF21E9BEAD8004015EC /* CartItemCell.swift in Sources */,
-				28FD91581E9E8DCE001EE527 /* SwiftOCR.swift in Sources */,
-				28ED526B1E9E903B00E4152B /* Extensions.swift in Sources */,
 				BC944CF71E9BEB14004015EC /* ModifyViewController.swift in Sources */,
 				286A79381E9C8D7F006DE32B /* cameraButtonView.swift in Sources */,
 				BC6493AE1E9C576500A9FDE7 /* ManualAddViewController.swift in Sources */,
