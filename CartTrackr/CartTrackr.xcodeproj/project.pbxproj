@@ -233,7 +233,7 @@
 				TargetAttributes = {
 					BC944CD31E9BE982004015EC = {
 						CreatedOnToolsVersion = 8.3.1;
-						DevelopmentTeam = JW369YLHP8;
+						DevelopmentTeam = 5EB567WJ73;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Push = {
@@ -429,14 +429,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = CartTrackr/CartTrackr.entitlements;
-				DEVELOPMENT_TEAM = JW369YLHP8;
+				DEVELOPMENT_TEAM = 5EB567WJ73;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = CartTrackr/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.christina-lee.CartTrackr";
+				PRODUCT_BUNDLE_IDENTIFIER = com.jayb967.CartTrackr;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -447,14 +447,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = CartTrackr/CartTrackr.entitlements;
-				DEVELOPMENT_TEAM = JW369YLHP8;
+				DEVELOPMENT_TEAM = 5EB567WJ73;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = CartTrackr/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.christina-lee.CartTrackr";
+				PRODUCT_BUNDLE_IDENTIFIER = com.jayb967.CartTrackr;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
