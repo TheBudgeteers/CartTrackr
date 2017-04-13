@@ -13,7 +13,7 @@ class CameraButtonView: SwiftyCamButton {
     
     private var cartPicImage: CALayer!
     private var cartPicEnlarge: UIView!
-    let cartPic = UIImage(named: "cartPic")?.cgImage
+    let cartPic = UIImage(named: "Camera_Icon")?.cgImage
     
     
     override init(frame: CGRect) {
