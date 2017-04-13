@@ -15,6 +15,7 @@
 		28ED52711E9F01E900E4152B /* UIViewController+STZPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28ED526F1E9F01E900E4152B /* UIViewController+STZPopupView.swift */; };
 		28FD91581E9E8DCE001EE527 /* SwiftOCR.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FD91571E9E8DCE001EE527 /* SwiftOCR.swift */; };
 		28FD915A1E9E8DD7001EE527 /* OCR-Network in Resources */ = {isa = PBXBuildFile; fileRef = 28FD91591E9E8DD7001EE527 /* OCR-Network */; };
+		714477A91EA0013D00B4582E /* Budget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714477A81EA0013D00B4582E /* Budget.swift */; };
 		71B307941E9BF9F40082F9C0 /* Cart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B307931E9BF9F40082F9C0 /* Cart.swift */; };
 		BC6493AE1E9C576500A9FDE7 /* ManualAddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6493AD1E9C576500A9FDE7 /* ManualAddViewController.swift */; };
 		BC6493B01E9C628200A9FDE7 /* SwiftyCam.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC6493AF1E9C628200A9FDE7 /* SwiftyCam.framework */; };
@@ -64,6 +65,7 @@
 		28ED526F1E9F01E900E4152B /* UIViewController+STZPopupView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+STZPopupView.swift"; sourceTree = "<group>"; };
 		28FD91571E9E8DCE001EE527 /* SwiftOCR.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftOCR.swift; sourceTree = "<group>"; };
 		28FD91591E9E8DD7001EE527 /* OCR-Network */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = "OCR-Network"; sourceTree = "<group>"; };
+		714477A81EA0013D00B4582E /* Budget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Budget.swift; sourceTree = "<group>"; };
 		71B307931E9BF9F40082F9C0 /* Cart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cart.swift; sourceTree = "<group>"; };
 		BC6493AD1E9C576500A9FDE7 /* ManualAddViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManualAddViewController.swift; sourceTree = "<group>"; };
 		BC6493AF1E9C628200A9FDE7 /* SwiftyCam.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyCam.framework; path = Carthage/Build/iOS/SwiftyCam.framework; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 				BC944CE91E9BEA31004015EC /* Item.swift */,
 				BC944CFB1E9BEBAD004015EC /* OCR.swift */,
 				71B307931E9BF9F40082F9C0 /* Cart.swift */,
+				714477A81EA0013D00B4582E /* Budget.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -230,9 +233,7 @@
 				TargetAttributes = {
 					BC944CD31E9BE982004015EC = {
 						CreatedOnToolsVersion = 8.3.1;
-
 						DevelopmentTeam = JW369YLHP8;
-
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Push = {
@@ -285,6 +286,7 @@
 			files = (
 				286A79361E9C64C5006DE32B /* PhotoProcessViewController.swift in Sources */,
 				BC944CFC1E9BEBAD004015EC /* OCR.swift in Sources */,
+				714477A91EA0013D00B4582E /* Budget.swift in Sources */,
 				BCA511481E9ED7EC00A259A8 /* PostItem.swift in Sources */,
 				28ED52691E9E901D00E4152B /* UnionFind.swift in Sources */,
 				71B307941E9BF9F40082F9C0 /* Cart.swift in Sources */,
@@ -427,18 +429,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = CartTrackr/CartTrackr.entitlements;
-
 				DEVELOPMENT_TEAM = JW369YLHP8;
-
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = CartTrackr/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-
 				PRODUCT_BUNDLE_IDENTIFIER = "com.christina-lee.CartTrackr";
-
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -449,18 +447,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = CartTrackr/CartTrackr.entitlements;
-
 				DEVELOPMENT_TEAM = JW369YLHP8;
-
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = CartTrackr/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-
 				PRODUCT_BUNDLE_IDENTIFIER = "com.christina-lee.CartTrackr";
-
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
