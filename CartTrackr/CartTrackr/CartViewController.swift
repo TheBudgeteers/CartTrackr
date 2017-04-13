@@ -22,6 +22,8 @@ class CartViewController: UIViewController {
     
     var deleteCellIndexPath: IndexPath? = nil
     
+    var budgetMax : String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -53,10 +55,7 @@ class CartViewController: UIViewController {
                 guard let destinationController = segue.destination as? ModifyViewController else { return }
                 
                 destinationController.item = selectedItem
-
-                
             }
-            
         }
         
         if segue.identifier == ManualAddViewController.identifier {
@@ -72,6 +71,19 @@ class CartViewController: UIViewController {
         self.activeCart = Cart.shared.listItems
 
         self.cartTableView.reloadData()
+        
+//        if self.budgetMax != "" {
+//            
+//
+//        }
+        if let budgetMax = self.budgetMax {
+            let percentTotal = Cart.shared.percentageTotal(budget: budgetMax)
+            let percentTax = Cart.shared.percentageTax(budget: budgetMax)
+            print("total % \(percentTotal)")
+            print("tax% \(percentTax)")
+
+        } else { return }
+        
     }
     
 //MARK: BudgetPop Up function to add in logic etc
@@ -124,8 +136,8 @@ class CartViewController: UIViewController {
     //write the logic part here for the budget to match the max
 //    has a an observer for changed text on line 95
     func textFieldDidChange(_ textField: UITextField){
-        
-
+        self.budgetMax = textField.text!
+        print("budgetMax \(self.budgetMax!)")
     }
     func dismissKeyboard(){
         view.endEditing(true)
@@ -183,7 +195,6 @@ class CartViewController: UIViewController {
     
     @IBAction func AddManualButton(_ sender: Any) {
         self.performSegue(withIdentifier: ManualAddViewController.identifier, sender: nil)
-        
     }
     
     @IBAction func AddCameraButton(_ sender: Any) {

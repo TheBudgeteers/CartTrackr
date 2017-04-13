@@ -21,7 +21,7 @@ class Cart {
     //add and remove class methods
     func addItem(_ price: String,_ description: String,_ quantity: String) {
         self.listItems.append(Item.init(price: price, description: description, quantity: quantity))
-        print(self.listItems)
+        //print(self.listItems)
     }
     
     func removeItem(_ index: Int) {
@@ -60,6 +60,28 @@ class Cart {
         return total
     }
     
+    func percentageTotal(budget: String) -> Float {
+        let budget : Float = Float(budget)!
+        print("budget \(budget)")
+        let total : Float = self.totalPrice()
+        let percent : Float = total / budget
+        return percent * 100
+    }
+    
+    func percentageTax(budget: String) -> Float {
+        let budget : Float = Float(budget)!
+        print("budget \(budget)")
+        let total : Float = self.totalTax()
+        let percent : Float = total / budget
+        return percent * 100
+    }
+    
 }
+
+
+
+
+
+
 
 
