@@ -37,10 +37,3 @@ extension String {
     }
 }
 
-//extension Float {
-//    func formattted( _f: Float) -> String {
-//        let formatter = NumberFormatter()
-//        formatter.numberStyle = NumberFormatter.Style.currency
-//        return formatter.string(from: NSNumber(_f))
-//    }
-//}

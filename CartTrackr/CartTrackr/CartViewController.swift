@@ -9,15 +9,15 @@
 import UIKit
 
 class CartViewController: UIViewController {
-
+    
     @IBOutlet weak var cartTableView: UITableView!
-
+    
     @IBOutlet weak var preTaxTotalLabel: UILabel!
-
+    
     @IBOutlet weak var totalLabel: UILabel!
     
     @IBOutlet weak var quantityLabel: UILabel!
-   
+    
     @IBOutlet weak var budgetProgressBar: UIProgressView!
     
     var activeCart = Cart.shared.listItems
@@ -70,12 +70,12 @@ class CartViewController: UIViewController {
         self.preTaxTotalLabel.text = "PreTax: $\(String(Cart.shared.totalPrice()))"
         self.totalLabel.text = "Total: $\(String(Cart.shared.totalTax()))"
         self.quantityLabel.text = "#: \(Cart.shared.totalQuantity())"
-
+        
         self.activeCart = Cart.shared.listItems
-
+        
         self.cartTableView.reloadData()
         
-
+        
         if Budget.shared.budgetMax != nil {
             
             budgetProgressBar.isHidden = false
@@ -83,9 +83,14 @@ class CartViewController: UIViewController {
             if let budgetMax = Budget.shared.budgetMax {
                 print(budgetMax)
                 var percentTax = Cart.shared.percentageTax(budget: budgetMax)
+                let mainBlueColor = hexStringToUIColor(hex: "#044389")
                 
                 if percentTax >= 1.0 {
+                    self.view.backgroundColor = UIColor.red
                     percentTax = 1.0
+                } else {
+                    self.view.backgroundColor = mainBlueColor
+                    
                 }
                 
                 budgetProgressBar.setProgress(percentTax, animated: true)
@@ -96,10 +101,10 @@ class CartViewController: UIViewController {
         }
         
         
-
+        
     }
     
-//MARK: BudgetPop Up function to add in logic etc
+    //MARK: BudgetPop Up function to add in logic etc
     func createPopupview() -> UIView {
         
         let viewWidth = self.view.frame.size.width
@@ -159,26 +164,24 @@ class CartViewController: UIViewController {
         return popupView
     }
     
-    ///////////////////////////////////////////////////////////////////////////////////////////////
-    //write the logic part here for the budget to match the max
-//    has a an observer for changed text on line 95
+    
     func textFieldDidChange(_ textField: UITextField){
         userBudgetSet = textField.text!
     }
     func dismissKeyboard(){
         view.endEditing(true)
     }
- 
+    
     func touchCancel() {
         dismissPopupView()
     }
     
     func touchClose() {
-
+        
         Budget.shared.budgetMax = userBudgetSet
         dismissPopupView()
         update()
-
+        
     }
     
     func hexStringToUIColor (hex:String) -> UIColor {
@@ -202,7 +205,7 @@ class CartViewController: UIViewController {
             alpha: CGFloat(1.0)
         )
     }
-
+    
     
     @IBAction func SetBudget(_ sender: Any) {
         let popupView = createPopupview()
@@ -237,15 +240,16 @@ class CartViewController: UIViewController {
     
     @IBAction func NewListButton(_ sender: Any) {
         presentActionSheet()
-
+        
     }
     
     //Present action sheet to confirm clearing list
     func presentActionSheet() {
-        let actionSheetController = UIAlertController(title: "Confirm", message: "Are you sure you want to delete this list?", preferredStyle: .actionSheet)
+        let actionSheetController = UIAlertController(title: "Confirm", message: "Are you sure you want to delete this list? This will also reset your budget?", preferredStyle: .actionSheet)
         
         let confirmAction = UIAlertAction(title: "Confirm", style: .default) { (action) in
             Cart.shared.removeAllItems()
+            Budget.shared.budgetMax = nil
             self.update()
         }
         
@@ -256,7 +260,7 @@ class CartViewController: UIViewController {
         
         self.present(actionSheetController, animated: true, completion: nil)
     }
-
+    
 }
 
 //MARK: UITableViewDataSource UITableViewDelegate
@@ -274,7 +278,7 @@ extension CartViewController : UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.performSegue(withIdentifier: ModifyViewController.identifier, sender: nil)
     }
-
+    
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             deleteCellIndexPath = indexPath

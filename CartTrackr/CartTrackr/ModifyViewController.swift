@@ -9,13 +9,7 @@
 import UIKit
 
 class ModifyViewController: UIViewController {
-    var item : Item! {
-        didSet {
-//            self.priceText.text = self.item.price
-//            self.descriptionText.text = self.item.description
-//            self.quantityText.text = String(self.item.quantity)
-        }
-    }
+    var item : Item! 
 
     @IBOutlet weak var priceText: UITextField!
     

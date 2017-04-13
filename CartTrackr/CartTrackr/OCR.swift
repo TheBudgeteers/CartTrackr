@@ -20,28 +20,7 @@ class OCRProcess {
     
     private init() {}
     
-//    func process(targetImage: UIImage) -> String {
-//        let cropped = prepareImageForCrop(using: targetImage)
-//        var priceString : String = ""
-//
-//        OperationQueue.main.addOperation {
-//            self.OCR.recognize(cropped) { (recognizedString) in
-//                
-//                print(recognizedString)
-//                
-//                guard let dollars = recognizedString.components(separatedBy: "I").first?.components(separatedBy: "S").last else { return }
-//                guard let cents = recognizedString.components(separatedBy: "I").last else { return }
-//                
-//                priceString = "\(String(describing: dollars)).\(String(describing: cents))"
-//                print(priceString)
-//                
-//            }
-//
-//        }
-//        print("before return\(priceString)")
-//        return priceString
-//        
-//    }
+
     func process(targetImage: UIImage, callback: @escaping OCRCallback )   {
         let cropped = prepareImageForCrop(using: targetImage)
         var priceString : String = ""
