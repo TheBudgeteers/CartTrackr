@@ -60,6 +60,26 @@ class Cart {
         return total
     }
     
+    func percentageTotal(budget: String) -> Float {
+        let budget : Float = Float(budget)!
+        let total : Float = self.totalPrice()
+        let percent : Float = total / budget
+        return percent
+    }
+    
+    func percentageTax(budget: String) -> Float {
+        let budget : Float = Float(budget)!
+        let total : Float = self.totalTax()
+        let percent : Float = total / budget
+        return percent
+    }
+    
 }
+
+
+
+
+
+
 
 

@@ -53,10 +53,7 @@ class CartViewController: UIViewController {
                 guard let destinationController = segue.destination as? ModifyViewController else { return }
                 
                 destinationController.item = selectedItem
-
-                
             }
-            
         }
         
         if segue.identifier == ManualAddViewController.identifier {
@@ -81,7 +78,6 @@ class CartViewController: UIViewController {
 
     @IBAction func AddManualButton(_ sender: Any) {
         self.performSegue(withIdentifier: ManualAddViewController.identifier, sender: nil)
-        
     }
     
     @IBAction func AddCameraButton(_ sender: Any) {
