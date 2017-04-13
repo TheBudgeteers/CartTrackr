@@ -11,6 +11,8 @@
 		286A79381E9C8D7F006DE32B /* cameraButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286A79371E9C8D7F006DE32B /* cameraButtonView.swift */; };
 		28ED52691E9E901D00E4152B /* UnionFind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28ED52681E9E901D00E4152B /* UnionFind.swift */; };
 		28ED526B1E9E903B00E4152B /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28ED526A1E9E903B00E4152B /* Extensions.swift */; };
+		28ED52701E9F01E900E4152B /* STZPopupViewConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28ED526E1E9F01E800E4152B /* STZPopupViewConfig.swift */; };
+		28ED52711E9F01E900E4152B /* UIViewController+STZPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28ED526F1E9F01E900E4152B /* UIViewController+STZPopupView.swift */; };
 		28FD91581E9E8DCE001EE527 /* SwiftOCR.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FD91571E9E8DCE001EE527 /* SwiftOCR.swift */; };
 		28FD915A1E9E8DD7001EE527 /* OCR-Network in Resources */ = {isa = PBXBuildFile; fileRef = 28FD91591E9E8DD7001EE527 /* OCR-Network */; };
 		71B307941E9BF9F40082F9C0 /* Cart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B307931E9BF9F40082F9C0 /* Cart.swift */; };
@@ -58,6 +60,8 @@
 		286A79371E9C8D7F006DE32B /* cameraButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = cameraButtonView.swift; sourceTree = "<group>"; };
 		28ED52681E9E901D00E4152B /* UnionFind.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnionFind.swift; sourceTree = "<group>"; };
 		28ED526A1E9E903B00E4152B /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		28ED526E1E9F01E800E4152B /* STZPopupViewConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STZPopupViewConfig.swift; sourceTree = "<group>"; };
+		28ED526F1E9F01E900E4152B /* UIViewController+STZPopupView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+STZPopupView.swift"; sourceTree = "<group>"; };
 		28FD91571E9E8DCE001EE527 /* SwiftOCR.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftOCR.swift; sourceTree = "<group>"; };
 		28FD91591E9E8DD7001EE527 /* OCR-Network */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = "OCR-Network"; sourceTree = "<group>"; };
 		71B307931E9BF9F40082F9C0 /* Cart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cart.swift; sourceTree = "<group>"; };
@@ -180,6 +184,8 @@
 		BC944CF81E9BEB32004015EC /* Supporting */ = {
 			isa = PBXGroup;
 			children = (
+				28ED526E1E9F01E800E4152B /* STZPopupViewConfig.swift */,
+				28ED526F1E9F01E900E4152B /* UIViewController+STZPopupView.swift */,
 				BCA511401E9EC8F000A259A8 /* CartTrackr.entitlements */,
 				28FD91571E9E8DCE001EE527 /* SwiftOCR.swift */,
 				28ED52681E9E901D00E4152B /* UnionFind.swift */,
@@ -280,6 +286,7 @@
 				BCA511481E9ED7EC00A259A8 /* PostItem.swift in Sources */,
 				28ED52691E9E901D00E4152B /* UnionFind.swift in Sources */,
 				71B307941E9BF9F40082F9C0 /* Cart.swift in Sources */,
+				28ED52701E9F01E900E4152B /* STZPopupViewConfig.swift in Sources */,
 				BC944CEA1E9BEA31004015EC /* Item.swift in Sources */,
 				BC944CFA1E9BEB50004015EC /* UIExtensions.swift in Sources */,
 				BC944CF51E9BEAFE004015EC /* CameraViewController.swift in Sources */,
@@ -292,6 +299,7 @@
 				286A79381E9C8D7F006DE32B /* cameraButtonView.swift in Sources */,
 				BC6493AE1E9C576500A9FDE7 /* ManualAddViewController.swift in Sources */,
 				BC944CD81E9BE982004015EC /* AppDelegate.swift in Sources */,
+				28ED52711E9F01E900E4152B /* UIViewController+STZPopupView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

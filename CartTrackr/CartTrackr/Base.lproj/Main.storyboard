@@ -48,7 +48,7 @@
                                 </constraints>
                                 <state key="normal" title="SAVE" image="save"/>
                                 <connections>
-                                    <action selector="SaveButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FYZ-GO-sMz"/>
+                                    <action selector="SetBudget:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0rs-rk-Pyb"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="N1R-7h-034">
