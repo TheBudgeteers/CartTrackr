@@ -112,7 +112,7 @@ class CartViewController: UIViewController {
         view.addGestureRecognizer(tap)
         let textField = UITextField(frame: CGRect(x: viewWidth/24, y: viewHeight/8, width: viewWidth-100
             , height: 60.0))
-        textField.placeholder = "0.00"
+        textField.placeholder = "\(Budget.shared.budgetMax ?? "0.00")"
         textField.font = UIFont.systemFont(ofSize: 50)
         textField.borderStyle = UITextBorderStyle.roundedRect
         textField.autocorrectionType = UITextAutocorrectionType.yes
