@@ -74,11 +74,113 @@ class CartViewController: UIViewController {
         self.cartTableView.reloadData()
     }
     
-    @IBAction func SaveButton(_ sender: Any) {
-        self.update()
-        print(self.activeCart)
+//MARK: BudgetPop Up function to add in logic etc
+    func createPopupview() -> UIView {
+        
+        let viewWidth = self.view.frame.size.width
+        let viewHeight = self.view.frame.size.height
+        
+        //you can change the size of pop up here
+        let popupView = UIView(frame: CGRect(x: 0, y: 0, width: 350, height: 300))
+        popupView.backgroundColor = UIColor.white
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
+        view.addGestureRecognizer(tap)
+        let textField = UITextField(frame: CGRect(x: viewWidth/24, y: viewHeight/8, width: viewWidth-100
+            , height: 60.0))
+        textField.placeholder = "0.00"
+        textField.font = UIFont.systemFont(ofSize: 50)
+        textField.borderStyle = UITextBorderStyle.roundedRect
+        textField.autocorrectionType = UITextAutocorrectionType.yes
+        textField.keyboardType = UIKeyboardType.decimalPad
+        textField.returnKeyType = UIReturnKeyType.done
+//        textField.keyboardAppearance = UIK
+        textField.clearButtonMode = UITextFieldViewMode.whileEditing;
+        textField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
+        textField.contentVerticalAlignment = UIControlContentVerticalAlignment.center
+        textField.delegate = self as? UITextFieldDelegate
+        popupView.addSubview(textField)
+        
+        //Draws close button on the pop up
+        let cancelButton = UIButton(frame: CGRect(x: 10.0, y: 10.0, width: 30.0, height: 30.0))
+        cancelButton.setImage(#imageLiteral(resourceName: "cancel-1"), for: UIControlState())
+        cancelButton.addTarget(self, action: #selector(touchClose), for: UIControlEvents.touchUpInside)
+        popupView.addSubview(cancelButton)
+        
+        //Draws Done button
+        let done = UIButton(frame: CGRect(x: viewWidth/24, y: viewHeight/4, width: viewWidth-100
+            , height: 60.0))
+        done.backgroundColor = UIColor.green
+        done.layer.cornerRadius = 8
+        done.setTitle("Done", for: .normal)
+        done.setTitleColor(UIColor.white, for: .normal)
+        
+        done.addTarget(self, action: #selector(touchClose), for: UIControlEvents.touchUpInside)
+        popupView.addSubview(done)
+        
+        return popupView
+    }
+    
+    ///////////////////////////////////////////////////////////////////////////////////////////////
+    //write the logic part here for the budget to match the max
+//    has a an observer for changed text on line 95
+    func textFieldDidChange(_ textField: UITextField){
+        
+
+    }
+    func dismissKeyboard(){
+        view.endEditing(true)
+    }
+    
+    func touchClose() {
+        dismissPopupView()
+    }
+    
+    func hexStringToUIColor (hex:String) -> UIColor {
+        var cString:String = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
+        
+        if (cString.hasPrefix("#")) {
+            cString.remove(at: cString.startIndex)
+        }
+        
+        if ((cString.characters.count) != 6) {
+            return UIColor.gray
+        }
+        
+        var rgbValue:UInt32 = 0
+        Scanner(string: cString).scanHexInt32(&rgbValue)
+        
+        return UIColor(
+            red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
+            green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
+            blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
+            alpha: CGFloat(1.0)
+        )
     }
 
+    
+    @IBAction func SetBudget(_ sender: Any) {
+        let popupView = createPopupview()
+        
+        let popupConfig = STZPopupViewConfig()
+        popupConfig.dismissTouchBackground = false
+        popupConfig.cornerRadius = 10
+        let mainBlueColor = hexStringToUIColor(hex: "#044389")
+        popupConfig.overlayColor = mainBlueColor
+        popupConfig.showAnimation = .slideInFromTop
+        popupConfig.dismissAnimation = .slideOutToTop
+        popupConfig.showCompletion = { popupView in
+            print("show")
+        }
+        popupConfig.dismissCompletion = { popupView in
+            print("dismiss")
+        }
+        
+        presentPopupView(popupView, config: popupConfig)
+        
+        
+        print(Cart.shared.totalPrice())
+    }
+    
     @IBAction func AddManualButton(_ sender: Any) {
         self.performSegue(withIdentifier: ManualAddViewController.identifier, sender: nil)
         
