@@ -18,11 +18,13 @@ class CartViewController: UIViewController {
     
     @IBOutlet weak var quantityLabel: UILabel!
    
+    @IBOutlet weak var budgetProgressBar: UIProgressView!
+    
     var activeCart = Cart.shared.listItems
     
     var deleteCellIndexPath: IndexPath? = nil
     
-    var budgetMax : String?
+    var stuff : String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +40,7 @@ class CartViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
         update()
     }
     
@@ -72,18 +75,28 @@ class CartViewController: UIViewController {
 
         self.cartTableView.reloadData()
         
-//        if self.budgetMax != "" {
-//            
-//
-//        }
-        if let budgetMax = self.budgetMax {
-            let percentTotal = Cart.shared.percentageTotal(budget: budgetMax)
-            let percentTax = Cart.shared.percentageTax(budget: budgetMax)
-            print("total % \(percentTotal)")
-            print("tax% \(percentTax)")
 
-        } else { return }
+        if Budget.shared.budgetMax != nil {
+            
+            budgetProgressBar.isHidden = false
+            
+            if let budgetMax = Budget.shared.budgetMax {
+                print(budgetMax)
+                var percentTax = Cart.shared.percentageTax(budget: budgetMax)
+                
+                if percentTax >= 1.0 {
+                    percentTax = 1.0
+                }
+                
+                budgetProgressBar.setProgress(percentTax, animated: true)
+                
+            } else { return }
+        } else {
+            budgetProgressBar.isHidden = true
+        }
         
+        
+
     }
     
 //MARK: BudgetPop Up function to add in logic etc
@@ -99,7 +112,7 @@ class CartViewController: UIViewController {
         view.addGestureRecognizer(tap)
         let textField = UITextField(frame: CGRect(x: viewWidth/24, y: viewHeight/8, width: viewWidth-100
             , height: 60.0))
-        textField.placeholder = "0.00"
+        textField.placeholder = "\(Budget.shared.budgetMax ?? "0.00")"
         textField.font = UIFont.systemFont(ofSize: 50)
         textField.borderStyle = UITextBorderStyle.roundedRect
         textField.autocorrectionType = UITextAutocorrectionType.yes
@@ -115,7 +128,7 @@ class CartViewController: UIViewController {
         //Draws close button on the pop up
         let cancelButton = UIButton(frame: CGRect(x: 10.0, y: 10.0, width: 30.0, height: 30.0))
         cancelButton.setImage(#imageLiteral(resourceName: "cancel-1"), for: UIControlState())
-        cancelButton.addTarget(self, action: #selector(touchClose), for: UIControlEvents.touchUpInside)
+        cancelButton.addTarget(self, action: #selector(touchCancel), for: UIControlEvents.touchUpInside)
         popupView.addSubview(cancelButton)
         
         //Draws Done button
@@ -136,15 +149,22 @@ class CartViewController: UIViewController {
     //write the logic part here for the budget to match the max
 //    has a an observer for changed text on line 95
     func textFieldDidChange(_ textField: UITextField){
-        self.budgetMax = textField.text!
-        print("budgetMax \(self.budgetMax!)")
+        stuff = textField.text!
     }
     func dismissKeyboard(){
         view.endEditing(true)
     }
+ 
+    func touchCancel() {
+        dismissPopupView()
+    }
     
     func touchClose() {
+
+        Budget.shared.budgetMax = stuff
         dismissPopupView()
+        update()
+
     }
     
     func hexStringToUIColor (hex:String) -> UIColor {
@@ -203,8 +223,7 @@ class CartViewController: UIViewController {
     
     @IBAction func NewListButton(_ sender: Any) {
         presentActionSheet()
-//        Cart.shared.removeAllItems()
-//        self.update()
+
     }
     
     //Present action sheet to confirm clearing list
