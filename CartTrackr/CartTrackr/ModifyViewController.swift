@@ -12,37 +12,40 @@ class ModifyViewController: UIViewController {
     var item : Item! 
 
     @IBOutlet weak var priceText: UITextField!
-    
     @IBOutlet weak var descriptionText: UITextField!
-    
     @IBOutlet weak var quantityText: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //Sets the delegate for the text fields
         self.priceText.delegate = self
         self.descriptionText.delegate = self
         self.quantityText.delegate = self
 
+        //Allows editing of the text fields
         self.priceText.allowsEditingTextAttributes = true
         self.descriptionText.allowsEditingTextAttributes = true
         self.quantityText.allowsEditingTextAttributes = true
 
-        
+        //Sets the value of the text fields to the selected item's values
         self.priceText.text = self.item.price
         self.descriptionText.text = self.item.description
         self.quantityText.text = String(self.item.quantity)
         
+        //Listens for tap gesture to end editing
         let tapRecognizer = UITapGestureRecognizer()
         tapRecognizer.addTarget(self, action: #selector(ModifyViewController.didTapView))
         self.view.addGestureRecognizer(tapRecognizer)
         
     }
     
+    //Ends editing when called
     func didTapView(){
         self.view.endEditing(true)
     }
 
+    //Handles segue back to CartView
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
         
@@ -51,11 +54,12 @@ class ModifyViewController: UIViewController {
         }
     }
     
+    //Dismisses view when Back button is pressed
     @IBAction func goBackButton(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
     
-    
+    //Updates the values on the current item with the new values in the text fields
     @IBAction func addToCartButton(_ sender: Any) {
         if let price = priceText.text, let description = descriptionText.text, let quantity = quantityText.text {
             item.price = price
