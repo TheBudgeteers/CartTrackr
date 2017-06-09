@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2815F53B1EEB46EB006013EC /* BudgetPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2815F53A1EEB46EB006013EC /* BudgetPopUp.swift */; };
+		2815F53D1EEB5260006013EC /* CameraViewUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2815F53C1EEB5260006013EC /* CameraViewUpdate.swift */; };
 		286A79381E9C8D7F006DE32B /* cameraButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286A79371E9C8D7F006DE32B /* cameraButtonView.swift */; };
 		28ED52701E9F01E900E4152B /* STZPopupViewConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28ED526E1E9F01E800E4152B /* STZPopupViewConfig.swift */; };
 		28ED52711E9F01E900E4152B /* UIViewController+STZPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28ED526F1E9F01E900E4152B /* UIViewController+STZPopupView.swift */; };
@@ -52,6 +53,7 @@
 
 /* Begin PBXFileReference section */
 		2815F53A1EEB46EB006013EC /* BudgetPopUp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BudgetPopUp.swift; sourceTree = "<group>"; };
+		2815F53C1EEB5260006013EC /* CameraViewUpdate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraViewUpdate.swift; sourceTree = "<group>"; };
 		286A79371E9C8D7F006DE32B /* cameraButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = cameraButtonView.swift; sourceTree = "<group>"; };
 		28ED526E1E9F01E800E4152B /* STZPopupViewConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STZPopupViewConfig.swift; sourceTree = "<group>"; };
 		28ED526F1E9F01E900E4152B /* UIViewController+STZPopupView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+STZPopupView.swift"; sourceTree = "<group>"; };
@@ -160,6 +162,7 @@
 		BC944CEF1E9BEA6F004015EC /* View */ = {
 			isa = PBXGroup;
 			children = (
+				2815F53C1EEB5260006013EC /* CameraViewUpdate.swift */,
 				2815F53A1EEB46EB006013EC /* BudgetPopUp.swift */,
 				BC944CDB1E9BE982004015EC /* Main.storyboard */,
 				BC944CE01E9BE982004015EC /* LaunchScreen.storyboard */,
@@ -273,6 +276,7 @@
 				BC944CFA1E9BEB50004015EC /* UIExtensions.swift in Sources */,
 				BC944CF51E9BEAFE004015EC /* CameraViewController.swift in Sources */,
 				BC944CED1E9BEA61004015EC /* CartViewController.swift in Sources */,
+				2815F53D1EEB5260006013EC /* CameraViewUpdate.swift in Sources */,
 				BC944CF21E9BEAD8004015EC /* CartItemCell.swift in Sources */,
 				BC944CF71E9BEB14004015EC /* ModifyViewController.swift in Sources */,
 				286A79381E9C8D7F006DE32B /* cameraButtonView.swift in Sources */,

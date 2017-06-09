@@ -26,8 +26,6 @@ class CartViewController: UIViewController {
     
     var userBudgetSet : String?
     
-    let budgetPopUp = BudgetPopUp()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -150,13 +148,12 @@ class CartViewController: UIViewController {
     
     
     @IBAction func SetBudget(_ sender: Any) {
+        let budgetPopUp = BudgetPopUp()
         let popupView = budgetPopUp.createPopupview()
         
         let popupConfig = STZPopupViewConfig()
-        popupConfig.dismissTouchBackground = false
+        popupConfig.dismissTouchBackground = true
         popupConfig.cornerRadius = 10
-        let mainBlueColor = hexStringToUIColor(hex: "#044389")
-        popupConfig.overlayColor = mainBlueColor
         popupConfig.showAnimation = .slideInFromTop
         popupConfig.dismissAnimation = .slideOutToTop
         popupConfig.showCompletion = { popupView in

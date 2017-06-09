@@ -46,7 +46,7 @@ open class STZPopupViewConfig {
     open var cornerRadius: CGFloat = 0
 
     /// Background overlay color.
-    open var overlayColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.5)
+    open var overlayColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.1)
 
     /// Background blur effect
     open var blurEffectStyle: UIBlurEffectStyle? = nil
