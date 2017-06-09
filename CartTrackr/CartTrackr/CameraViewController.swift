@@ -141,7 +141,6 @@ class CameraViewController: SwiftyCamViewController {
         view.addSubview(cancelButton)
         
         captureButton = CameraButtonView(frame: CGRect(x: view.frame.midX - 37.5, y: view.frame.height - 100.0, width: 75.0, height: 75.0))
-        captureButton.setImage(#imageLiteral(resourceName: "Camera_Icon"), for: UIControlState())
         
         self.view.addSubview(captureButton)
         
