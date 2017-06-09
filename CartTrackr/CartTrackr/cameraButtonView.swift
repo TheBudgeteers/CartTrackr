@@ -2,7 +2,7 @@
 //  cameraButtonView.swift
 //  CartTrackr
 //
-//  Created by Rio Balderas on 4/10/17.
+//  Created by Jay Balderas on 4/10/17.
 //  Copyright © 2017 Christina Lee. All rights reserved.
 //
 

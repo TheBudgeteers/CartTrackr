@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2815F53B1EEB46EB006013EC /* BudgetPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2815F53A1EEB46EB006013EC /* BudgetPopUp.swift */; };
 		286A79381E9C8D7F006DE32B /* cameraButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286A79371E9C8D7F006DE32B /* cameraButtonView.swift */; };
 		28ED52701E9F01E900E4152B /* STZPopupViewConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28ED526E1E9F01E800E4152B /* STZPopupViewConfig.swift */; };
 		28ED52711E9F01E900E4152B /* UIViewController+STZPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28ED526F1E9F01E900E4152B /* UIViewController+STZPopupView.swift */; };
@@ -50,6 +51,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2815F53A1EEB46EB006013EC /* BudgetPopUp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BudgetPopUp.swift; sourceTree = "<group>"; };
 		286A79371E9C8D7F006DE32B /* cameraButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = cameraButtonView.swift; sourceTree = "<group>"; };
 		28ED526E1E9F01E800E4152B /* STZPopupViewConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STZPopupViewConfig.swift; sourceTree = "<group>"; };
 		28ED526F1E9F01E900E4152B /* UIViewController+STZPopupView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+STZPopupView.swift"; sourceTree = "<group>"; };
@@ -158,6 +160,7 @@
 		BC944CEF1E9BEA6F004015EC /* View */ = {
 			isa = PBXGroup;
 			children = (
+				2815F53A1EEB46EB006013EC /* BudgetPopUp.swift */,
 				BC944CDB1E9BE982004015EC /* Main.storyboard */,
 				BC944CE01E9BE982004015EC /* LaunchScreen.storyboard */,
 				BC944CF01E9BEAD8004015EC /* CartItemCell.swift */,
@@ -275,6 +278,7 @@
 				286A79381E9C8D7F006DE32B /* cameraButtonView.swift in Sources */,
 				BC6493AE1E9C576500A9FDE7 /* ManualAddViewController.swift in Sources */,
 				BC944CD81E9BE982004015EC /* AppDelegate.swift in Sources */,
+				2815F53B1EEB46EB006013EC /* BudgetPopUp.swift in Sources */,
 				28ED52711E9F01E900E4152B /* UIViewController+STZPopupView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
