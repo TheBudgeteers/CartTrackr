@@ -28,28 +28,30 @@ class ManualAddViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //Setting delegates
         self.priceText.delegate = self
         self.descriptionText.delegate = self
         self.quantityText.delegate = self
         
+        //Allowing the text to be edited on the text fields
         self.priceText.allowsEditingTextAttributes = true
         self.descriptionText.allowsEditingTextAttributes = true
         self.quantityText.allowsEditingTextAttributes = true
         populateTextFields()
         
+        //Adding gesture recognizer to handle taps on the screen
         let tapRecognizer = UITapGestureRecognizer()
         tapRecognizer.addTarget(self, action: #selector(ManualAddViewController.didTapView))
         self.view.addGestureRecognizer(tapRecognizer)
         
     }
     
+    //Function to end editing when the view is tapped
     func didTapView(){
         self.view.endEditing(true)
     }
     
-    //    print("in manual add \(String(describing: targetPrice))")
-    //    populateTextFields()
-    
+    //Handles segue back to CartView
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
         
@@ -58,6 +60,7 @@ class ManualAddViewController: UIViewController {
         }
     }
     
+    //Fills Price field with text from OCR, or sets default value; fills other fields with default values
     func populateTextFields() {
         if targetPrice != "" {
             self.priceText.text = String(describing: targetPrice!)
@@ -68,18 +71,18 @@ class ManualAddViewController: UIViewController {
         self.quantityText.text = "1"
     }
     
+    //Dismiss view when back button is pressed
     @IBAction func goBackButton(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
     
+    //Adds item to cart using values from the text fields, or default values if nil
     @IBAction func addToCartButton(_ sender: Any) {
         
         let price = priceText.text ?? "1.99"
         let description = descriptionText.text ?? "Enter Description"
         let quantity = quantityText.text ?? "1"
         Cart.shared.addItem(price, description, quantity)
-        
-        //targetPrice = nil
         
         self.performSegue(withIdentifier: CartViewController.identifier, sender: nil)
     }

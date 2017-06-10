@@ -54,6 +54,7 @@ class CameraViewController: SwiftyCamViewController {
         super.viewDidAppear(animated)
     }
     
+    //Handles logic for segue to ManualAddViewController, passing price from OCR
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == ManualAddViewController.identifier {
             guard let destinationController = segue.destination as? ManualAddViewController else { return }
@@ -64,6 +65,7 @@ class CameraViewController: SwiftyCamViewController {
         }
     }
     
+    //Sends image to OCR, processes it and sets the priceString with the string that is returned
     func swiftyCam(_ swiftyCam: SwiftyCamViewController, didTake photo: UIImage) {
         
         OCRProcess.shared.process(targetImage: photo, callback: { (priceString) in
@@ -74,6 +76,7 @@ class CameraViewController: SwiftyCamViewController {
         
     }
     
+    //Handles the logic for focusing the camera
     func swiftyCam(_ swiftyCam: SwiftyCamViewController, didFocusAtPoint point: CGPoint) {
         let focusView = UIImageView(image: #imageLiteral(resourceName: "focus"))
         focusView.center = point
@@ -119,10 +122,12 @@ class CameraViewController: SwiftyCamViewController {
         }
     }
     
+    //Calls function for swapping between front and rear cameras when pressed
     @objc private func cameraSwitchAction(_ sender: Any) {
         switchCamera()
     }
     
+    //Toggles the flash on the camera
     @objc private func toggleFlashAction(_ sender: Any) {
         flashEnabled = !flashEnabled
         
@@ -133,6 +138,7 @@ class CameraViewController: SwiftyCamViewController {
         }
     }
     
+    //Creates the buttons
     private func addButtons() {
         drawBorder()
         let cancelButton = UIButton(frame: CGRect(x: 10.0, y: 10.0, width: 30.0, height: 30.0))
@@ -163,6 +169,7 @@ class CameraViewController: SwiftyCamViewController {
         dismiss(animated: true, completion: nil)
     }
     
+    //draws the border around the camera view, creating the box
     func drawBorder() {
         let viewWidth = self.view.frame.size.width
         let viewHeight = self.view.frame.size.height

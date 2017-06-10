@@ -20,7 +20,7 @@ class OCRProcess {
     
     private init() {}
     
-
+    //Sends the cropped image to the OCR and formats the string that is returned
     func process(targetImage: UIImage, callback: @escaping OCRCallback )   {
         let cropped = prepareImageForCrop(using: targetImage)
         var priceString : String = ""
@@ -37,6 +37,7 @@ class OCRProcess {
         }
     }
   
+    //Handles cropping the image before processing in the OCR to help with getting only the text desired
     func prepareImageForCrop (using image: UIImage) -> UIImage {
         let degreesToRadians: (CGFloat) -> CGFloat = {
             return $0 / 180.0 * CGFloat(Float.pi)

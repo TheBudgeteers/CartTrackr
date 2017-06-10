@@ -11,13 +11,9 @@ import UIKit
 class CartViewController: UIViewController {
     
     @IBOutlet weak var cartTableView: UITableView!
-    
     @IBOutlet weak var preTaxTotalLabel: UILabel!
-    
     @IBOutlet weak var totalLabel: UILabel!
-    
     @IBOutlet weak var quantityLabel: UILabel!
-    
     @IBOutlet weak var budgetProgressBar: UIProgressView!
     
     var activeCart = Cart.shared.listItems
@@ -29,9 +25,11 @@ class CartViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //Set dataSource and delegate for the TableView
         self.cartTableView.dataSource = self
         self.cartTableView.delegate = self
         
+        //Uses CartItemCell nib for the TableView
         let itemCell = UINib(nibName: "CartItemCell", bundle: nil)
         self.cartTableView.register(itemCell, forCellReuseIdentifier: CartItemCell.identifier)
         
@@ -44,6 +42,7 @@ class CartViewController: UIViewController {
         update()
     }
     
+    //Handle logic for moving to Camera, Modify, or ManualAdd views
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
         
@@ -66,6 +65,7 @@ class CartViewController: UIViewController {
         }
     }
     
+    //Refreshes and updates the totals
     func update() {
         self.preTaxTotalLabel.text = "PreTax: $\(String(Cart.shared.totalPrice()))"
         self.totalLabel.text = "Total: $\(String(Cart.shared.totalTax()))"
@@ -75,7 +75,7 @@ class CartViewController: UIViewController {
         
         self.cartTableView.reloadData()
         
-        
+        //handles the logic for the budgetProgressBar
         if Budget.shared.budgetMax != nil {
             
             budgetProgressBar.isHidden = false
@@ -146,7 +146,7 @@ class CartViewController: UIViewController {
         )
     }
     
-    
+    //Opens popup for setting the budget
     @IBAction func SetBudget(_ sender: Any) {
         let budgetPopUp = BudgetPopUp()
         let popupView = budgetPopUp.createPopupview()
@@ -169,6 +169,7 @@ class CartViewController: UIViewController {
         print(Cart.shared.totalPrice())
     }
     
+    //Segue when buttons are pressed
     @IBAction func AddManualButton(_ sender: Any) {
         self.performSegue(withIdentifier: ManualAddViewController.identifier, sender: nil)
     }
@@ -177,6 +178,7 @@ class CartViewController: UIViewController {
         self.performSegue(withIdentifier: CameraViewController.identifier, sender: nil)
     }
     
+    //Presents confirmation action sheet for clearing the cart when pressed
     @IBAction func NewListButton(_ sender: Any) {
         presentActionSheet()
         
