@@ -12,8 +12,9 @@ import SwiftyCam
 import SwiftOCR
 
 
-class CameraViewController: SwiftyCamViewController {
+class CameraViewController: UIViewController {
     
+    var asynchronousCameraReading: AsynchronousCameraReading!
     
     var flipCameraButton: UIButton!
     var flashButton: UIButton!
@@ -21,7 +22,8 @@ class CameraViewController: SwiftyCamViewController {
     var priceString: String? {
         didSet {
             OperationQueue.main.addOperation {
-                self.performSegue(withIdentifier: ManualAddViewController.identifier, sender: nil)
+//                self.performSegue(withIdentifier: ManualAddViewController.identifier, sender: nil)
+                self.dismiss(animated: true, completion: nil)
                 
             }
         }
@@ -31,19 +33,23 @@ class CameraViewController: SwiftyCamViewController {
     @IBOutlet weak var cameraViewBottomBorder: UIView!
     
     //required init is needed when using AVFoundation
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-    }
-    
+//    required init?(coder aDecoder: NSCoder) {
+//        super.init(coder: aDecoder)
+//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        cameraDelegate = self
-        shouldUseDeviceOrientation = true
-        
+//        cameraDelegate = self
+//        shouldUseDeviceOrientation = true
+        asynchronousCameraReading = AsynchronousCameraReading()
+        asynchronousCameraReading.delegate = self as? FrameDelegate
         addButtons()
         
+    }
+    
+    override func viewDidLayoutSubviews() {
+
     }
     
     override var prefersStatusBarHidden: Bool {
@@ -55,15 +61,15 @@ class CameraViewController: SwiftyCamViewController {
     }
     
     //Handles logic for segue to ManualAddViewController, passing price from OCR
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == ManualAddViewController.identifier {
-            guard let destinationController = segue.destination as? ManualAddViewController else { return }
-            
-            print("inside segue prepare \(String(describing: self.priceString))")
-            destinationController.targetPrice = self.priceString
-            
-        }
-    }
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier == ManualAddViewController.identifier {
+//            guard let destinationController = segue.destination as? ManualAddViewController else { return }
+//            
+//            print("inside segue prepare \(String(describing: self.priceString))")
+//            destinationController.targetPrice = self.priceString
+//            
+//        }
+//    }
     
     //Sends image to OCR, processes it and sets the priceString with the string that is returned
     func swiftyCam(_ swiftyCam: SwiftyCamViewController, didTake photo: UIImage) {
@@ -106,38 +112,38 @@ class CameraViewController: SwiftyCamViewController {
     
     
     //Checker used to check authorization of using camera
-    func checkCameraAuthorization(_ completionHandler: @escaping((_ authorized: Bool)-> Void)){
-        switch AVCaptureDevice.authorizationStatus(forMediaType: AVMediaTypeVideo){
-            
-        case .denied:
-            completionHandler(false)
-        case .authorized:
-            completionHandler(true)
-        case .notDetermined:
-            AVCaptureDevice.requestAccess(forMediaType: AVMediaTypeVideo, completionHandler: { success in
-                completionHandler(success)
-            })
-        case .restricted:
-            completionHandler(false)
-        }
-    }
+//    func checkCameraAuthorization(_ completionHandler: @escaping((_ authorized: Bool)-> Void)){
+//        switch AVCaptureDevice.authorizationStatus(forMediaType: AVMediaTypeVideo){
+//            
+//        case .denied:
+//            completionHandler(false)
+//        case .authorized:
+//            completionHandler(true)
+//        case .notDetermined:
+//            AVCaptureDevice.requestAccess(forMediaType: AVMediaTypeVideo, completionHandler: { success in
+//                completionHandler(success)
+//            })
+//        case .restricted:
+//            completionHandler(false)
+//        }
+//    }
     
     //Calls function for swapping between front and rear cameras when pressed
-    @objc private func cameraSwitchAction(_ sender: Any) {
-        switchCamera()
-    }
+//    @objc private func cameraSwitchAction(_ sender: Any) {
+//        switchCamera()
+//    }
     
     //Toggles the flash on the camera
-    @objc private func toggleFlashAction(_ sender: Any) {
-        flashEnabled = !flashEnabled
-        
-        if flashEnabled == true {
-            flashButton.setImage(#imageLiteral(resourceName: "flash"), for: UIControlState())
-        } else {
-            flashButton.setImage(#imageLiteral(resourceName: "flashOutline"), for: UIControlState())
-        }
-    }
-    
+//    @objc private func toggleFlashAction(_ sender: Any) {
+//        flashEnabled = !flashEnabled
+//        
+//        if flashEnabled == true {
+//            flashButton.setImage(#imageLiteral(resourceName: "flash"), for: UIControlState())
+//        } else {
+//            flashButton.setImage(#imageLiteral(resourceName: "flashOutline"), for: UIControlState())
+//        }
+//    }
+//    
     //Creates the buttons
     private func addButtons() {
         drawBorder()
@@ -150,18 +156,18 @@ class CameraViewController: SwiftyCamViewController {
         
         self.view.addSubview(captureButton)
         
-        captureButton.delegate = self
+//        captureButton.delegate = self
         
-        flipCameraButton = UIButton(frame: CGRect(x: (((view.frame.width / 2 - 37.5) / 2) - 15.0), y: view.frame.height - 74.0, width: 30.0, height: 23.0))
-        flipCameraButton.setImage(#imageLiteral(resourceName: "flipCamera"), for: UIControlState())
-        flipCameraButton.addTarget(self, action: #selector(cameraSwitchAction(_:)), for: .touchUpInside)
-        self.view.addSubview(flipCameraButton)
+//        flipCameraButton = UIButton(frame: CGRect(x: (((view.frame.width / 2 - 37.5) / 2) - 15.0), y: view.frame.height - 74.0, width: 30.0, height: 23.0))
+//        flipCameraButton.setImage(#imageLiteral(resourceName: "flipCamera"), for: UIControlState())
+//        flipCameraButton.addTarget(self, action: #selector(cameraSwitchAction(_:)), for: .touchUpInside)
+//        self.view.addSubview(flipCameraButton)
         
         let test = CGFloat((view.frame.width - (view.frame.width / 2 + 37.5)) + ((view.frame.width / 2) - 37.5) - 9.0)
         
         flashButton = UIButton(frame: CGRect(x: test, y: view.frame.height - 77.5, width: 18.0, height: 30.0))
         flashButton.setImage(#imageLiteral(resourceName: "flashOutline"), for: UIControlState())
-        flashButton.addTarget(self, action: #selector(toggleFlashAction(_:)), for: .touchUpInside)
+//        flashButton.addTarget(self, action: #selector(toggleFlashAction(_:)), for: .touchUpInside)
         self.view.addSubview(flashButton)
     }
     
