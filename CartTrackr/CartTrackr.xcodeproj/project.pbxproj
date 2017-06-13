@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2815F53B1EEB46EB006013EC /* BudgetPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2815F53A1EEB46EB006013EC /* BudgetPopUp.swift */; };
 		2815F53D1EEB5260006013EC /* CameraViewUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2815F53C1EEB5260006013EC /* CameraViewUpdate.swift */; };
+		281EFC2F1EF07A8E00DD4AC4 /* search.json in Resources */ = {isa = PBXBuildFile; fileRef = 281EFC2E1EF07A8E00DD4AC4 /* search.json */; };
 		2864BCAC1EEFC4F900BD4037 /* AsynchronousCameraReading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2864BCAB1EEFC4F900BD4037 /* AsynchronousCameraReading.swift */; };
 		286A79381E9C8D7F006DE32B /* cameraButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286A79371E9C8D7F006DE32B /* cameraButtonView.swift */; };
 		28ED52701E9F01E900E4152B /* STZPopupViewConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28ED526E1E9F01E800E4152B /* STZPopupViewConfig.swift */; };
@@ -55,6 +56,7 @@
 /* Begin PBXFileReference section */
 		2815F53A1EEB46EB006013EC /* BudgetPopUp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BudgetPopUp.swift; sourceTree = "<group>"; };
 		2815F53C1EEB5260006013EC /* CameraViewUpdate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraViewUpdate.swift; sourceTree = "<group>"; };
+		281EFC2E1EF07A8E00DD4AC4 /* search.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = search.json; sourceTree = "<group>"; };
 		2864BCAB1EEFC4F900BD4037 /* AsynchronousCameraReading.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsynchronousCameraReading.swift; sourceTree = "<group>"; };
 		286A79371E9C8D7F006DE32B /* cameraButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = cameraButtonView.swift; sourceTree = "<group>"; };
 		28ED526E1E9F01E800E4152B /* STZPopupViewConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STZPopupViewConfig.swift; sourceTree = "<group>"; };
@@ -184,6 +186,7 @@
 				BCA511401E9EC8F000A259A8 /* CartTrackr.entitlements */,
 				BC944CE31E9BE982004015EC /* Info.plist */,
 				BC944CDE1E9BE982004015EC /* Assets.xcassets */,
+				281EFC2E1EF07A8E00DD4AC4 /* search.json */,
 			);
 			name = Supporting;
 			sourceTree = "<group>";
@@ -259,6 +262,7 @@
 			files = (
 				BC944CE21E9BE982004015EC /* LaunchScreen.storyboard in Resources */,
 				BC944CDF1E9BE982004015EC /* Assets.xcassets in Resources */,
+				281EFC2F1EF07A8E00DD4AC4 /* search.json in Resources */,
 				BC944CF31E9BEAD8004015EC /* CartItemCell.xib in Resources */,
 				BC944CDD1E9BE982004015EC /* Main.storyboard in Resources */,
 			);
@@ -419,6 +423,7 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = CartTrackr/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jayb967.CartTrackr;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -437,6 +442,7 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = CartTrackr/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jayb967.CartTrackr;
 				PRODUCT_NAME = "$(TARGET_NAME)";

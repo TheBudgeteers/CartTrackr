@@ -460,10 +460,22 @@
                     <view key="view" contentMode="scaleToFill" id="Qpf-z0-WWH">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qQl-ca-quW">
+                                <rect key="frame" x="0.0" y="20" width="414" height="716"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="O5W-qp-Bjq" firstAttribute="top" secondItem="qQl-ca-quW" secondAttribute="bottom" id="CUX-LO-KBk"/>
+                            <constraint firstItem="qQl-ca-quW" firstAttribute="leading" secondItem="Qpf-z0-WWH" secondAttribute="leading" id="ECm-C0-OHt"/>
+                            <constraint firstItem="qQl-ca-quW" firstAttribute="top" secondItem="onP-yI-d1Z" secondAttribute="bottom" id="kii-0j-uPv"/>
+                            <constraint firstAttribute="trailing" secondItem="qQl-ca-quW" secondAttribute="trailing" id="mne-Qa-8sP"/>
+                        </constraints>
                     </view>
                     <connections>
-                        <segue destination="gFM-5B-4AB" kind="showDetail" identifier="ManualAddViewController" id="si9-Tc-zS4"/>
+                        <outlet property="imagePreview" destination="qQl-ca-quW" id="Egj-q6-1dP"/>
+                        <outlet property="videoPreview" destination="Qpf-z0-WWH" id="CcS-3H-Kvc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5hG-nX-hH7" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -482,6 +494,5 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="A7E-38-WsP"/>
-        <segue reference="irv-N6-o14"/>
     </inferredMetricsTieBreakers>
 </document>
