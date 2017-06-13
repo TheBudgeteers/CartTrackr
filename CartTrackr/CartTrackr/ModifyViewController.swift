@@ -78,6 +78,7 @@ class ModifyViewController: UIViewController {
 //MARK: UITextFieldDelegate
 extension ModifyViewController: UITextFieldDelegate {
     
+    @available(iOS 10.0, *)
     func textFieldDidEndEditing(_ textField: UITextField, reason: UITextFieldDidEndEditingReason) {
         print("END")
     }

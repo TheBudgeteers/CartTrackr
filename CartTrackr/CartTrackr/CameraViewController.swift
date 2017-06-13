@@ -20,7 +20,9 @@ class CameraViewController: UIViewController, FrameDelegate {
     var flashButton: UIButton!
     var loadingAnimation: LOTAnimationView?
     
-//    var priceString: String? {
+    
+    var priceString: String?
+//    {
 //        didSet {
 //            OperationQueue.main.addOperation {
 ////                self.performSegue(withIdentifier: ManualAddViewController.identifier, sender: nil)
@@ -43,6 +45,7 @@ class CameraViewController: UIViewController, FrameDelegate {
         asynchronousCameraReading = AsynchronousCameraReading()
         asynchronousCameraReading.delegate = self
         addButtons()
+        addLoadingGestureRecognizer()
         
     }
 
@@ -50,6 +53,18 @@ class CameraViewController: UIViewController, FrameDelegate {
         print("I wanna get this info\(image)")
         imagePreview.frame = self.view.frame
         imagePreview.image = image
+        OCRProcess.shared.process(targetImage: image, callback: { (priceString) in
+            self.priceString = priceString
+            
+        })
+        guard let dollars = self.priceString?.components(separatedBy: ".").first! else { return }
+        guard let cents = self.priceString?.components(separatedBy: ".").last! else { return }
+        if (cents.characters.count == 2 && dollars.characters.count > 1){
+            self.asynchronousCameraReading.stopSession()
+            print("camera controller\(String(describing: self.priceString))")
+            
+        }
+        
     }
     
     
@@ -75,11 +90,7 @@ class CameraViewController: UIViewController, FrameDelegate {
     //Sends image to OCR, processes it and sets the priceString with the string that is returned
 //    func swiftyCam(_ swiftyCam: SwiftyCamViewController, didTake photo: UIImage) {
 //        
-//        OCRProcess.shared.process(targetImage: photo, callback: { (priceString) in
-//            self.priceString = priceString
-//            print("camera controller\(String(describing: self.priceString))")
-//            
-//        })
+//       
 //        
 //    }
 
@@ -87,6 +98,9 @@ class CameraViewController: UIViewController, FrameDelegate {
     //Calls function for swapping between front and rear cameras when pressed
     @objc private func cameraSwitchAction(_ sender: Any) {
         asynchronousCameraReading.flipCamera()
+    }
+    @objc private func startSession(_ sender: Any) {
+        asynchronousCameraReading.startSession()
     }
     
 //    Toggles the flash on the camera
@@ -102,26 +116,42 @@ class CameraViewController: UIViewController, FrameDelegate {
     private func scanningAnimation(){
         
     }
+    private func addLoadingGestureRecognizer(){
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(startSession(_:)))
+            
+        tapRecognizer.numberOfTapsRequired = 1
+        loadingAnimation?.addGestureRecognizer(tapRecognizer)
+    }
     //Creates the buttons
     private func addButtons() {
         drawBorder()
+        let viewWidth = self.view.frame.size.width
+        let viewHeight = self.view.frame.size.height
+        
         let cancelButton = UIButton(frame: CGRect(x: 10.0, y: 10.0, width: 30.0, height: 30.0))
         cancelButton.setImage(#imageLiteral(resourceName: "cancel-1"), for: UIControlState())
         cancelButton.addTarget(self, action: #selector(cancel), for: .touchUpInside)
         view.addSubview(cancelButton)
         
-        
+        let cameraLabel = UILabel(frame: CGRect(x: viewWidth/4, y: viewHeight/2-200, width: viewWidth/2, height: 30))
+        cameraLabel.textAlignment = .center
+        cameraLabel.text = "Fit price in box below!"
+        cameraLabel.textColor = .white
+        cameraLabel.font = UIFont(name: "HelveticaNeue", size: 20)
+        self.view.addSubview(cameraLabel)
+
+            
         loadingAnimation = LOTAnimationView(name: "search")
-        loadingAnimation?.center = self.view.center
-        loadingAnimation?.frame = self.view.bounds
+//        loadingAnimation?.center = self.view.center
+        loadingAnimation?.frame = CGRect(x: viewWidth/2-70, y: viewHeight-viewHeight/3, width: 140, height: 140)
         self.loadingAnimation?.contentMode = UIViewContentMode.scaleAspectFit
+        loadingAnimation?.isUserInteractionEnabled = true
         self.view.addSubview(loadingAnimation!)
-        loadingAnimation?.play(completion:nil)
+        loadingAnimation?.loopAnimation = true
+        loadingAnimation?.play()
 
         
-//        loadingAnimation = CameraButtonView(frame: CGRect(x: view.frame.midX - 37.5, y: view.frame.height - 100.0, width: 75.0, height: 75.0))
-        
-//        self.view.addSubview(loadingAnimation)
+
         
         flipCameraButton = UIButton(frame: CGRect(x: (((view.frame.width / 2 - 37.5) / 2) - 15.0), y: view.frame.height - 74.0, width: 30.0, height: 23.0))
         flipCameraButton.setImage(#imageLiteral(resourceName: "flipCamera"), for: UIControlState())

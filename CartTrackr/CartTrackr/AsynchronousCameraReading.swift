@@ -52,6 +52,9 @@ class AsynchronousCameraReading: NSObject, AVCaptureVideoDataOutputSampleBufferD
     func stopSession() {
         self.captureSession.stopRunning()
     }
+    func startSession(){
+        self.captureSession.startRunning()
+    }
     
     func toggleFlash() {
         var device : AVCaptureDevice!

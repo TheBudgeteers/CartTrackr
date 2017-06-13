@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SwiftyCam
 import SwiftOCR
 
 typealias OCRCallback = (String) -> ()
@@ -24,6 +23,7 @@ class OCRProcess {
     func process(targetImage: UIImage, callback: @escaping OCRCallback )   {
         let cropped = prepareImageForCrop(using: targetImage)
         var priceString : String = ""
+       
         
         self.OCR.recognize(cropped) { (recognizedString) in
             guard let dollars = recognizedString.components(separatedBy: "I").first?.components(separatedBy: "S").last else { return }
