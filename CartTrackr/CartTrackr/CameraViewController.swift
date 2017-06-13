@@ -30,7 +30,6 @@ class CameraViewController: UIViewController, FrameDelegate {
 //        }
 //    }
     
-    @IBOutlet var videoPreview: UIView!
     @IBOutlet weak var imagePreview: UIImageView!
     
     //required init is needed when using AVFoundation
@@ -111,9 +110,18 @@ class CameraViewController: UIViewController, FrameDelegate {
         cancelButton.addTarget(self, action: #selector(cancel), for: .touchUpInside)
         view.addSubview(cancelButton)
         
-        loadingAnimation = CameraButtonView(frame: CGRect(x: view.frame.midX - 37.5, y: view.frame.height - 100.0, width: 75.0, height: 75.0))
         
-        self.view.addSubview(loadingAnimation)
+        loadingAnimation = LOTAnimationView(name: "search")
+        loadingAnimation?.center = self.view.center
+        loadingAnimation?.frame = self.view.bounds
+        self.loadingAnimation?.contentMode = UIViewContentMode.scaleAspectFit
+        self.view.addSubview(loadingAnimation!)
+        loadingAnimation?.play(completion:nil)
+
+        
+//        loadingAnimation = CameraButtonView(frame: CGRect(x: view.frame.midX - 37.5, y: view.frame.height - 100.0, width: 75.0, height: 75.0))
+        
+//        self.view.addSubview(loadingAnimation)
         
         flipCameraButton = UIButton(frame: CGRect(x: (((view.frame.width / 2 - 37.5) / 2) - 15.0), y: view.frame.height - 74.0, width: 30.0, height: 23.0))
         flipCameraButton.setImage(#imageLiteral(resourceName: "flipCamera"), for: UIControlState())

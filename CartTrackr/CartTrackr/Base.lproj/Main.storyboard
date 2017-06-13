@@ -475,7 +475,6 @@
                     </view>
                     <connections>
                         <outlet property="imagePreview" destination="qQl-ca-quW" id="Egj-q6-1dP"/>
-                        <outlet property="videoPreview" destination="Qpf-z0-WWH" id="CcS-3H-Kvc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5hG-nX-hH7" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -62,7 +62,7 @@ class AsynchronousCameraReading: NSObject, AVCaptureVideoDataOutputSampleBufferD
             device = devices.first!
             
         } else {
-            // Fallback on earlier versions
+            //if version 10 not Available.
             device = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo)
         }
         
@@ -70,15 +70,11 @@ class AsynchronousCameraReading: NSObject, AVCaptureVideoDataOutputSampleBufferD
         {
             if (device.hasTorch)
             {
-//                self.beginConfiguration()
-                //self.objOverlayView.disableCenterCameraBtn();
                 if device.isTorchActive == false {
                     self.flashOn(device: device)
                 } else {
                     self.flashOff(device: device);
                 }
-                //self.objOverlayView.enableCenterCameraBtn();
-//                self.session.commitConfiguration()
             }
         }
     }
