@@ -16,6 +16,8 @@ class CartViewController: UIViewController {
     @IBOutlet weak var quantityLabel: UILabel!
     @IBOutlet weak var budgetProgressBar: UIProgressView!
     
+    @IBOutlet weak var imageBackground: UIImageView!
+    
     var activeCart = Cart.shared.listItems
     
     var deleteCellIndexPath: IndexPath? = nil
@@ -83,13 +85,12 @@ class CartViewController: UIViewController {
             if let budgetMax = Budget.shared.budgetMax {
                 print(budgetMax)
                 var percentTax = Cart.shared.percentageTax(budget: budgetMax)
-                let mainBlueColor = hexStringToUIColor(hex: "#044389")
                 
                 if percentTax >= 1.0 {
-                    self.view.backgroundColor = UIColor.red
+                    self.imageBackground.image = UIImage(named: "redGradientIphone")
                     percentTax = 1.0
                 } else {
-                    self.view.backgroundColor = mainBlueColor
+                    self.imageBackground.image = UIImage(named: "blueGradientIphone")
                     
                 }
                 

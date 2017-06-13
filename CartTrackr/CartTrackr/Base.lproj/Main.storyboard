@@ -154,6 +154,7 @@
                     <connections>
                         <outlet property="budgetProgressBar" destination="43A-8c-STt" id="e45-hL-5cb"/>
                         <outlet property="cartTableView" destination="vVm-qj-pVi" id="hJy-DN-CYi"/>
+                        <outlet property="imageBackground" destination="6wP-Oy-NfJ" id="S1z-Vv-ccf"/>
                         <outlet property="preTaxTotalLabel" destination="DsS-FR-Luh" id="ukB-7G-bRF"/>
                         <outlet property="quantityLabel" destination="hDq-J4-bmH" id="nXW-3E-zkt"/>
                         <outlet property="totalLabel" destination="jKd-d9-GVn" id="5Dj-8Q-qIb"/>
