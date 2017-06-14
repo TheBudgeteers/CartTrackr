@@ -69,6 +69,7 @@ class CartViewController: UIViewController {
     
     //Refreshes and updates the totals
     func update() {
+        
         self.preTaxTotalLabel.text = "PreTax: $\(String(Cart.shared.totalPrice()))"
         self.totalLabel.text = "Total: $\(String(Cart.shared.totalTax()))"
         self.quantityLabel.text = "#: \(Cart.shared.totalQuantity())"

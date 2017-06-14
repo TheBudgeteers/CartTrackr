@@ -59,28 +59,31 @@ class ConfirmView: UIView,UITextFieldDelegate{
         textField2.delegate = self
         popupView.addSubview(textField2)
         
-        let mySwitch = UISwitch(frame: CGRect(x: viewWidth/2-(viewWidth-100)/2, y: viewHeight-viewHeight/3, width: 100, height: 50))
-//        mySwitch.center = popupView.center
-        mySwitch.setOn(false, animated: true)
-        mySwitch.tintColor = UIColor.blue
-        mySwitch.onTintColor = UIColor.green
-        mySwitch.thumbTintColor = UIColor.darkGray
-        mySwitch.addTarget(self, action: #selector(camera.switchChanged(sender:)), for: UIControlEvents.valueChanged)
+//////////////Will add later for toggle from full dollar to decimal.
         
-//        mySwitch.addTarget(self, action: #selector(camera.switchChanged(_:)), for: UIControlEvents.ValueChanged)
         
-        popupView.addSubview(mySwitch)
-        
-        let fullDollarLabel: UILabel = UILabel()
-        fullDollarLabel.frame = CGRect(x: viewWidth/4+8, y: viewHeight-viewHeight/3, width: viewWidth/2, height: 30)
-        fullDollarLabel.font = UIFont(name: "AppleSDGothicNeo-Bold", size: 35.0)
-        let mainBlueColor = cart.hexStringToUIColor(hex: "#044389")
-        fullDollarLabel.textColor = mainBlueColor
-        fullDollarLabel.backgroundColor = UIColor.white
-        fullDollarLabel.numberOfLines = 1
-        fullDollarLabel.text = "1$"
-        
-        popupView.addSubview(fullDollarLabel)
+//        let mySwitch = UISwitch(frame: CGRect(x: viewWidth/2-(viewWidth-100)/2, y: viewHeight-viewHeight/3, width: 100, height: 50))
+////        mySwitch.center = popupView.center
+//        mySwitch.setOn(false, animated: true)
+//        mySwitch.tintColor = UIColor.blue
+//        mySwitch.onTintColor = UIColor.green
+//        mySwitch.thumbTintColor = UIColor.darkGray
+//        mySwitch.addTarget(self, action: #selector(camera.switchChanged(sender:)), for: UIControlEvents.valueChanged)
+//        
+////        mySwitch.addTarget(self, action: #selector(camera.switchChanged(_:)), for: UIControlEvents.ValueChanged)
+//        
+//        popupView.addSubview(mySwitch)
+//        
+//        let fullDollarLabel: UILabel = UILabel()
+//        fullDollarLabel.frame = CGRect(x: viewWidth/4+8, y: viewHeight-viewHeight/3, width: viewWidth/2, height: 30)
+//        fullDollarLabel.font = UIFont(name: "AppleSDGothicNeo-Bold", size: 35.0)
+//        let mainBlueColor = cart.hexStringToUIColor(hex: "#044389")
+//        fullDollarLabel.textColor = mainBlueColor
+//        fullDollarLabel.backgroundColor = UIColor.white
+//        fullDollarLabel.numberOfLines = 1
+//        fullDollarLabel.text = "1$"
+//        
+//        popupView.addSubview(fullDollarLabel)
         
         //Draws close button on the pop up
         let cancelButton = UIButton(frame: CGRect(x: viewWidth/2, y: viewHeight-viewHeight/3-12, width: 50, height: 50))

@@ -38,29 +38,12 @@ class CameraViewController: UIViewController, FrameDelegate, UITextFieldDelegate
                             }
             }
             
-//            OperationQueue.main.addOperation {
-//            }
-            //            OperationQueue.main.cancelAllOperations()
-            
-            //            OperationQueue.main.addOperation {
-            //                self.performSegue(withIdentifier: ManualAddViewController.identifier, sender: nil)
-            //                self.dismiss(animated: true, completion: nil)
-            //                if (self.readingLabel != nil){
-            //                self.readingLabel.removeFromSuperview()
-            //                }
-            //                self.scanningLabel()
-            print("=----------\(String(describing: self.priceString!))---------------")
-            
-            //            }
         }
     }
     
+ //Video/image preview being viewed while scanning
     @IBOutlet weak var imagePreview: UIImageView!
     
-//    required init is needed when using AVFoundation
-//    required init?(coder aDecoder: NSCoder) {
-//        super.init(coder: aDecoder)
-//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -121,26 +104,21 @@ class CameraViewController: UIViewController, FrameDelegate, UITextFieldDelegate
 //        
 //    }
     func textFieldDidChange(_ textField: UITextField){
-//        userBudgetSet = textField.text!
+        itemDescription = textField.text!
     }
     
     func textFieldDidChange2(_ textField: UITextField){
-                OCRPriceString.shared.priceString = textField.text!
+        OCRPriceString.shared.priceString = textField.text!
     }
-    
-    func dismissKeyboard(){
-        view.endEditing(true)
-    }
-    
+    //Dismisses pop up view and starts auto scanning
     func touchCancel() {
         dismissPopupView()
         asynchronousCameraReading.startSession()
     }
-    
+    //add new item and dimisses camera view
     func touchClose() {
-//        Budget.shared.budgetMax = userBudgetSet
         dismissPopupView()
-        Cart.shared.addItem(OCRPriceString.shared.priceString, itemDescription, "1")
+        Cart.shared.addItem(OCRPriceString.shared.priceString!, itemDescription, "1")
         asynchronousCameraReading.stopSession()
         self.asynchronousCameraReading.sessionQueue.suspend()
         self.dismiss(animated: true) {
