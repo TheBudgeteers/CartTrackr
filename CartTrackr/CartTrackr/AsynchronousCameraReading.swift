@@ -21,7 +21,7 @@ class AsynchronousCameraReading: NSObject, AVCaptureVideoDataOutputSampleBufferD
     private let quality = AVCaptureSessionPresetHigh
     
     private var permissionGranted = false
-    private let sessionQueue = DispatchQueue(label: "session queue")
+    let sessionQueue = DispatchQueue(label: "session queue")
     private let captureSession = AVCaptureSession()
     private let context = CIContext()
     var flash:Bool! = false

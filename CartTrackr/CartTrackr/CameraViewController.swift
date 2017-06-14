@@ -25,46 +25,60 @@ class CameraViewController: UIViewController, FrameDelegate {
     var priceString: String! = nil
     {
         didSet {
-            OperationQueue.main.addOperation {
-//                self.performSegue(withIdentifier: ManualAddViewController.identifier, sender: nil)
-//                self.dismiss(animated: true, completion: nil)
-//                if (self.readingLabel != nil){
-//                self.readingLabel.removeFromSuperview()
-//                }
-//                self.scanningLabel()
-                  print("=----------\(String(describing: self.priceString!))---------------")
-                
+            var valid:String! = nil
+           valid = priceString.readingValidate(reading: priceString!)
+            if (valid != "notValid"){
+                 OCRPriceString.shared.priceString = valid
+                            OperationQueue.main.addOperation {
+                                self.asynchronousCameraReading.stopSession()
+                                self.asynchronousCameraReading.sessionQueue.suspend()
+                                self.confirmPopup()
+                            }
             }
+            
+//            OperationQueue.main.addOperation {
+//            }
+            //            OperationQueue.main.cancelAllOperations()
+            
+            //            OperationQueue.main.addOperation {
+            //                self.performSegue(withIdentifier: ManualAddViewController.identifier, sender: nil)
+            //                self.dismiss(animated: true, completion: nil)
+            //                if (self.readingLabel != nil){
+            //                self.readingLabel.removeFromSuperview()
+            //                }
+            //                self.scanningLabel()
+            print("=----------\(String(describing: self.priceString!))---------------")
+            
+            //            }
         }
     }
     
     @IBOutlet weak var imagePreview: UIImageView!
     
-    //required init is needed when using AVFoundation
+//    required init is needed when using AVFoundation
 //    required init?(coder aDecoder: NSCoder) {
 //        super.init(coder: aDecoder)
 //    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         asynchronousCameraReading = AsynchronousCameraReading()
         asynchronousCameraReading.delegate = self
         addButtons()
         addLoadingGestureRecognizer()
         
     }
+
     
     func price(price: String){
         if(price != ""){
-            self.priceString = price
-        }
-//
-        if (self.priceString != nil){
-//            self.asynchronousCameraReading.stopSession()
-//            scanningLabel()
             
+            
+           self.priceString = price
+            
+          
         }
+
     }
     
     func captured(image: UIImage) {
@@ -99,7 +113,30 @@ class CameraViewController: UIViewController, FrameDelegate {
 //       
 //        
 //    }
-
+    func textFieldDidChange(_ textField: UITextField){
+//        userBudgetSet = textField.text!
+    }
+    
+    func textFieldDidChange2(_ textField: UITextField){
+        //        userBudgetSet = textField.text!
+    }
+    
+    func dismissKeyboard(){
+        view.endEditing(true)
+    }
+    
+    func touchCancel() {
+        dismissPopupView()
+        asynchronousCameraReading.startSession()
+    }
+    
+    func touchClose() {
+//        Budget.shared.budgetMax = userBudgetSet
+        dismissPopupView()
+        self.dismiss(animated: true) { 
+            CartViewController().update()
+        }
+    }
     
     //Calls function for swapping between front and rear cameras when pressed
     @objc private func cameraSwitchAction(_ sender: Any) {
@@ -119,6 +156,27 @@ class CameraViewController: UIViewController, FrameDelegate {
             flashButton.setImage(#imageLiteral(resourceName: "flashOutline"), for: UIControlState())
         }
     }
+    
+    private func confirmPopup(){
+        let confirm = ConfirmView()
+        let popupView = confirm.createPopupview()
+        
+        let popupConfig = STZPopupViewConfig()
+        popupConfig.dismissTouchBackground = true
+        popupConfig.cornerRadius = 10
+        popupConfig.showAnimation = .slideInFromBottom
+        popupConfig.dismissAnimation = .slideOutToTop
+        popupConfig.showCompletion = { popupView in
+            print("show")
+        }
+        popupConfig.dismissCompletion = { popupView in
+            print("dismiss")
+        }
+        
+        presentPopupView(popupView, config: popupConfig)
+
+    }
+    
     private func scanningLabel(){
         let viewWidth = self.view.frame.size.width
         let viewHeight = self.view.frame.size.height
@@ -126,7 +184,7 @@ class CameraViewController: UIViewController, FrameDelegate {
         
         readingLabel = UILabel(frame: CGRect(x: 0, y: viewHeight/2-100, width: viewWidth, height: 30))
         readingLabel.textAlignment = .center
-        readingLabel.text = String(self.priceString)
+        readingLabel.text = String(describing: self.priceString)
         readingLabel.textColor = .white
         readingLabel.font = UIFont(name: "HelveticaNeue", size: 20)
         self.view.addSubview(readingLabel)

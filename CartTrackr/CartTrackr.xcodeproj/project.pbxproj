@@ -10,7 +10,6 @@
 		281368601EF09A4600676FA9 /* Lottie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 281EFC501EF0934C00DD4AC4 /* Lottie.framework */; };
 		281368611EF09A4600676FA9 /* Lottie.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 281EFC501EF0934C00DD4AC4 /* Lottie.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2815F53B1EEB46EB006013EC /* BudgetPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2815F53A1EEB46EB006013EC /* BudgetPopUp.swift */; };
-		2815F53D1EEB5260006013EC /* CameraViewUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2815F53C1EEB5260006013EC /* CameraViewUpdate.swift */; };
 		281EFC2F1EF07A8E00DD4AC4 /* search.json in Resources */ = {isa = PBXBuildFile; fileRef = 281EFC2E1EF07A8E00DD4AC4 /* search.json */; };
 		281EFC511EF0934C00DD4AC4 /* Lottie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 281EFC501EF0934C00DD4AC4 /* Lottie.framework */; };
 		2864BCAC1EEFC4F900BD4037 /* AsynchronousCameraReading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2864BCAB1EEFC4F900BD4037 /* AsynchronousCameraReading.swift */; };
@@ -18,6 +17,8 @@
 		287384711EF1067E00AA3A4A /* SwiftOCR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 287384701EF1067E00AA3A4A /* SwiftOCR.framework */; };
 		287384721EF1068800AA3A4A /* SwiftOCR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 287384701EF1067E00AA3A4A /* SwiftOCR.framework */; };
 		287384731EF1068800AA3A4A /* SwiftOCR.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 287384701EF1067E00AA3A4A /* SwiftOCR.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		287384751EF140E200AA3A4A /* ConfirmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287384741EF140E200AA3A4A /* ConfirmView.swift */; };
+		287384771EF19F7F00AA3A4A /* OCRPriceString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287384761EF19F7F00AA3A4A /* OCRPriceString.swift */; };
 		28ED52701E9F01E900E4152B /* STZPopupViewConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28ED526E1E9F01E800E4152B /* STZPopupViewConfig.swift */; };
 		28ED52711E9F01E900E4152B /* UIViewController+STZPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28ED526F1E9F01E900E4152B /* UIViewController+STZPopupView.swift */; };
 		714477A91EA0013D00B4582E /* Budget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714477A81EA0013D00B4582E /* Budget.swift */; };
@@ -57,12 +58,13 @@
 
 /* Begin PBXFileReference section */
 		2815F53A1EEB46EB006013EC /* BudgetPopUp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BudgetPopUp.swift; sourceTree = "<group>"; };
-		2815F53C1EEB5260006013EC /* CameraViewUpdate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraViewUpdate.swift; sourceTree = "<group>"; };
 		281EFC2E1EF07A8E00DD4AC4 /* search.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = search.json; sourceTree = "<group>"; };
 		281EFC501EF0934C00DD4AC4 /* Lottie.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Lottie.framework; path = Carthage/Build/iOS/Lottie.framework; sourceTree = "<group>"; };
 		2864BCAB1EEFC4F900BD4037 /* AsynchronousCameraReading.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsynchronousCameraReading.swift; sourceTree = "<group>"; };
 		286A79371E9C8D7F006DE32B /* cameraButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = cameraButtonView.swift; sourceTree = "<group>"; };
 		287384701EF1067E00AA3A4A /* SwiftOCR.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SwiftOCR.framework; sourceTree = "<group>"; };
+		287384741EF140E200AA3A4A /* ConfirmView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmView.swift; sourceTree = "<group>"; };
+		287384761EF19F7F00AA3A4A /* OCRPriceString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OCRPriceString.swift; sourceTree = "<group>"; };
 		28ED526E1E9F01E800E4152B /* STZPopupViewConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STZPopupViewConfig.swift; sourceTree = "<group>"; };
 		28ED526F1E9F01E900E4152B /* UIViewController+STZPopupView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+STZPopupView.swift"; sourceTree = "<group>"; };
 		714477A81EA0013D00B4582E /* Budget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Budget.swift; sourceTree = "<group>"; };
@@ -152,6 +154,7 @@
 				BC944CFB1E9BEBAD004015EC /* OCR.swift */,
 				71B307931E9BF9F40082F9C0 /* Cart.swift */,
 				714477A81EA0013D00B4582E /* Budget.swift */,
+				287384761EF19F7F00AA3A4A /* OCRPriceString.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -171,7 +174,7 @@
 		BC944CEF1E9BEA6F004015EC /* View */ = {
 			isa = PBXGroup;
 			children = (
-				2815F53C1EEB5260006013EC /* CameraViewUpdate.swift */,
+				287384741EF140E200AA3A4A /* ConfirmView.swift */,
 				2815F53A1EEB46EB006013EC /* BudgetPopUp.swift */,
 				BC944CDB1E9BE982004015EC /* Main.storyboard */,
 				BC944CE01E9BE982004015EC /* LaunchScreen.storyboard */,
@@ -280,14 +283,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				BC944CFC1E9BEBAD004015EC /* OCR.swift in Sources */,
+				287384771EF19F7F00AA3A4A /* OCRPriceString.swift in Sources */,
 				714477A91EA0013D00B4582E /* Budget.swift in Sources */,
 				71B307941E9BF9F40082F9C0 /* Cart.swift in Sources */,
 				28ED52701E9F01E900E4152B /* STZPopupViewConfig.swift in Sources */,
 				BC944CEA1E9BEA31004015EC /* Item.swift in Sources */,
+				287384751EF140E200AA3A4A /* ConfirmView.swift in Sources */,
 				BC944CFA1E9BEB50004015EC /* Extensions.swift in Sources */,
 				BC944CF51E9BEAFE004015EC /* CameraViewController.swift in Sources */,
 				BC944CED1E9BEA61004015EC /* CartViewController.swift in Sources */,
-				2815F53D1EEB5260006013EC /* CameraViewUpdate.swift in Sources */,
 				BC944CF21E9BEAD8004015EC /* CartItemCell.swift in Sources */,
 				2864BCAC1EEFC4F900BD4037 /* AsynchronousCameraReading.swift in Sources */,
 				BC944CF71E9BEB14004015EC /* ModifyViewController.swift in Sources */,

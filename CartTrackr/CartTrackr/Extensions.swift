@@ -108,3 +108,23 @@ extension String {
     }
     
 }
+//will only return value if there is 3 consecutive readings
+extension String{
+    func readingValidate(reading: String) -> String {
+        var validateArray = OCRPriceString.shared.validateArray
+        
+        var validReading: String! = "notValid"
+
+        if(validateArray.count < 3){
+            validateArray.insert(reading, at: 0)
+        }
+        if(validateArray.count > 3 || validateArray.count == 3 && validateArray.filter{$0 == reading}.count != 3){
+        validateArray.removeLast()
+        }
+        if(validateArray.count == 3 && validateArray.filter{$0 == reading}.count == 3){
+            validReading =  reading
+        }
+        OCRPriceString.shared.validateArray = validateArray
+        return validReading
+    }
+}
