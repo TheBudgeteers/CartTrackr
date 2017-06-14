@@ -15,6 +15,9 @@
 		281EFC511EF0934C00DD4AC4 /* Lottie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 281EFC501EF0934C00DD4AC4 /* Lottie.framework */; };
 		2864BCAC1EEFC4F900BD4037 /* AsynchronousCameraReading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2864BCAB1EEFC4F900BD4037 /* AsynchronousCameraReading.swift */; };
 		286A79381E9C8D7F006DE32B /* cameraButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286A79371E9C8D7F006DE32B /* cameraButtonView.swift */; };
+		287384711EF1067E00AA3A4A /* SwiftOCR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 287384701EF1067E00AA3A4A /* SwiftOCR.framework */; };
+		287384721EF1068800AA3A4A /* SwiftOCR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 287384701EF1067E00AA3A4A /* SwiftOCR.framework */; };
+		287384731EF1068800AA3A4A /* SwiftOCR.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 287384701EF1067E00AA3A4A /* SwiftOCR.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		28ED52701E9F01E900E4152B /* STZPopupViewConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28ED526E1E9F01E800E4152B /* STZPopupViewConfig.swift */; };
 		28ED52711E9F01E900E4152B /* UIViewController+STZPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28ED526F1E9F01E900E4152B /* UIViewController+STZPopupView.swift */; };
 		714477A91EA0013D00B4582E /* Budget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714477A81EA0013D00B4582E /* Budget.swift */; };
@@ -30,12 +33,10 @@
 		BC944CF31E9BEAD8004015EC /* CartItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC944CF11E9BEAD8004015EC /* CartItemCell.xib */; };
 		BC944CF51E9BEAFE004015EC /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC944CF41E9BEAFE004015EC /* CameraViewController.swift */; };
 		BC944CF71E9BEB14004015EC /* ModifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC944CF61E9BEB14004015EC /* ModifyViewController.swift */; };
-		BC944CFA1E9BEB50004015EC /* UIExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC944CF91E9BEB50004015EC /* UIExtensions.swift */; };
+		BC944CFA1E9BEB50004015EC /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC944CF91E9BEB50004015EC /* Extensions.swift */; };
 		BC944CFC1E9BEBAD004015EC /* OCR.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC944CFB1E9BEBAD004015EC /* OCR.swift */; };
 		BC944D131E9C4944004015EC /* GPUImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC944D111E9C4944004015EC /* GPUImage.framework */; };
-		BC944D141E9C4944004015EC /* SwiftOCR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC944D121E9C4944004015EC /* SwiftOCR.framework */; };
 		BC944D161E9C4955004015EC /* GPUImage.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = BC944D111E9C4944004015EC /* GPUImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		BC944D171E9C4955004015EC /* SwiftOCR.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = BC944D121E9C4944004015EC /* SwiftOCR.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BCA511421E9EC8F900A259A8 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCA511411E9EC8F900A259A8 /* CloudKit.framework */; };
 /* End PBXBuildFile section */
 
@@ -46,8 +47,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				287384731EF1068800AA3A4A /* SwiftOCR.framework in CopyFiles */,
 				BC944D161E9C4955004015EC /* GPUImage.framework in CopyFiles */,
-				BC944D171E9C4955004015EC /* SwiftOCR.framework in CopyFiles */,
 				281368611EF09A4600676FA9 /* Lottie.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -61,6 +62,7 @@
 		281EFC501EF0934C00DD4AC4 /* Lottie.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Lottie.framework; path = Carthage/Build/iOS/Lottie.framework; sourceTree = "<group>"; };
 		2864BCAB1EEFC4F900BD4037 /* AsynchronousCameraReading.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsynchronousCameraReading.swift; sourceTree = "<group>"; };
 		286A79371E9C8D7F006DE32B /* cameraButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = cameraButtonView.swift; sourceTree = "<group>"; };
+		287384701EF1067E00AA3A4A /* SwiftOCR.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SwiftOCR.framework; sourceTree = "<group>"; };
 		28ED526E1E9F01E800E4152B /* STZPopupViewConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STZPopupViewConfig.swift; sourceTree = "<group>"; };
 		28ED526F1E9F01E900E4152B /* UIViewController+STZPopupView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+STZPopupView.swift"; sourceTree = "<group>"; };
 		714477A81EA0013D00B4582E /* Budget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Budget.swift; sourceTree = "<group>"; };
@@ -78,10 +80,9 @@
 		BC944CF11E9BEAD8004015EC /* CartItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CartItemCell.xib; sourceTree = "<group>"; };
 		BC944CF41E9BEAFE004015EC /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		BC944CF61E9BEB14004015EC /* ModifyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModifyViewController.swift; sourceTree = "<group>"; };
-		BC944CF91E9BEB50004015EC /* UIExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIExtensions.swift; sourceTree = "<group>"; };
+		BC944CF91E9BEB50004015EC /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		BC944CFB1E9BEBAD004015EC /* OCR.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OCR.swift; sourceTree = "<group>"; };
 		BC944D111E9C4944004015EC /* GPUImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GPUImage.framework; path = Carthage/Build/iOS/GPUImage.framework; sourceTree = "<group>"; };
-		BC944D121E9C4944004015EC /* SwiftOCR.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftOCR.framework; path = Carthage/Build/iOS/SwiftOCR.framework; sourceTree = "<group>"; };
 		BCA511401E9EC8F000A259A8 /* CartTrackr.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CartTrackr.entitlements; sourceTree = "<group>"; };
 		BCA511411E9EC8F900A259A8 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -94,8 +95,9 @@
 				281EFC511EF0934C00DD4AC4 /* Lottie.framework in Frameworks */,
 				281368601EF09A4600676FA9 /* Lottie.framework in Frameworks */,
 				BC944D131E9C4944004015EC /* GPUImage.framework in Frameworks */,
+				287384721EF1068800AA3A4A /* SwiftOCR.framework in Frameworks */,
+				287384711EF1067E00AA3A4A /* SwiftOCR.framework in Frameworks */,
 				BCA511421E9EC8F900A259A8 /* CloudKit.framework in Frameworks */,
-				BC944D141E9C4944004015EC /* SwiftOCR.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -105,10 +107,10 @@
 		71B1EECE1E9C095E00A42678 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				287384701EF1067E00AA3A4A /* SwiftOCR.framework */,
 				281EFC501EF0934C00DD4AC4 /* Lottie.framework */,
 				BCA511411E9EC8F900A259A8 /* CloudKit.framework */,
 				BC944D111E9C4944004015EC /* GPUImage.framework */,
-				BC944D121E9C4944004015EC /* SwiftOCR.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -145,7 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				2864BCAB1EEFC4F900BD4037 /* AsynchronousCameraReading.swift */,
-				BC944CF91E9BEB50004015EC /* UIExtensions.swift */,
+				BC944CF91E9BEB50004015EC /* Extensions.swift */,
 				BC944CE91E9BEA31004015EC /* Item.swift */,
 				BC944CFB1E9BEBAD004015EC /* OCR.swift */,
 				71B307931E9BF9F40082F9C0 /* Cart.swift */,
@@ -282,7 +284,7 @@
 				71B307941E9BF9F40082F9C0 /* Cart.swift in Sources */,
 				28ED52701E9F01E900E4152B /* STZPopupViewConfig.swift in Sources */,
 				BC944CEA1E9BEA31004015EC /* Item.swift in Sources */,
-				BC944CFA1E9BEB50004015EC /* UIExtensions.swift in Sources */,
+				BC944CFA1E9BEB50004015EC /* Extensions.swift in Sources */,
 				BC944CF51E9BEAFE004015EC /* CameraViewController.swift in Sources */,
 				BC944CED1E9BEA61004015EC /* CartViewController.swift in Sources */,
 				2815F53D1EEB5260006013EC /* CameraViewUpdate.swift in Sources */,
@@ -423,6 +425,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = CartTrackr/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
@@ -442,6 +445,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = CartTrackr/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;

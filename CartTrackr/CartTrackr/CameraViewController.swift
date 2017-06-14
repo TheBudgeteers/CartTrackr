@@ -8,7 +8,6 @@
 
 import UIKit
 import AVFoundation
-import SwiftOCR
 import Lottie
 
 class CameraViewController: UIViewController, FrameDelegate {
@@ -19,18 +18,25 @@ class CameraViewController: UIViewController, FrameDelegate {
     var flipCameraButton: UIButton!
     var flashButton: UIButton!
     var loadingAnimation: LOTAnimationView?
+    var labelOutput: String!
+    var readingLabel: UILabel! = nil
+    private let sessionQueue = DispatchQueue(label: "OCR queue")
     
-    
-    var priceString: String?
-//    {
-//        didSet {
-//            OperationQueue.main.addOperation {
-////                self.performSegue(withIdentifier: ManualAddViewController.identifier, sender: nil)
+    var priceString: String! = nil
+    {
+        didSet {
+            OperationQueue.main.addOperation {
+//                self.performSegue(withIdentifier: ManualAddViewController.identifier, sender: nil)
 //                self.dismiss(animated: true, completion: nil)
-//                
-//            }
-//        }
-//    }
+//                if (self.readingLabel != nil){
+//                self.readingLabel.removeFromSuperview()
+//                }
+//                self.scanningLabel()
+                  print("=----------\(String(describing: self.priceString!))---------------")
+                
+            }
+        }
+    }
     
     @IBOutlet weak var imagePreview: UIImageView!
     
@@ -48,23 +54,23 @@ class CameraViewController: UIViewController, FrameDelegate {
         addLoadingGestureRecognizer()
         
     }
-
-    func captured(image: UIImage) {
-        print("I wanna get this info\(image)")
-        imagePreview.frame = self.view.frame
-        imagePreview.image = image
-        OCRProcess.shared.process(targetImage: image, callback: { (priceString) in
-            self.priceString = priceString
-            
-        })
-        guard let dollars = self.priceString?.components(separatedBy: ".").first! else { return }
-        guard let cents = self.priceString?.components(separatedBy: ".").last! else { return }
-        if (cents.characters.count == 2 && dollars.characters.count > 1){
-            self.asynchronousCameraReading.stopSession()
-            print("camera controller\(String(describing: self.priceString))")
+    
+    func price(price: String){
+        if(price != ""){
+            self.priceString = price
+        }
+//
+        if (self.priceString != nil){
+//            self.asynchronousCameraReading.stopSession()
+//            scanningLabel()
             
         }
-        
+    }
+    
+    func captured(image: UIImage) {
+        print("------------------------------------")
+        self.imagePreview.frame = self.view.frame
+        self.imagePreview.image = image
     }
     
     
@@ -80,7 +86,7 @@ class CameraViewController: UIViewController, FrameDelegate {
 //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 //        if segue.identifier == ManualAddViewController.identifier {
 //            guard let destinationController = segue.destination as? ManualAddViewController else { return }
-//            
+//
 //            print("inside segue prepare \(String(describing: self.priceString))")
 //            destinationController.targetPrice = self.priceString
 //            
@@ -113,8 +119,17 @@ class CameraViewController: UIViewController, FrameDelegate {
             flashButton.setImage(#imageLiteral(resourceName: "flashOutline"), for: UIControlState())
         }
     }
-    private func scanningAnimation(){
+    private func scanningLabel(){
+        let viewWidth = self.view.frame.size.width
+        let viewHeight = self.view.frame.size.height
         
+        
+        readingLabel = UILabel(frame: CGRect(x: 0, y: viewHeight/2-100, width: viewWidth, height: 30))
+        readingLabel.textAlignment = .center
+        readingLabel.text = String(self.priceString)
+        readingLabel.textColor = .white
+        readingLabel.font = UIFont(name: "HelveticaNeue", size: 20)
+        self.view.addSubview(readingLabel)
     }
     private func addLoadingGestureRecognizer(){
         let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(startSession(_:)))
@@ -133,7 +148,7 @@ class CameraViewController: UIViewController, FrameDelegate {
         cancelButton.addTarget(self, action: #selector(cancel), for: .touchUpInside)
         view.addSubview(cancelButton)
         
-        let cameraLabel = UILabel(frame: CGRect(x: viewWidth/4, y: viewHeight/2-200, width: viewWidth/2, height: 30))
+        let cameraLabel = UILabel(frame: CGRect(x: 0, y: viewHeight/2-200, width: viewWidth, height: 30))
         cameraLabel.textAlignment = .center
         cameraLabel.text = "Fit price in box below!"
         cameraLabel.textColor = .white

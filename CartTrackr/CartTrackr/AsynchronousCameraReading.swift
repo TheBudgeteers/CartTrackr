@@ -11,6 +11,7 @@ import AVFoundation
 
 protocol FrameDelegate: class {
     func captured(image: UIImage)
+    func price(price: String)
 }
 
 class AsynchronousCameraReading: NSObject, AVCaptureVideoDataOutputSampleBufferDelegate {
@@ -115,6 +116,33 @@ class AsynchronousCameraReading: NSObject, AVCaptureVideoDataOutputSampleBufferD
         }
     }
     
+//    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) { // Monitor touches for camera focusing
+//        
+//        let screenSize = image.bounds.size
+//        
+//        if let touchPoint = touches.first {
+//            let x = touchPoint.location(in: previewView).y / screenSize.height
+//            let y = 1.0 - touchPoint.location(in: previewView).x / screenSize.width
+//            let focusPoint = CGPoint(x: x, y: y)
+//            
+//            if let device = backCaptureDevice { // Allow for focus adjusting using back camera
+//                do {
+//                    try device.lockForConfiguration() // Try locking access to device for configuration
+//                    
+//                    device.focusPointOfInterest = focusPoint
+//                    device.focusMode = .autoFocus
+//                    device.exposurePointOfInterest = focusPoint
+//                    device.exposureMode = AVCaptureExposureMode.continuousAutoExposure
+//                    device.unlockForConfiguration()
+//                }
+//                catch {
+//                    print("Could not focus on tapped location")
+//                    createAlert(title: "Error", message: "Could not focus on tapped location... Please try again.")
+//                }
+//            }
+//        }
+//    }
+    
     // MARK: AVSession configuration
     private func checkPermission() {
         switch AVCaptureDevice.authorizationStatus(forMediaType: AVMediaTypeVideo) {
@@ -171,8 +199,13 @@ class AsynchronousCameraReading: NSObject, AVCaptureVideoDataOutputSampleBufferD
     // MARK: AVCaptureVideoDataOutputSampleBufferDelegate
     func captureOutput(_ captureOutput: AVCaptureOutput!, didOutputSampleBuffer sampleBuffer: CMSampleBuffer!, from connection: AVCaptureConnection!) {
         guard let uiImage = imageFromSampleBuffer(sampleBuffer: sampleBuffer) else { return }
+        
+        OCRProcess.shared.process(targetImage: uiImage, callback: { (priceString) in
+            self.delegate?.price(price: priceString)
+        })
         DispatchQueue.main.async { [unowned self] in
             self.delegate?.captured(image: uiImage)
+            
         }
     }
 }

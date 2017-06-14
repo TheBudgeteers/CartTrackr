@@ -23,20 +23,44 @@ class OCRProcess {
     func process(targetImage: UIImage, callback: @escaping OCRCallback )   {
         let cropped = prepareImageForCrop(using: targetImage)
         var priceString : String = ""
-       
         
-        self.OCR.recognize(cropped) { (recognizedString) in
-            guard let dollars = recognizedString.components(separatedBy: "I").first?.components(separatedBy: "S").last else { return }
-            guard let cents = recognizedString.components(separatedBy: "I").last else { return }
-            
-            priceString = "\(String(describing: dollars)).\(String(describing: cents))"
-            print(priceString)
-            
-            print(recognizedString)
-            callback(priceString)
+        DispatchQueue(label: "OCR").async {
+            self.OCR.recognize(cropped) { (recognizedString) in
+                //Parsing of string for price values
+                if(recognizedString.validate() && recognizedString.length <= 5){
+                    
+                    for characters in recognizedString.characters{
+                        if (characters == "$" && characters != "I"){
+                            
+                            guard let dollars = recognizedString.components(separatedBy: recognizedString[recognizedString.length - 2]).first?.components(separatedBy: "$").last else { return }
+                            
+                            guard let cents = recognizedString.components(separatedBy: recognizedString[recognizedString.length - 3]).last else { return }
+                            if(dollars.validateOnlyNumbers() && cents.validateOnlyNumbers() && cents.length == 2 && dollars.length >= 1){
+                                priceString = "\(String(describing: dollars)).\(String(describing: cents))"
+                            }
+                        } else
+                            if (characters != "$" && characters == "I"){
+                                guard let dollars = recognizedString.components(separatedBy: "I").first else { return }
+                                guard let cents = recognizedString.components(separatedBy: recognizedString[recognizedString.length - 3]).last else { return }
+                                if(dollars.validateOnlyNumbers() && cents.validateOnlyNumbers() && cents.length == 2 && dollars.length >= 1){
+                                    priceString = "\(String(describing: dollars)).\(String(describing: cents))"
+                                }
+                            } else {
+                                guard let dollars = recognizedString.components(separatedBy: recognizedString[recognizedString.length - 2]).first else { return }
+                                
+                                guard let cents = recognizedString.components(separatedBy: recognizedString[recognizedString.length - 3]).last else { return }
+                                if(dollars.validateOnlyNumbers() && cents.validateOnlyNumbers() && cents.length == 2 && dollars.length >= 1){
+                                    priceString = "\(String(describing: dollars)).\(String(describing: cents))"
+                                }
+                        }
+                        
+                    }
+                    callback(priceString)
+                }
+            }
         }
     }
-  
+    
     //Handles cropping the image before processing in the OCR to help with getting only the text desired
     func prepareImageForCrop (using image: UIImage) -> UIImage {
         let degreesToRadians: (CGFloat) -> CGFloat = {
