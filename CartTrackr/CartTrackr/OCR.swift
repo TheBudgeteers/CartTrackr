@@ -27,7 +27,7 @@ class OCRProcess {
         DispatchQueue(label: "OCR").async {
             self.OCR.recognize(cropped) { (recognizedString) in
                 //Parsing of string for price values
-                if(recognizedString.validate() && recognizedString.length <= 5){
+                if(recognizedString.length <= 6){
                     
                     for characters in recognizedString.characters{
                         if (characters == "$" && characters != "I"){

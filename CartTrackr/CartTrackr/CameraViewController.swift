@@ -10,7 +10,7 @@ import UIKit
 import AVFoundation
 import Lottie
 
-class CameraViewController: UIViewController, FrameDelegate {
+class CameraViewController: UIViewController, FrameDelegate, UITextFieldDelegate {
     
     var asynchronousCameraReading: AsynchronousCameraReading!
     var previewLayer = AVCaptureVideoPreviewLayer();
@@ -20,6 +20,8 @@ class CameraViewController: UIViewController, FrameDelegate {
     var loadingAnimation: LOTAnimationView?
     var labelOutput: String!
     var readingLabel: UILabel! = nil
+    var itemDescription: String! = "Item"
+    
     private let sessionQueue = DispatchQueue(label: "OCR queue")
     
     var priceString: String! = nil
@@ -69,6 +71,11 @@ class CameraViewController: UIViewController, FrameDelegate {
         
     }
 
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool
+    {
+        textField.resignFirstResponder()
+        return true
+    }
     
     func price(price: String){
         if(price != ""){
@@ -118,7 +125,7 @@ class CameraViewController: UIViewController, FrameDelegate {
     }
     
     func textFieldDidChange2(_ textField: UITextField){
-        //        userBudgetSet = textField.text!
+                OCRPriceString.shared.priceString = textField.text!
     }
     
     func dismissKeyboard(){
@@ -133,7 +140,10 @@ class CameraViewController: UIViewController, FrameDelegate {
     func touchClose() {
 //        Budget.shared.budgetMax = userBudgetSet
         dismissPopupView()
-        self.dismiss(animated: true) { 
+        Cart.shared.addItem(OCRPriceString.shared.priceString, itemDescription, "1")
+        asynchronousCameraReading.stopSession()
+        self.asynchronousCameraReading.sessionQueue.suspend()
+        self.dismiss(animated: true) {
             CartViewController().update()
         }
     }
@@ -173,22 +183,29 @@ class CameraViewController: UIViewController, FrameDelegate {
             print("dismiss")
         }
         
-        presentPopupView(popupView, config: popupConfig)
+        presentPopupView2(popupView, config: popupConfig)
 
     }
-    
-    private func scanningLabel(){
-        let viewWidth = self.view.frame.size.width
-        let viewHeight = self.view.frame.size.height
+    func switchChanged(sender: UISwitch!) {
+        var decimalChange = OCRPriceString.shared.priceString
+        if (sender.isOn){
+            decimalChange = decimalChange?.fullDollarValue(dollar: decimalChange!)
+        } else {
+        decimalChange = decimalChange?.decimalValue(dollar: decimalChange!)
+        }
+        OCRPriceString.shared.priceString = decimalChange!
+        OperationQueue.main.addOperation {
+            self.dismissPopupView()
+        }
+        OperationQueue.main.addOperation {
+            self.confirmPopup()
         
-        
-        readingLabel = UILabel(frame: CGRect(x: 0, y: viewHeight/2-100, width: viewWidth, height: 30))
-        readingLabel.textAlignment = .center
-        readingLabel.text = String(describing: self.priceString)
-        readingLabel.textColor = .white
-        readingLabel.font = UIFont(name: "HelveticaNeue", size: 20)
-        self.view.addSubview(readingLabel)
+        }
+//        OperationQueue.defaultMaxConcurrentOperationCount = 1
     }
+    
+    
+    
     private func addLoadingGestureRecognizer(){
         let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(startSession(_:)))
             
@@ -215,7 +232,6 @@ class CameraViewController: UIViewController, FrameDelegate {
 
             
         loadingAnimation = LOTAnimationView(name: "search")
-//        loadingAnimation?.center = self.view.center
         loadingAnimation?.frame = CGRect(x: viewWidth/2-70, y: viewHeight-viewHeight/3, width: 140, height: 140)
         self.loadingAnimation?.contentMode = UIViewContentMode.scaleAspectFit
         loadingAnimation?.isUserInteractionEnabled = true
