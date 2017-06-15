@@ -30,10 +30,11 @@ class CameraViewController: UIViewController, FrameDelegate, UITextFieldDelegate
             var valid:String! = nil
            valid = priceString.readingValidate(reading: priceString!)
             if (valid != "notValid"){
-                 OCRPriceString.shared.priceString = valid
+                print("______________\(self.priceString!)______________")
+                 OCRPriceString.shared.priceString = valid!
                             OperationQueue.main.addOperation {
                                 self.asynchronousCameraReading.stopSession()
-                                self.asynchronousCameraReading.sessionQueue.suspend()
+//                                self.asynchronousCameraReading.sessionQueue.suspend()
                                 self.confirmPopup()
                             }
             }
@@ -118,12 +119,8 @@ class CameraViewController: UIViewController, FrameDelegate, UITextFieldDelegate
     //add new item and dimisses camera view
     func touchClose() {
         dismissPopupView()
-        Cart.shared.addItem(OCRPriceString.shared.priceString!, itemDescription, "1")
-        asynchronousCameraReading.stopSession()
-        self.asynchronousCameraReading.sessionQueue.suspend()
-        self.dismiss(animated: true) {
-            CartViewController().update()
-        }
+        Cart.shared.addItem(OCRPriceString.shared.priceString!, itemDescription!, "1")
+        self.dismiss(animated: true, completion: nil)
     }
     
     //Calls function for swapping between front and rear cameras when pressed
@@ -144,7 +141,7 @@ class CameraViewController: UIViewController, FrameDelegate, UITextFieldDelegate
             flashButton.setImage(#imageLiteral(resourceName: "flashOutline"), for: UIControlState())
         }
     }
-    
+    //will make confirmation pop up show
     private func confirmPopup(){
         let confirm = ConfirmView()
         let popupView = confirm.createPopupview()
@@ -164,6 +161,7 @@ class CameraViewController: UIViewController, FrameDelegate, UITextFieldDelegate
         presentPopupView2(popupView, config: popupConfig)
 
     }
+    //will be used to switch from decimal to full dollars
     func switchChanged(sender: UISwitch!) {
         var decimalChange = OCRPriceString.shared.priceString
         if (sender.isOn){
@@ -183,7 +181,7 @@ class CameraViewController: UIViewController, FrameDelegate, UITextFieldDelegate
     }
     
     
-    
+    //Allows gesture recognition on animation to start scanning
     private func addLoadingGestureRecognizer(){
         let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(startSession(_:)))
             

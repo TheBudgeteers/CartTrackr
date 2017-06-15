@@ -27,9 +27,15 @@ class ModifyViewController: UIViewController {
         self.priceText.allowsEditingTextAttributes = true
         self.descriptionText.allowsEditingTextAttributes = true
         self.quantityText.allowsEditingTextAttributes = true
+        
+        //Adds observer to change text to currency format
+        priceText.addTarget(self, action: #selector(myTextFieldDidChange), for: .editingChanged)
+        
+        //Makes Price initial selected text
+        priceText.becomeFirstResponder()
 
         //Sets the value of the text fields to the selected item's values
-        self.priceText.text = self.item.price
+        self.priceText.text = String("$\(self.item.price)")
         self.descriptionText.text = self.item.description
         self.quantityText.text = String(self.item.quantity)
         
@@ -43,6 +49,14 @@ class ModifyViewController: UIViewController {
     //Ends editing when called
     func didTapView(){
         self.view.endEditing(true)
+    }
+    
+    //Makes text input currency format
+    func myTextFieldDidChange(_ textField: UITextField) {
+        
+        if let amountString = priceText.text?.currencyInputFormatting() {
+            priceText.text = amountString
+        }
     }
 
     //Handles segue back to CartView
@@ -61,7 +75,10 @@ class ModifyViewController: UIViewController {
     
     //Updates the values on the current item with the new values in the text fields
     @IBAction func addToCartButton(_ sender: Any) {
-        if let price = priceText.text, let description = descriptionText.text, let quantity = quantityText.text {
+        
+        
+        if  let priceWithSign = priceText.text,
+        let price = priceWithSign.components(separatedBy: "$").last, let description = descriptionText.text, let quantity = quantityText.text {
             item.price = price
             item.description = description
             item.quantity = quantity

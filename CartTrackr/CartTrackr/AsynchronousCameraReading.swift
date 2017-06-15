@@ -31,9 +31,9 @@ class AsynchronousCameraReading: NSObject, AVCaptureVideoDataOutputSampleBufferD
     override init() {
         super.init()
         checkPermission()
-        sessionQueue.async { [unowned self] in
-            self.configureSession()
-            self.captureSession.startRunning()
+        sessionQueue.async { [weak self] in
+            self?.configureSession()
+            self?.captureSession.startRunning()
         }
     }
     
@@ -52,6 +52,7 @@ class AsynchronousCameraReading: NSObject, AVCaptureVideoDataOutputSampleBufferD
     
     func stopSession() {
         self.captureSession.stopRunning()
+//        self.sessionQueue.suspend()
     }
     func startSession(){
         self.captureSession.startRunning()
@@ -172,12 +173,11 @@ class AsynchronousCameraReading: NSObject, AVCaptureVideoDataOutputSampleBufferD
     // MARK: AVCaptureVideoDataOutputSampleBufferDelegate
     func captureOutput(_ captureOutput: AVCaptureOutput!, didOutputSampleBuffer sampleBuffer: CMSampleBuffer!, from connection: AVCaptureConnection!) {
         guard let uiImage = imageFromSampleBuffer(sampleBuffer: sampleBuffer) else { return }
-        
-        OCRProcess.shared.process(targetImage: uiImage, callback: { (priceString) in
+               OCRProcess.shared.process(targetImage: uiImage, callback: { (priceString) in
             self.delegate?.price(price: priceString)
         })
-        DispatchQueue.main.async { [unowned self] in
-            self.delegate?.captured(image: uiImage)
+        DispatchQueue.main.async { [weak self] in
+            self?.delegate?.captured(image: uiImage)
             
         }
     }

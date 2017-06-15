@@ -39,6 +39,10 @@ class ManualAddViewController: UIViewController {
         self.quantityText.allowsEditingTextAttributes = true
         populateTextFields()
         
+        //Adds observer to change text to currency format
+        priceText.addTarget(self, action: #selector(myTextFieldDidChange), for: .editingChanged)
+        priceText.becomeFirstResponder()
+        
         //Adding gesture recognizer to handle taps on the screen
         let tapRecognizer = UITapGestureRecognizer()
         tapRecognizer.addTarget(self, action: #selector(ManualAddViewController.didTapView))
@@ -70,6 +74,13 @@ class ManualAddViewController: UIViewController {
         self.descriptionText.text = "Item"
         self.quantityText.text = "1"
     }
+    //Makes text input currency format
+    func myTextFieldDidChange(_ textField: UITextField) {
+        
+        if let amountString = priceText.text?.currencyInputFormatting() {
+            priceText.text = amountString
+        }
+    }
     
     //Dismiss view when back button is pressed
     @IBAction func goBackButton(_ sender: Any) {
@@ -79,10 +90,11 @@ class ManualAddViewController: UIViewController {
     //Adds item to cart using values from the text fields, or default values if nil
     @IBAction func addToCartButton(_ sender: Any) {
         
-        let price = priceText.text ?? "1.99"
+        let priceWithSign = priceText.text ?? "$1.99"
+        let price = priceWithSign.components(separatedBy: "$").last
         let description = descriptionText.text ?? "Enter Description"
         let quantity = quantityText.text ?? "1"
-        Cart.shared.addItem(price, description, quantity)
+        Cart.shared.addItem(price!, description, quantity)
         
         self.performSegue(withIdentifier: CartViewController.identifier, sender: nil)
     }

@@ -67,9 +67,11 @@ extension String{
         
         if(validateArray.count < 3){
             validateArray.insert(reading, at: 0)
+            validReading = "notValid"
         }
         if(validateArray.count > 3 || validateArray.count == 3 && validateArray.filter{$0 == reading}.count != 3){
             validateArray.removeLast()
+            validReading = "notValid"
         }
         if(validateArray.count == 3 && validateArray.filter{$0 == reading}.count == 3){
             validReading =  reading

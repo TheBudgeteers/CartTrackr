@@ -111,6 +111,14 @@
                                     <segue destination="gFM-5B-4AB" kind="showDetail" identifier="ManualAddViewController" id="irv-N6-o14"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ps8-hR-S2W">
+                                <rect key="frame" x="329" y="650" width="25" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="IkJ-v2-pNH"/>
+                                    <constraint firstAttribute="width" constant="25" id="sfJ-pF-pjq"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="percentTax"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.015686274510000001" green="0.26274509800000001" blue="0.53725490200000003" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -133,6 +141,7 @@
                             <constraint firstItem="N1R-7h-034" firstAttribute="top" secondItem="DsS-FR-Luh" secondAttribute="bottom" constant="15" id="PAD-pD-uBu"/>
                             <constraint firstAttribute="trailing" secondItem="43A-8c-STt" secondAttribute="trailing" id="QTw-tp-erd"/>
                             <constraint firstItem="DsS-FR-Luh" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.35" id="SKC-rM-neA"/>
+                            <constraint firstItem="Ps8-hR-S2W" firstAttribute="top" secondItem="jKd-d9-GVn" secondAttribute="top" id="TDa-sv-9gQ"/>
                             <constraint firstItem="43A-8c-STt" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Wz4-TW-J5H"/>
                             <constraint firstItem="Ds0-ls-De1" firstAttribute="centerX" secondItem="vVm-qj-pVi" secondAttribute="centerX" id="b7E-Ki-JTU"/>
                             <constraint firstItem="hDq-J4-bmH" firstAttribute="top" secondItem="vVm-qj-pVi" secondAttribute="bottom" constant="15" id="bBV-gu-ESS"/>
@@ -144,6 +153,7 @@
                             <constraint firstItem="jKd-d9-GVn" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.35" id="i2c-lu-cFP"/>
                             <constraint firstItem="WS1-G3-TqX" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.1" id="iYb-fw-bms"/>
                             <constraint firstItem="jKd-d9-GVn" firstAttribute="top" secondItem="vVm-qj-pVi" secondAttribute="bottom" constant="15" id="iwu-QB-N8T"/>
+                            <constraint firstAttribute="trailing" secondItem="Ps8-hR-S2W" secondAttribute="trailing" constant="60" id="lYc-p2-b9u"/>
                             <constraint firstItem="htl-Fp-ncZ" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.1" id="naP-LQ-AmT"/>
                             <constraint firstAttribute="trailing" secondItem="6wP-Oy-NfJ" secondAttribute="trailing" id="nqO-2I-Uq5"/>
                             <constraint firstItem="hDq-J4-bmH" firstAttribute="top" secondItem="43A-8c-STt" secondAttribute="bottom" constant="15" id="r5M-td-UVF"/>
@@ -351,8 +361,8 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Does this look right?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Akz-1h-FzN">
-                                <rect key="frame" x="97" y="30" width="221" height="29"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Add New Item" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Akz-1h-FzN">
+                                <rect key="frame" x="130" y="30" width="155" height="29"/>
                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="24"/>
                                 <color key="textColor" red="0.98161881350000002" green="0.98161881350000002" blue="0.98161881350000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -489,6 +499,7 @@
         <image name="manualadd" width="189" height="165"/>
         <image name="max2" width="189" height="165"/>
         <image name="newlist" width="189" height="165"/>
+        <image name="percentTax" width="160" height="160"/>
         <image name="redcancel" width="197" height="197"/>
     </resources>
     <inferredMetricsTieBreakers>
