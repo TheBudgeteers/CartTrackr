@@ -1,4 +1,4 @@
-//
+    //
 //  Cart.swift
 //  CartTrackr
 //
@@ -11,6 +11,8 @@ import Foundation
 class Cart {
     
     var listItems = [Item]()
+    
+    var currentTaxRate: Float? = 10.96
     
     static let shared = Cart()
     
@@ -53,10 +55,9 @@ class Cart {
         return total
     }
     
-    func totalTax() -> Float {
-        let tax : Float = 1.096
+    func totalTax(taxRate: Float) -> Float {
         let totalPrice = Cart.shared.totalPrice()
-        let total = round((totalPrice * tax) * 100) / 100
+        let total = Float(totalPrice * (currentTaxRate!/100))+totalPrice
         return total
     }
     
@@ -71,7 +72,7 @@ class Cart {
     func percentageTax(budget: String) -> Float {
         let budget : Float = Float(budget)!
         print("budget \(budget)")
-        let total : Float = self.totalTax()
+        let total : Float = self.totalTax(taxRate: currentTaxRate!)
         let percent : Float = total / budget
         return percent
     }

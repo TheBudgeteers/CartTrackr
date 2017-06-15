@@ -1,3 +1,2 @@
-github "garnele007/SwiftOCR" ~> 1.0
 github "BradLarson/GPUImage" ~> 0.1.7
-github "Awalz/SwiftyCam" ~> 2.2.1
+github "airbnb/lottie-ios" "master"

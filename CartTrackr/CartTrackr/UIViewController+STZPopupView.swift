@@ -111,6 +111,51 @@ extension UIViewController {
         
         showAnimation()
     }
+    
+    public func presentPopupView2(_ popupView: UIView, config: STZPopupViewConfig = STZPopupViewConfig()) {
+        
+        if self.containerView != nil {
+            return
+        }
+        
+        let containerView = UIView(frame: targetView.bounds)
+        containerView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+        let overlayView = UIView(frame: targetView.bounds)
+        overlayView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+        overlayView.backgroundColor = config.overlayColor
+        containerView.addSubview(overlayView)
+        
+        // blur effect
+        if let blurStyle = config.blurEffectStyle {
+            let blurEffectView = UIVisualEffectView(effect: UIBlurEffect(style: blurStyle))
+            blurEffectView.frame = containerView.frame;
+            blurEffectView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+            containerView.addSubview(blurEffectView)
+        }
+        
+        let dismissButton = UIButton(frame: targetView.bounds)
+        dismissButton.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+        containerView.addSubview(dismissButton)
+        if config.dismissTouchBackground {
+            dismissButton.addTarget(self, action: #selector(dismissPopupView), for: UIControlEvents.touchUpInside)
+        }
+        
+        popupView.center = CGPoint(x: targetView.bounds.midX, y: targetView.bounds.midY)
+        popupView.autoresizingMask = [.flexibleLeftMargin,
+                                      .flexibleTopMargin,
+                                      .flexibleRightMargin,
+                                      .flexibleBottomMargin]
+        popupView.layer.cornerRadius = config.cornerRadius
+        containerView.addSubview(popupView)
+        
+        targetView.addSubview(containerView)
+        
+        self.containerView = containerView
+        self.popupView = popupView
+        self.config = config
+        
+        showAnimation()
+    }
 
     private func showAnimation() {
         if let config = config {
@@ -212,11 +257,12 @@ extension UIViewController {
         if let containerView = containerView, let popupView = popupView {
 
             var frame = popupView.frame
-            frame.origin.y = containerView.frame.height
+            frame.origin.y = containerView.frame.height/4
             popupView.frame = frame
 
             UIView.animate(withDuration: 0.3, animations: {
-                popupView.center = containerView.center
+//                popupView.center = containerView.center
+                popupView.frame = CGRect(x:0, y: 10, width: Int(containerView.frame.width), height: Int(containerView.frame.height/2-100))
             }, completion: completionShowAnimation)
         }
     }

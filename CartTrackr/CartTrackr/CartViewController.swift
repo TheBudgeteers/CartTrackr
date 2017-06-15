@@ -16,6 +16,8 @@ class CartViewController: UIViewController {
     @IBOutlet weak var quantityLabel: UILabel!
     @IBOutlet weak var budgetProgressBar: UIProgressView!
     
+    @IBOutlet weak var imageBackground: UIImageView!
+    
     var activeCart = Cart.shared.listItems
     
     var deleteCellIndexPath: IndexPath? = nil
@@ -67,8 +69,15 @@ class CartViewController: UIViewController {
     
     //Refreshes and updates the totals
     func update() {
+        //formats float into 2 decimal currency format
+        let currency = "USD"
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+        formatter.currencyCode = currency
+        let total = Cart.shared.totalTax(taxRate: Cart.shared.currentTaxRate!)
+        
         self.preTaxTotalLabel.text = "PreTax: $\(String(Cart.shared.totalPrice()))"
-        self.totalLabel.text = "Total: $\(String(Cart.shared.totalTax()))"
+        self.totalLabel.text = "Total: \(formatter.string(from: total as NSNumber)!)"
         self.quantityLabel.text = "#: \(Cart.shared.totalQuantity())"
         
         self.activeCart = Cart.shared.listItems
@@ -83,13 +92,12 @@ class CartViewController: UIViewController {
             if let budgetMax = Budget.shared.budgetMax {
                 print(budgetMax)
                 var percentTax = Cart.shared.percentageTax(budget: budgetMax)
-                let mainBlueColor = hexStringToUIColor(hex: "#044389")
                 
                 if percentTax >= 1.0 {
-                    self.view.backgroundColor = UIColor.red
+                    self.imageBackground.image = UIImage(named: "redGradientIphone")
                     percentTax = 1.0
                 } else {
-                    self.view.backgroundColor = mainBlueColor
+                    self.imageBackground.image = UIImage(named: "blueGradientIphone")
                     
                 }
                 
@@ -100,74 +108,18 @@ class CartViewController: UIViewController {
             budgetProgressBar.isHidden = true
         }
         
-        
-        
     }
     
-    //MARK: BudgetPop Up function to add in logic etc
-    func createPopupview() -> UIView {
-        
-        let viewWidth = self.view.frame.size.width
-        let viewHeight = self.view.frame.size.height
-        
-        //you can change the size of pop up here
-        let popupView = UIView(frame: CGRect(x: 0, y: 0, width: 350, height: 300))
-        popupView.backgroundColor = UIColor.white
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
-        view.addGestureRecognizer(tap)
-        
-        
-        
-        let textField = UITextField(frame: CGRect(x: viewWidth/24, y: viewHeight/8, width: viewWidth-100
-            , height: 60.0))
-        textField.placeholder = "\(Budget.shared.budgetMax ?? "0.00")"
-        textField.font = UIFont.systemFont(ofSize: 50)
-        textField.borderStyle = UITextBorderStyle.roundedRect
-        textField.autocorrectionType = UITextAutocorrectionType.yes
-        textField.keyboardType = UIKeyboardType.decimalPad
-        textField.returnKeyType = UIReturnKeyType.done
-        textField.clearButtonMode = UITextFieldViewMode.whileEditing;
-        textField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
-        textField.contentVerticalAlignment = UIControlContentVerticalAlignment.center
-        textField.delegate = self as? UITextFieldDelegate
-        popupView.addSubview(textField)
-        
-        let budgetText: UILabel = UILabel()
-        budgetText.frame = CGRect(x: viewWidth/5, y: viewHeight/25, width: viewWidth/2, height: 30)
-        budgetText.font = UIFont(name: "AppleSDGothicNeo-Bold", size: 35.0)
-        let mainBlueColor = self.hexStringToUIColor(hex: "#044389")
-        budgetText.textColor = mainBlueColor
-        budgetText.backgroundColor = UIColor.white
-        budgetText.numberOfLines = 1
-        budgetText.text = "Set Budget"
-        
-        popupView.addSubview(budgetText)
-        
-        //Draws close button on the pop up
-        let cancelButton = UIButton(frame: CGRect(x: 10.0, y: 10.0, width: 30.0, height: 30.0))
-        cancelButton.setImage(#imageLiteral(resourceName: "cancel-1"), for: UIControlState())
-        cancelButton.addTarget(self, action: #selector(touchCancel), for: UIControlEvents.touchUpInside)
-        popupView.addSubview(cancelButton)
-        
-        //Draws Done button
-        let done = UIButton(frame: CGRect(x: viewWidth/24, y: viewHeight/4, width: viewWidth-100
-            , height: 60.0))
-        let customGreen = self.hexStringToUIColor(hex: "#53b44c")
-        done.backgroundColor = customGreen
-        done.layer.cornerRadius = 8
-        done.setTitle("Done", for: .normal)
-        done.setTitleColor(UIColor.white, for: .normal)
-        
-        done.addTarget(self, action: #selector(touchClose), for: UIControlEvents.touchUpInside)
-        popupView.addSubview(done)
-        
-        return popupView
-    }
+    
     
     
     func textFieldDidChange(_ textField: UITextField){
         userBudgetSet = textField.text!
     }
+    func textFieldDidChange2(_ textField: UITextField){
+        Cart.shared.currentTaxRate = Float(textField.text!)
+    }
+    
     func dismissKeyboard(){
         view.endEditing(true)
     }
@@ -177,7 +129,6 @@ class CartViewController: UIViewController {
     }
     
     func touchClose() {
-        
         Budget.shared.budgetMax = userBudgetSet
         dismissPopupView()
         update()
@@ -206,15 +157,33 @@ class CartViewController: UIViewController {
         )
     }
     
-    //Opens popup for setting the budget
-    @IBAction func SetBudget(_ sender: Any) {
-        let popupView = createPopupview()
+    @IBAction func percentTaxButton(_ sender: UIButton) {
+        let budgetPopUp = PercentTax()
+        let popupView = budgetPopUp.createPopupview()
         
         let popupConfig = STZPopupViewConfig()
-        popupConfig.dismissTouchBackground = false
+        popupConfig.dismissTouchBackground = true
         popupConfig.cornerRadius = 10
-        let mainBlueColor = hexStringToUIColor(hex: "#044389")
-        popupConfig.overlayColor = mainBlueColor
+        popupConfig.showAnimation = .slideInFromTop
+        popupConfig.dismissAnimation = .slideOutToTop
+        popupConfig.showCompletion = { popupView in
+            print("show")
+        }
+        popupConfig.dismissCompletion = { popupView in
+            print("dismiss")
+        }
+        
+        presentPopupView(popupView, config: popupConfig)
+    }
+    
+    //Opens popup for setting the budget
+    @IBAction func SetBudget(_ sender: Any) {
+        let budgetPopUp = BudgetPopUp()
+        let popupView = budgetPopUp.createPopupview()
+        
+        let popupConfig = STZPopupViewConfig()
+        popupConfig.dismissTouchBackground = true
+        popupConfig.cornerRadius = 10
         popupConfig.showAnimation = .slideInFromTop
         popupConfig.dismissAnimation = .slideOutToTop
         popupConfig.showCompletion = { popupView in
