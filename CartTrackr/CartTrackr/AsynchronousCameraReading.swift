@@ -13,7 +13,7 @@ protocol FrameDelegate: class {
     func captured(image: UIImage)
     func price(price: String)
 }
-
+//Class that hadles image extractions from video preview. class work under dispatch queue "session queue"
 class AsynchronousCameraReading: NSObject, AVCaptureVideoDataOutputSampleBufferDelegate {
     
     
@@ -52,7 +52,7 @@ class AsynchronousCameraReading: NSObject, AVCaptureVideoDataOutputSampleBufferD
     
     func stopSession() {
         self.captureSession.stopRunning()
-//        self.sessionQueue.suspend()
+        //        self.sessionQueue.suspend()
     }
     func startSession(){
         self.captureSession.startRunning()
@@ -109,7 +109,7 @@ class AsynchronousCameraReading: NSObject, AVCaptureVideoDataOutputSampleBufferD
                 device.torchMode = .off
                 device.flashMode = .off
                 device.unlockForConfiguration()
-                 self.flash = false
+                self.flash = false
             }
         }catch{
             //DISABEL FLASH BUTTON HERE IF ERROR
@@ -173,7 +173,7 @@ class AsynchronousCameraReading: NSObject, AVCaptureVideoDataOutputSampleBufferD
     // MARK: AVCaptureVideoDataOutputSampleBufferDelegate
     func captureOutput(_ captureOutput: AVCaptureOutput!, didOutputSampleBuffer sampleBuffer: CMSampleBuffer!, from connection: AVCaptureConnection!) {
         guard let uiImage = imageFromSampleBuffer(sampleBuffer: sampleBuffer) else { return }
-               OCRProcess.shared.process(targetImage: uiImage, callback: { (priceString) in
+        OCRProcess.shared.process(targetImage: uiImage, callback: { (priceString) in
             self.delegate?.price(price: priceString)
         })
         DispatchQueue.main.async { [weak self] in

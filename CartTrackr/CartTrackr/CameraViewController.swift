@@ -28,21 +28,22 @@ class CameraViewController: UIViewController, FrameDelegate, UITextFieldDelegate
     {
         didSet {
             var valid:String! = nil
-           valid = priceString.readingValidate(reading: priceString!)
+            
+            //validates strings going through for final assignment to singleton. Will add strings to an array of 3 elements. It will compare the past three consecutive readings and if they match it will return string if so.
+            valid = priceString.readingValidate(reading: priceString!)
             if (valid != "notValid"){
                 print("______________\(self.priceString!)______________")
-                 OCRPriceString.shared.priceString = valid!
-                            OperationQueue.main.addOperation {
-                                self.asynchronousCameraReading.stopSession()
-//                                self.asynchronousCameraReading.sessionQueue.suspend()
-                                self.confirmPopup()
-                            }
+                OCRPriceString.shared.priceString = valid!
+                OperationQueue.main.addOperation {
+                    self.asynchronousCameraReading.stopSession()
+                    self.confirmPopup()
+                }
             }
             
         }
     }
     
- //Video/image preview being viewed while scanning
+    //Video/image preview being viewed while scanning
     @IBOutlet weak var imagePreview: UIImageView!
     
     
@@ -54,7 +55,7 @@ class CameraViewController: UIViewController, FrameDelegate, UITextFieldDelegate
         addLoadingGestureRecognizer()
         
     }
-
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool
     {
         textField.resignFirstResponder()
@@ -65,11 +66,11 @@ class CameraViewController: UIViewController, FrameDelegate, UITextFieldDelegate
         if(price != ""){
             
             
-           self.priceString = price
+            self.priceString = price
             
-          
+            
         }
-
+        
     }
     
     func captured(image: UIImage) {
@@ -88,22 +89,22 @@ class CameraViewController: UIViewController, FrameDelegate, UITextFieldDelegate
     }
     
     //Handles logic for segue to ManualAddViewController, passing price from OCR
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == ManualAddViewController.identifier {
-//            guard let destinationController = segue.destination as? ManualAddViewController else { return }
-//
-//            print("inside segue prepare \(String(describing: self.priceString))")
-//            destinationController.targetPrice = self.priceString
-//            
-//        }
-//    }
+    //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    //        if segue.identifier == ManualAddViewController.identifier {
+    //            guard let destinationController = segue.destination as? ManualAddViewController else { return }
+    //
+    //            print("inside segue prepare \(String(describing: self.priceString))")
+    //            destinationController.targetPrice = self.priceString
+    //
+    //        }
+    //    }
     
     //Sends image to OCR, processes it and sets the priceString with the string that is returned
-//    func swiftyCam(_ swiftyCam: SwiftyCamViewController, didTake photo: UIImage) {
-//        
-//       
-//        
-//    }
+    //    func swiftyCam(_ swiftyCam: SwiftyCamViewController, didTake photo: UIImage) {
+    //
+    //
+    //
+    //    }
     func textFieldDidChange(_ textField: UITextField){
         itemDescription = textField.text!
     }
@@ -131,7 +132,7 @@ class CameraViewController: UIViewController, FrameDelegate, UITextFieldDelegate
         asynchronousCameraReading.startSession()
     }
     
-//    Toggles the flash on the camera
+    //    Toggles the flash on the camera
     @objc private func toggleFlashAction(_ sender: Any) {
         asynchronousCameraReading.toggleFlash()
         
@@ -159,7 +160,7 @@ class CameraViewController: UIViewController, FrameDelegate, UITextFieldDelegate
         }
         
         presentPopupView2(popupView, config: popupConfig)
-
+        
     }
     //will be used to switch from decimal to full dollars
     func switchChanged(sender: UISwitch!) {
@@ -167,7 +168,7 @@ class CameraViewController: UIViewController, FrameDelegate, UITextFieldDelegate
         if (sender.isOn){
             decimalChange = decimalChange?.fullDollarValue(dollar: decimalChange!)
         } else {
-        decimalChange = decimalChange?.decimalValue(dollar: decimalChange!)
+            decimalChange = decimalChange?.decimalValue(dollar: decimalChange!)
         }
         OCRPriceString.shared.priceString = decimalChange!
         OperationQueue.main.addOperation {
@@ -175,16 +176,16 @@ class CameraViewController: UIViewController, FrameDelegate, UITextFieldDelegate
         }
         OperationQueue.main.addOperation {
             self.confirmPopup()
-        
+            
         }
-//        OperationQueue.defaultMaxConcurrentOperationCount = 1
+        //        OperationQueue.defaultMaxConcurrentOperationCount = 1
     }
     
     
     //Allows gesture recognition on animation to start scanning
     private func addLoadingGestureRecognizer(){
         let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(startSession(_:)))
-            
+        
         tapRecognizer.numberOfTapsRequired = 1
         loadingAnimation?.addGestureRecognizer(tapRecognizer)
     }
@@ -205,8 +206,8 @@ class CameraViewController: UIViewController, FrameDelegate, UITextFieldDelegate
         cameraLabel.textColor = .white
         cameraLabel.font = UIFont(name: "HelveticaNeue", size: 20)
         self.view.addSubview(cameraLabel)
-
-            
+        
+        
         loadingAnimation = LOTAnimationView(name: "search")
         loadingAnimation?.frame = CGRect(x: viewWidth/2-70, y: viewHeight-viewHeight/3, width: 140, height: 140)
         self.loadingAnimation?.contentMode = UIViewContentMode.scaleAspectFit
@@ -214,9 +215,9 @@ class CameraViewController: UIViewController, FrameDelegate, UITextFieldDelegate
         self.view.addSubview(loadingAnimation!)
         loadingAnimation?.loopAnimation = true
         loadingAnimation?.play()
-
         
-
+        
+        
         
         flipCameraButton = UIButton(frame: CGRect(x: (((view.frame.width / 2 - 37.5) / 2) - 15.0), y: view.frame.height - 74.0, width: 30.0, height: 23.0))
         flipCameraButton.setImage(#imageLiteral(resourceName: "flipCamera"), for: UIControlState())

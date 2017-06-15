@@ -75,7 +75,7 @@ class CartViewController: UIViewController {
         formatter.numberStyle = .currency
         formatter.currencyCode = currency
         let total = Cart.shared.totalTax(taxRate: Cart.shared.currentTaxRate!)
-    
+        
         self.preTaxTotalLabel.text = "PreTax: $\(String(Cart.shared.totalPrice()))"
         self.totalLabel.text = "Total: \(formatter.string(from: total as NSNumber)!)"
         self.quantityLabel.text = "#: \(Cart.shared.totalQuantity())"
@@ -117,7 +117,7 @@ class CartViewController: UIViewController {
         userBudgetSet = textField.text!
     }
     func textFieldDidChange2(_ textField: UITextField){
-         Cart.shared.currentTaxRate = Float(textField.text!)
+        Cart.shared.currentTaxRate = Float(textField.text!)
     }
     
     func dismissKeyboard(){

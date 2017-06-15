@@ -13,7 +13,6 @@
 		281EFC2F1EF07A8E00DD4AC4 /* search.json in Resources */ = {isa = PBXBuildFile; fileRef = 281EFC2E1EF07A8E00DD4AC4 /* search.json */; };
 		281EFC511EF0934C00DD4AC4 /* Lottie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 281EFC501EF0934C00DD4AC4 /* Lottie.framework */; };
 		2864BCAC1EEFC4F900BD4037 /* AsynchronousCameraReading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2864BCAB1EEFC4F900BD4037 /* AsynchronousCameraReading.swift */; };
-		286A79381E9C8D7F006DE32B /* cameraButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286A79371E9C8D7F006DE32B /* cameraButtonView.swift */; };
 		286CA5EB1EF1BE2B00A51369 /* HelperExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286CA5EA1EF1BE2B00A51369 /* HelperExtensions.swift */; };
 		286CA5ED1EF2084400A51369 /* PercentTaxPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286CA5EC1EF2084400A51369 /* PercentTaxPopUp.swift */; };
 		287384711EF1067E00AA3A4A /* SwiftOCR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 287384701EF1067E00AA3A4A /* SwiftOCR.framework */; };
@@ -63,7 +62,6 @@
 		281EFC2E1EF07A8E00DD4AC4 /* search.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = search.json; sourceTree = "<group>"; };
 		281EFC501EF0934C00DD4AC4 /* Lottie.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Lottie.framework; path = Carthage/Build/iOS/Lottie.framework; sourceTree = "<group>"; };
 		2864BCAB1EEFC4F900BD4037 /* AsynchronousCameraReading.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsynchronousCameraReading.swift; sourceTree = "<group>"; };
-		286A79371E9C8D7F006DE32B /* cameraButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = cameraButtonView.swift; sourceTree = "<group>"; };
 		286CA5EA1EF1BE2B00A51369 /* HelperExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelperExtensions.swift; sourceTree = "<group>"; };
 		286CA5EC1EF2084400A51369 /* PercentTaxPopUp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PercentTaxPopUp.swift; sourceTree = "<group>"; };
 		287384701EF1067E00AA3A4A /* SwiftOCR.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SwiftOCR.framework; sourceTree = "<group>"; };
@@ -185,7 +183,6 @@
 				BC944CDB1E9BE982004015EC /* Main.storyboard */,
 				BC944CE01E9BE982004015EC /* LaunchScreen.storyboard */,
 				BC944CF01E9BEAD8004015EC /* CartItemCell.swift */,
-				286A79371E9C8D7F006DE32B /* cameraButtonView.swift */,
 				BC944CF11E9BEAD8004015EC /* CartItemCell.xib */,
 			);
 			name = View;
@@ -301,7 +298,6 @@
 				BC944CF21E9BEAD8004015EC /* CartItemCell.swift in Sources */,
 				2864BCAC1EEFC4F900BD4037 /* AsynchronousCameraReading.swift in Sources */,
 				BC944CF71E9BEB14004015EC /* ModifyViewController.swift in Sources */,
-				286A79381E9C8D7F006DE32B /* cameraButtonView.swift in Sources */,
 				286CA5ED1EF2084400A51369 /* PercentTaxPopUp.swift in Sources */,
 				BC6493AE1E9C576500A9FDE7 /* ManualAddViewController.swift in Sources */,
 				BC944CD81E9BE982004015EC /* AppDelegate.swift in Sources */,
