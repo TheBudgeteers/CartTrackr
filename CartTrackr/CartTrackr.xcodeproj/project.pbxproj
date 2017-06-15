@@ -14,7 +14,8 @@
 		281EFC511EF0934C00DD4AC4 /* Lottie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 281EFC501EF0934C00DD4AC4 /* Lottie.framework */; };
 		2864BCAC1EEFC4F900BD4037 /* AsynchronousCameraReading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2864BCAB1EEFC4F900BD4037 /* AsynchronousCameraReading.swift */; };
 		286A79381E9C8D7F006DE32B /* cameraButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286A79371E9C8D7F006DE32B /* cameraButtonView.swift */; };
-		286CA5EB1EF1BE2B00A51369 /* OCRExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286CA5EA1EF1BE2B00A51369 /* OCRExtensions.swift */; };
+		286CA5EB1EF1BE2B00A51369 /* HelperExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286CA5EA1EF1BE2B00A51369 /* HelperExtensions.swift */; };
+		286CA5ED1EF2084400A51369 /* PercentTaxPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286CA5EC1EF2084400A51369 /* PercentTaxPopUp.swift */; };
 		287384711EF1067E00AA3A4A /* SwiftOCR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 287384701EF1067E00AA3A4A /* SwiftOCR.framework */; };
 		287384721EF1068800AA3A4A /* SwiftOCR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 287384701EF1067E00AA3A4A /* SwiftOCR.framework */; };
 		287384731EF1068800AA3A4A /* SwiftOCR.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 287384701EF1067E00AA3A4A /* SwiftOCR.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -63,7 +64,8 @@
 		281EFC501EF0934C00DD4AC4 /* Lottie.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Lottie.framework; path = Carthage/Build/iOS/Lottie.framework; sourceTree = "<group>"; };
 		2864BCAB1EEFC4F900BD4037 /* AsynchronousCameraReading.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsynchronousCameraReading.swift; sourceTree = "<group>"; };
 		286A79371E9C8D7F006DE32B /* cameraButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = cameraButtonView.swift; sourceTree = "<group>"; };
-		286CA5EA1EF1BE2B00A51369 /* OCRExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OCRExtensions.swift; sourceTree = "<group>"; };
+		286CA5EA1EF1BE2B00A51369 /* HelperExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelperExtensions.swift; sourceTree = "<group>"; };
+		286CA5EC1EF2084400A51369 /* PercentTaxPopUp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PercentTaxPopUp.swift; sourceTree = "<group>"; };
 		287384701EF1067E00AA3A4A /* SwiftOCR.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SwiftOCR.framework; sourceTree = "<group>"; };
 		287384741EF140E200AA3A4A /* ConfirmView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmView.swift; sourceTree = "<group>"; };
 		287384761EF19F7F00AA3A4A /* OCRPriceString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OCRPriceString.swift; sourceTree = "<group>"; };
@@ -152,7 +154,7 @@
 			children = (
 				2864BCAB1EEFC4F900BD4037 /* AsynchronousCameraReading.swift */,
 				BC944CF91E9BEB50004015EC /* Extensions.swift */,
-				286CA5EA1EF1BE2B00A51369 /* OCRExtensions.swift */,
+				286CA5EA1EF1BE2B00A51369 /* HelperExtensions.swift */,
 				BC944CE91E9BEA31004015EC /* Item.swift */,
 				BC944CFB1E9BEBAD004015EC /* OCR.swift */,
 				71B307931E9BF9F40082F9C0 /* Cart.swift */,
@@ -177,6 +179,7 @@
 		BC944CEF1E9BEA6F004015EC /* View */ = {
 			isa = PBXGroup;
 			children = (
+				286CA5EC1EF2084400A51369 /* PercentTaxPopUp.swift */,
 				287384741EF140E200AA3A4A /* ConfirmView.swift */,
 				2815F53A1EEB46EB006013EC /* BudgetPopUp.swift */,
 				BC944CDB1E9BE982004015EC /* Main.storyboard */,
@@ -299,9 +302,10 @@
 				2864BCAC1EEFC4F900BD4037 /* AsynchronousCameraReading.swift in Sources */,
 				BC944CF71E9BEB14004015EC /* ModifyViewController.swift in Sources */,
 				286A79381E9C8D7F006DE32B /* cameraButtonView.swift in Sources */,
+				286CA5ED1EF2084400A51369 /* PercentTaxPopUp.swift in Sources */,
 				BC6493AE1E9C576500A9FDE7 /* ManualAddViewController.swift in Sources */,
 				BC944CD81E9BE982004015EC /* AppDelegate.swift in Sources */,
-				286CA5EB1EF1BE2B00A51369 /* OCRExtensions.swift in Sources */,
+				286CA5EB1EF1BE2B00A51369 /* HelperExtensions.swift in Sources */,
 				2815F53B1EEB46EB006013EC /* BudgetPopUp.swift in Sources */,
 				28ED52711E9F01E900E4152B /* UIViewController+STZPopupView.swift in Sources */,
 			);

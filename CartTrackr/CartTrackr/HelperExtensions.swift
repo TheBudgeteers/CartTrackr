@@ -104,3 +104,12 @@ extension String{
         return decimalValue
     }
 }
+
+//extension String{
+//    func percentFormat(input: String) -> Float {
+//        let input = input
+//        var taxFormatted: Float! = 0.0
+//        
+//        let seperate = input.components(separatedBy: ".").first
+//    }
+//}

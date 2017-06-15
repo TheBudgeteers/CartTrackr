@@ -112,12 +112,15 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ps8-hR-S2W">
-                                <rect key="frame" x="329" y="650" width="25" height="25"/>
+                                <rect key="frame" x="334" y="650" width="20" height="20"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="25" id="IkJ-v2-pNH"/>
-                                    <constraint firstAttribute="width" constant="25" id="sfJ-pF-pjq"/>
+                                    <constraint firstAttribute="height" constant="20" id="IkJ-v2-pNH"/>
+                                    <constraint firstAttribute="width" constant="20" id="sfJ-pF-pjq"/>
                                 </constraints>
                                 <state key="normal" title="Button" image="percentTax"/>
+                                <connections>
+                                    <action selector="percentTaxButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="esi-4y-D4S"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.015686274510000001" green="0.26274509800000001" blue="0.53725490200000003" alpha="1" colorSpace="calibratedRGB"/>

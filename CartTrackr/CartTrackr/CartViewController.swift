@@ -69,9 +69,15 @@ class CartViewController: UIViewController {
     
     //Refreshes and updates the totals
     func update() {
-        
+        //formats float into 2 decimal currency format
+        let currency = "USD"
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+        formatter.currencyCode = currency
+        let total = Cart.shared.totalTax(taxRate: Cart.shared.currentTaxRate!)
+    
         self.preTaxTotalLabel.text = "PreTax: $\(String(Cart.shared.totalPrice()))"
-        self.totalLabel.text = "Total: $\(String(Cart.shared.totalTax()))"
+        self.totalLabel.text = "Total: \(formatter.string(from: total as NSNumber)!)"
         self.quantityLabel.text = "#: \(Cart.shared.totalQuantity())"
         
         self.activeCart = Cart.shared.listItems
@@ -110,6 +116,10 @@ class CartViewController: UIViewController {
     func textFieldDidChange(_ textField: UITextField){
         userBudgetSet = textField.text!
     }
+    func textFieldDidChange2(_ textField: UITextField){
+         Cart.shared.currentTaxRate = Float(textField.text!)
+    }
+    
     func dismissKeyboard(){
         view.endEditing(true)
     }
@@ -119,7 +129,6 @@ class CartViewController: UIViewController {
     }
     
     func touchClose() {
-        
         Budget.shared.budgetMax = userBudgetSet
         dismissPopupView()
         update()
@@ -146,6 +155,25 @@ class CartViewController: UIViewController {
             blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
             alpha: CGFloat(1.0)
         )
+    }
+    
+    @IBAction func percentTaxButton(_ sender: UIButton) {
+        let budgetPopUp = PercentTax()
+        let popupView = budgetPopUp.createPopupview()
+        
+        let popupConfig = STZPopupViewConfig()
+        popupConfig.dismissTouchBackground = true
+        popupConfig.cornerRadius = 10
+        popupConfig.showAnimation = .slideInFromTop
+        popupConfig.dismissAnimation = .slideOutToTop
+        popupConfig.showCompletion = { popupView in
+            print("show")
+        }
+        popupConfig.dismissCompletion = { popupView in
+            print("dismiss")
+        }
+        
+        presentPopupView(popupView, config: popupConfig)
     }
     
     //Opens popup for setting the budget
