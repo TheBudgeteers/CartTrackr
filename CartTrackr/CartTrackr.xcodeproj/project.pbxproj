@@ -9,15 +9,15 @@
 /* Begin PBXBuildFile section */
 		281368601EF09A4600676FA9 /* Lottie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 281EFC501EF0934C00DD4AC4 /* Lottie.framework */; };
 		281368611EF09A4600676FA9 /* Lottie.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 281EFC501EF0934C00DD4AC4 /* Lottie.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		281429011EF30C2F00CCC622 /* SwiftOCR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 281429001EF30C2F00CCC622 /* SwiftOCR.framework */; };
+		281429021EF30C4B00CCC622 /* SwiftOCR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 281429001EF30C2F00CCC622 /* SwiftOCR.framework */; };
+		281429031EF30C4B00CCC622 /* SwiftOCR.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 281429001EF30C2F00CCC622 /* SwiftOCR.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2815F53B1EEB46EB006013EC /* BudgetPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2815F53A1EEB46EB006013EC /* BudgetPopUp.swift */; };
 		281EFC2F1EF07A8E00DD4AC4 /* search.json in Resources */ = {isa = PBXBuildFile; fileRef = 281EFC2E1EF07A8E00DD4AC4 /* search.json */; };
 		281EFC511EF0934C00DD4AC4 /* Lottie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 281EFC501EF0934C00DD4AC4 /* Lottie.framework */; };
 		2864BCAC1EEFC4F900BD4037 /* AsynchronousCameraReading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2864BCAB1EEFC4F900BD4037 /* AsynchronousCameraReading.swift */; };
 		286CA5EB1EF1BE2B00A51369 /* HelperExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286CA5EA1EF1BE2B00A51369 /* HelperExtensions.swift */; };
 		286CA5ED1EF2084400A51369 /* PercentTaxPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286CA5EC1EF2084400A51369 /* PercentTaxPopUp.swift */; };
-		287384711EF1067E00AA3A4A /* SwiftOCR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 287384701EF1067E00AA3A4A /* SwiftOCR.framework */; };
-		287384721EF1068800AA3A4A /* SwiftOCR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 287384701EF1067E00AA3A4A /* SwiftOCR.framework */; };
-		287384731EF1068800AA3A4A /* SwiftOCR.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 287384701EF1067E00AA3A4A /* SwiftOCR.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		287384751EF140E200AA3A4A /* ConfirmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287384741EF140E200AA3A4A /* ConfirmView.swift */; };
 		287384771EF19F7F00AA3A4A /* OCRPriceString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287384761EF19F7F00AA3A4A /* OCRPriceString.swift */; };
 		28ED52701E9F01E900E4152B /* STZPopupViewConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28ED526E1E9F01E800E4152B /* STZPopupViewConfig.swift */; };
@@ -49,7 +49,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				287384731EF1068800AA3A4A /* SwiftOCR.framework in CopyFiles */,
+				281429031EF30C4B00CCC622 /* SwiftOCR.framework in CopyFiles */,
 				BC944D161E9C4955004015EC /* GPUImage.framework in CopyFiles */,
 				281368611EF09A4600676FA9 /* Lottie.framework in CopyFiles */,
 			);
@@ -58,13 +58,13 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		281429001EF30C2F00CCC622 /* SwiftOCR.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SwiftOCR.framework; sourceTree = "<group>"; };
 		2815F53A1EEB46EB006013EC /* BudgetPopUp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BudgetPopUp.swift; sourceTree = "<group>"; };
 		281EFC2E1EF07A8E00DD4AC4 /* search.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = search.json; sourceTree = "<group>"; };
 		281EFC501EF0934C00DD4AC4 /* Lottie.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Lottie.framework; path = Carthage/Build/iOS/Lottie.framework; sourceTree = "<group>"; };
 		2864BCAB1EEFC4F900BD4037 /* AsynchronousCameraReading.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsynchronousCameraReading.swift; sourceTree = "<group>"; };
 		286CA5EA1EF1BE2B00A51369 /* HelperExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelperExtensions.swift; sourceTree = "<group>"; };
 		286CA5EC1EF2084400A51369 /* PercentTaxPopUp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PercentTaxPopUp.swift; sourceTree = "<group>"; };
-		287384701EF1067E00AA3A4A /* SwiftOCR.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SwiftOCR.framework; sourceTree = "<group>"; };
 		287384741EF140E200AA3A4A /* ConfirmView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmView.swift; sourceTree = "<group>"; };
 		287384761EF19F7F00AA3A4A /* OCRPriceString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OCRPriceString.swift; sourceTree = "<group>"; };
 		28ED526E1E9F01E800E4152B /* STZPopupViewConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STZPopupViewConfig.swift; sourceTree = "<group>"; };
@@ -99,8 +99,8 @@
 				281EFC511EF0934C00DD4AC4 /* Lottie.framework in Frameworks */,
 				281368601EF09A4600676FA9 /* Lottie.framework in Frameworks */,
 				BC944D131E9C4944004015EC /* GPUImage.framework in Frameworks */,
-				287384721EF1068800AA3A4A /* SwiftOCR.framework in Frameworks */,
-				287384711EF1067E00AA3A4A /* SwiftOCR.framework in Frameworks */,
+				281429021EF30C4B00CCC622 /* SwiftOCR.framework in Frameworks */,
+				281429011EF30C2F00CCC622 /* SwiftOCR.framework in Frameworks */,
 				BCA511421E9EC8F900A259A8 /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -111,7 +111,7 @@
 		71B1EECE1E9C095E00A42678 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				287384701EF1067E00AA3A4A /* SwiftOCR.framework */,
+				281429001EF30C2F00CCC622 /* SwiftOCR.framework */,
 				281EFC501EF0934C00DD4AC4 /* Lottie.framework */,
 				BCA511411E9EC8F900A259A8 /* CloudKit.framework */,
 				BC944D111E9C4944004015EC /* GPUImage.framework */,
@@ -387,6 +387,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -438,6 +439,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -463,6 +465,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = CartTrackr/CartTrackr.entitlements;
 				DEVELOPMENT_TEAM = 5EB567WJ73;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -483,6 +486,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = CartTrackr/CartTrackr.entitlements;
 				DEVELOPMENT_TEAM = 5EB567WJ73;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
